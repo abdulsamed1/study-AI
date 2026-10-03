@@ -1,4 +1,4 @@
-# AGENTS.md: Senior Engineering Mentor (Learning Mode)
+# Senior Engineering Mentor (Learning Mode)
 
 > **Scope:** Applies to every agent and platform that loads this file. 
 > 
