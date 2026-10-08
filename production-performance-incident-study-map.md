@@ -1,12 +1,35 @@
 # Production Performance & Traffic-Spike Engineering — Study Map
 
 > **Purpose:** Build the ability to diagnose, explain, mitigate, and permanently improve production systems when latency rises, throughput collapses, resources saturate, dependencies slow down, or traffic changes abruptly.
->
+
 > **Scope:** This is a focused journey for **performance incidents, overload, capacity limits, bottleneck analysis, resilience under pressure, and production debugging**.
->
-> **Out of scope:** This is **not** a full Software Architecture or Distributed Systems curriculum. Load balancers, Redis, queues, Kubernetes, Kafka, caching, replication, etc. are learned only as tools that become appropriate for a diagnosed problem.
->
+
 > **Core principle:** Do not memorize a fixed recipe such as `Load Balancer → Scale → Redis → Queue`. Diagnose the mechanism first. The intervention depends on the actual constraint, workload, correctness requirements, and failure mode.
+
+---
+
+## How to use this map (sessions, tools, evidence)
+
+*Revised 2026-10-09. Teaching rules live in `AGENTS.md`; procedures in `TEACHING-PROTOCOLS.md`. This file says WHAT to learn.*
+
+- **One session = one branch.** Pick one branch (for example `PERF-L2-C`), introduce at most two new concepts, teach through a real incident, give exactly one practice task, and write one learning record when the capability is demonstrated.
+- **Teach before you quiz.** A level's "Learn" section is taught as a lesson first. The Practice task and exit criteria come after.
+- **Branch IDs** for Progress Records: `PERF-L0` ... `PERF-L9`, plus the branch letter where one exists (`PERF-L2-C`).
+- **Evidence rule.** Tick a Mastery box only when a learning record, a lab result, or a project file proves it. Write the record number next to the box (for example `(LR-0007)`). Reading a chapter is not evidence.
+- **Modes.** Workspace (Claude Code / OpenCode): write lessons, records, casebook entries. ChatGPT Project: end with a Progress Record you save. NotebookLM: sources only; name the source to add when a case is missing.
+
+| Level | Casebook concepts to research (`casebook/<slug>.md`) | Lab |
+|---|---|---|
+| L0 | `symptom-vs-mechanism` | none (written practice) |
+| L1 | `observability-evidence` | none |
+| L2 | `cpu-vs-queueing`, `pool-exhaustion` | 1, 3 |
+| L3 | `n-plus-one`, `database-bottleneck` | 2 |
+| L4 | `slow-dependency`, `retry-storm` | 4 |
+| L5 | `load-shedding-vs-rate-limiting`, `queue-backlog` | 5 |
+| L6 | `bottleneck-migration`, `cache-as-dependency` | 6, 7 |
+| L7 | `profiling-and-load-testing` | all |
+| L8 | full scenarios A-G | none (reasoning) |
+| L9 | `llm-system-performance` | 8, 9 |
 
 ---
 
@@ -111,6 +134,8 @@ L6  Capacity and scaling decisions
 L7  Controlled validation and performance experiments
  ↓
 L8  Full production scenarios + interview reasoning
+ ↓
+L9  Frontier-AI bridge: performance and reliability of LLM-backed systems
 ```
 
 At any real incident, you may jump between branches as evidence changes. The point of the map is to make each branch available when the evidence requires it.
@@ -963,6 +988,71 @@ Vitillo explicitly treats caching as an optimization and discusses the possibili
 
 ---
 
+# L9 — Frontier-AI Bridge: Performance and Reliability of LLM-Backed Systems
+
+## Target
+
+Apply the diagnostic skill of L0-L8 to systems whose slow, costly, rate-limited, nondeterministic dependency is a model call. This is the level that connects this journey to the Frontier Deployed Engineer mission in `AGENTS.md`.
+
+## Why this level exists
+
+L0-L8 are model-agnostic. A deployed agent adds a dependency with unusual properties: long and variable latency, a provider-side rate limit, a cost that grows with input and output size, and output that can be wrong even when the call succeeds. The same mechanisms apply (queueing, pool exhaustion, retry amplification, bottleneck migration), but a few new questions appear.
+
+## Learn
+
+### 1. The model call as a downstream dependency
+
+- Tail latency of generation calls; time to first token versus total time when streaming is available.
+- Provider rate limits and the error responses they return; timeouts sized to a latency budget, not to a guess.
+- Cost as a capacity dimension: requests per second is not the only load measure; tokens per request and tokens per second matter.
+
+### 2. Retries, side effects, and idempotency
+
+- Retrying a pure model call is cheap in correctness terms but expensive in cost and load. Retrying a step that already triggered a tool with side effects (sending, writing, paying) is a correctness problem: apply the idempotency reasoning from L4.
+- Capped exponential backoff with jitter, a retry budget, and honoring any retry guidance the provider returns. Retry storms are amplified when many workers back off in sync.
+
+### 3. Concurrency and work shaping
+
+- Your own pool or worker limit versus the provider's limit: which one binds first? Raising concurrency can lower throughput once the provider limit binds (compare Lab 3 and Lab 6).
+- Work that does not need an immediate answer (batch classification, document processing) is a load-leveling candidate (L5). Interactive work needs bounded waiting and graceful degradation.
+
+### 4. Context growth as unbounded state
+
+- A conversation history or retrieved context that grows without a bound raises latency and cost per call and eventually fails. Treat it like the unbounded cache in L2-B: set a bound and a compaction or retrieval policy.
+
+### 5. Trade-offs that need evaluation, not intuition
+
+- Cheaper or faster model, shorter context, fewer tool calls, a cache, or a non-AI fallback each change quality as well as latency and cost. No such change ships without re-running the evaluation set from the FDE delivery loop (`AGENTS.md` section 7).
+- Graceful degradation order: smaller model, then deterministic path, then human review, chosen by business criticality.
+
+### 6. Observability for LLM calls
+
+Record per call: workflow step, model identifier, input and output size, latency, retry count, outcome, estimated cost, and a trace id that ties it to the request. Without these fields the L1 diagnostic path cannot run.
+
+**Verification rule.** Provider limits, error codes, parameters, and pricing change. Before teaching any specific number or parameter, check the current official documentation and state the date. Never quote limits from memory.
+
+## Practice
+
+> A pipeline processes 5,000 documents per night with an agent. After the team raised worker concurrency 4×, throughput fell, a large share of calls returned rate-limit errors, and the nightly cost rose by about 60%.
+
+Write: (1) the measurements you would pull first; (2) two competing mechanisms; (3) the smallest intervention for each; (4) how you would show, with the evaluation set, that quality did not drop; (5) what you would add so the next change is caught earlier.
+
+## Exit criteria
+
+I can explain why more concurrency can reduce throughput once a provider limit binds.
+I can state which retries are safe in an agent workflow and which are not, and why.
+I can name the per-call fields I need in a trace to diagnose latency, cost, and failure.
+I do not change a model, context size, or retry policy without an evaluation check.
+
+## Source path
+
+- Current official provider documentation on rate limits, errors, streaming, and timeouts (verify and date it).
+- *Understanding Distributed Systems*, Vitillo, Ch. 27 — Downstream Resiliency.
+- *Foundations of Scalable Systems*, Gorton, Ch. 5 — pools, queues, utilization.
+- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): why quality evals on production systems matter (re-open before teaching).
+
+---
+
 # Senior Interview Framework
 
 When asked:
@@ -1037,6 +1127,16 @@ After mitigation:
 - perform a postmortem when warranted.
 
 This aligns with Vitillo's operational guidance that incident response first mitigates user impact, then investigates root cause and prevention.
+
+### 7. Say what you have and have not done
+
+State the mechanism you would check, then separate experience from knowledge. Sample answers (keep these in English):
+
+- Experience: "In <project>, I saw <symptom>. I checked <evidence>, found <mechanism>, changed <one thing>, and measured <before/after>."
+- Adjacent experience: "I have not run this in production. I have reproduced it in a lab with <setup>, and the measurement showed <result>."
+- Unknown: "I do not know yet. The measurement that would tell us is <metric or trace>."
+
+Never claim a deployment, a number, or ownership that `EVIDENCE.md` does not support.
 
 ---
 
@@ -1224,6 +1324,26 @@ Measure:
 
 **Goal:** see both the benefit and the failure mode.
 
+## Lab 8 — LLM call under rate limits (L9)
+
+Put a stub model service in front of a worker pool. Make the stub slow with a long tail, and make it return rate-limit errors above a request-rate threshold. Run the pool at increasing concurrency.
+
+Compare:
+
+- fixed retries;
+- capped exponential backoff with jitter and a retry budget;
+- a queue with a worker count set below the stub's limit.
+
+Measure throughput, error rate, wasted calls, and total cost units.
+
+**Goal:** see that raising concurrency past the provider limit lowers useful throughput, and that retries can multiply load.
+
+## Lab 9 — Context growth and an evaluation gate (L9)
+
+Build a small agent loop whose history grows each step. Measure latency and token counts per step. Add a bound (truncate or summarize) and re-measure. Run a small evaluation set before and after.
+
+**Goal:** treat context as bounded state, and prove that a performance change did not break quality.
+
 ---
 
 # Study Order Inside Each Level
@@ -1265,11 +1385,17 @@ Record before/after measurements.
 
 Answer the production scenario in your own words, without naming a tool until the mechanism requires it.
 
+### Step 8 — Record it
+
+Write a learning record only if you demonstrated the capability (a corrected misconception, a lab result, a decision you defended). Add a glossary term only once you can use it correctly. Update the reference sheet. Add the case to `casebook/<concept>.md`. Then re-ask the same idea in a changed scenario after a gap of days, not on the same day.
+
 ---
 
 # Mastery Criteria
 
 The journey is complete when I can handle the following cases without falling into a generic architecture checklist.
+
+**Evidence rule:** tick a box only when a learning record, lab result, or project file proves it, and write its reference next to the box.
 
 ## Performance diagnosis
 
@@ -1321,6 +1447,14 @@ The journey is complete when I can handle the following cases without falling in
 - [ ] I select interventions conditionally.
 - [ ] I explicitly discuss trade-offs and downstream effects.
 - [ ] I can say, truthfully: **"I would diagnose the bottleneck first; the solution depends on which resource or dependency is actually limiting the system."**
+
+## AI-system bridge
+
+- [ ] I can explain why raising concurrency can lower throughput once a provider rate limit binds.
+- [ ] I can decide which agent steps are safe to retry and which need idempotency protection.
+- [ ] I can list the per-call fields needed to trace latency, cost, and failures of model calls.
+- [ ] I can bound context growth and show with an evaluation set that quality held.
+- [ ] I can choose a degradation order (smaller model, deterministic path, human review) by business criticality.
 
 ---
 
@@ -1384,6 +1518,15 @@ Use these as the anti-pattern and scenario source for:
 - scaling only after establishing that the current capacity is genuinely insufficient.
 
 These materials are treated as **scenario input**, not as a substitute for source-backed implementation details from the project books.
+
+## 5. Casebook seeds (research starting points, not verified facts)
+
+Open the primary source, read it, and record the case with the format in `TEACHING-PROTOCOLS.md` P§2 before teaching from it.
+
+- Google Cloud incident report, 2025-06-12 (Service Control): recovery without randomized exponential backoff. Link in P§7. Unchecked.
+- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): evaluation of production quality. Link in P§7. Unchecked.
+- Possible further cases, named from memory and unchecked: Facebook's September 2010 outage; Slack's 2021-01-04 outage; Cloudflare's 2025-11-18 outage; AWS us-east-1 on 2025-10-20. Confirm each exists, read the postmortem, and discard any that do not fit a level.
+- If fewer than five solid cases exist for a concept, say so and record the gap in `RESOURCES.md`.
 
 ---
 
