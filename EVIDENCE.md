@@ -1,6 +1,6 @@
 # EVIDENCE.md
 
-*Seed, uploaded once. Later changes live in project memory or in saved notes (NotebookLM); the mentor restates the ledger at the start of a session for correction. Rules: `AGENTS.md` section 12.*
+*Seed, uploaded once. Later changes live in project memory (ChatGPT) or in saved notes (NotebookLM); the mentor restates the ledger at the start of a session for correction. Rules: `AGENTS.md` section 12.*
 
 ## Supported by evidence
 

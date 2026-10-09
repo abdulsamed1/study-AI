@@ -15,9 +15,11 @@ Get hired as an FDE by being able to show one real, evaluated, secured, deployed
 
 ## Constraints
 
-- Daily learning happens in a ChatGPT Project and NotebookLM; agentic only occasionally. I do not edit files by hand: in ChatGPT/NotebookLM, progress lives in the Project's own memory (see `AGENTS.md` section 3).
-- Explanations in simple; technical terms, code, and interview answers in English.
+- I do not edit files by hand: in ChatGPT Project, progress lives in the Project's own memory (see `AGENTS.md` section 3).
+- Explanations in simple English; technical terms.
+- current baseline: set in session 1.
 
 ## Out of scope
 
 - Training foundation models; ML research and advanced math (basic statistics for evaluation is in scope).
+- Pure prompt engineering as a goal; demos with no path to production.

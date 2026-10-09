@@ -18,7 +18,7 @@ Formats adapted from the `teach` skill by Matt Pocock (github.com/mattpocock/ski
     reference/*.html                cheat sheets, sequence diagrams, checklists
     assets/                         shared stylesheet and reusable components
 
-Create directories lazily, when the first file for them exists. In modes B and C these files exist only as uploads or as the user's notes; state lives as described in `AGENTS.md` section 3.
+Create directories lazily, when the first file for them exists. In mode B these files exist only as uploads or as the user's notes; state lives as described in `AGENTS.md` section 3.
 
 **MISSION.md**
 
@@ -69,28 +69,32 @@ Write one when: the user demonstrated non-trivial understanding; disclosed prior
 
 ## P§2. Casebook procedure
 
-1. Search for real failures and hard-won lessons for the concept. Prefer cases that are widely cited (talks, courses, books) or recent (last 12 months when tool behavior matters). For AI-system concepts, also check the newest incident reports and security lists, because they change within months.
+1. Search for real failures and hard-won lessons for the concept. Prefer cases that are widely cited (talks, courses, books) or recent (last 3~8 months when tool behavior matters). For AI-system concepts, also check the newest incident reports and security lists, because they change within months.
 2. Read the source page. If you cannot open it, mark the case "secondary only".
 3. Rank candidates by recurrence in the literature, clarity of the root cause, transferability to the mission, source quality, and recency. Keep all candidates in `casebook/<concept>.md`.
 4. Record each case in at most 8 lines: title; source, date, URL; what happened; root cause (mechanism); fix or mitigation; transferable pattern; where it could appear in the user's projects; confidence (read the source / secondary only).
 5. Add one line per concept to `casebook/INDEX.md`: concept, case titles, the pattern they share.
 6. Paraphrase. Quote at most a short phrase. Link every non-obvious claim.
 
-## P§3. Lesson layers
+## P§3. Lesson layers and parts
 
-A lesson is short, finishes in one sitting, and gives one tangible win tied to the mission. Knowledge first, then practice.
+A lesson unit finishes in one sitting and gives one tangible win tied to the mission. Knowledge first, then practice.
 
-1. Scene (under 120 words): the top real case. Who, what broke, why it hurt.
-2. Concept in plain words: what it is, why it exists, what problem it solves. Define terms on first use.
-3. Mechanism: how it works, with a short sequence or diagram. Concept before framework.
-4. Real failures: two or three casebook entries: what broke, root cause, fix.
-5. Production view: what to monitor, test, and put in a runbook; trade-offs and costs.
-6. Bridge: tie it to the user's project evidence or the active journey. Flag anything to check in code. For interview preparation, add how to say it truthfully.
+Layers: (1) Scene, under 120 words: the top real case, who, what broke, why it hurt. (2) Concept in plain words: what it is, why it exists, what problem it solves; define terms on first use. (3) Mechanism: how it works, with a short sequence or diagram; concept before framework. (4) Real failures: two or three casebook entries with root cause and fix. (5) Production view: what to monitor, test, and put in a runbook; trade-offs and costs. (6) Bridge: tie it to the user's project evidence or the active journey; flag anything to check in code; for interview preparation, how to say it truthfully.
 
-Stop at the layer that reaches the branch's target depth.
-Mode A: write `lessons/NNNN-slug.html`: self-contained, linking the shared stylesheet in `assets/` and the reference sheets, readable and printable (clean typography, generous whitespace). Reuse components from `assets/` before writing new ones; a component a second lesson could reuse goes in `assets/`, not inline. Open the file with `xdg-open` on Fedora.
-Modes B: the same layers as Markdown in the reply.
-Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: checklists, decision tables, sequence diagrams. Lessons are rarely revisited; reference sheets are.
+Parts, one message each (stop at the part that reaches the unit's target depth):
+
+| Part | Layers | Ends with |
+|---|---|---|
+| 1 | Scene + Concept | one retrieval question |
+| 2 | Mechanism | one retrieval question |
+| 3 | Real failures | one retrieval question |
+| 4 | Production view + Bridge | the practice task |
+
+A part is roughly 400-700 words plus a diagram when useful. The source named for the unit is cited in Part 1 and the best primary source is repeated at the end.
+Mode A: also write `lessons/NNNN-slug.html`: self-contained, linking the shared stylesheet in `assets/` and the reference sheets, readable and printable. Reuse `assets/` components before writing new ones. Open the file with `xdg-open` on Fedora.
+Mode B: Markdown in the reply, one part per message.
+Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: checklists, decision tables, sequence diagrams.
 
 ## P§4. Practice sources and retrieval schedule
 
@@ -100,8 +104,8 @@ Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: c
 
 ## P§5. Setting up each tool
 
-The user studies mainly in MODE-B; the workspace mode is used when convenient.
 
+**(mode B)**
 - Upload `AGENTS.md`, this file, the journey files, `MISSION.md` and `EVIDENCE.md` once, and the books. File limits depend on the plan; check the current limit in OpenAI's help article "Projects in ChatGPT".
 - In Project settings, set Memory to Project-only, and enable the account memory settings the article lists. Memory changes can take a few hours to apply. Project memory shows no list, so the mentor confirms recalled state at the start of each session (`AGENTS.md` section 3).
 - Project instructions (short, because the full rules are in the uploaded file):
@@ -122,7 +126,7 @@ The user studies mainly in MODE-B; the workspace mode is used when convenient.
       Record: <what was demonstrated, evidence, next target>
 
 **Workspace (mode A)**
-- agentic reads `AGENTS.md` and takes extra files from the `instructions` list in `opencode.jsonc`. Check the current docs for both, since the syntax changes.
+- agentic reads `AGENTS.md` and takes extra files from the `instructions` list in `opencode.jsonc` if the user use OPENCODE. Check the current docs for both, since the syntax changes.
 - Keep this file out of the always-loaded list; `AGENTS.md` says when to open it.
 
 ## P§6. Maintaining AGENTS.md
@@ -132,13 +136,22 @@ Review `AGENTS.md` after every 10 sessions: delete rules the mentor never needed
 
 ## P§7. Starter sources for AI deployment work
 
-Status key: **verified** = opened and read on the date shown; **unchecked** = copied from an earlier version of this file; re-open before teaching from it.
+Status key: **read** = opened in full on the date shown; **found** = a search returned it, not yet opened; **unchecked** = carried from an earlier version. Re-open anything not "read" before teaching from it. The full register for the FDE journey, with IDs, is in `fde-journey-map.md`.
 
-- anthropic.com/news/claude-frontier-academy. **Verified 2026-10-09.** The role standard in AGENTS.md section 2.
-- Matt Pocock, `teach` skill: github.com/mattpocock/skills/tree/main/skills/productivity/teach. **Verified 2026-10-09** (SKILL.md and the four format files). The origin of the workspace layout.
-- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): anthropic.com/engineering/a-postmortem-of-three-recent-issues. **Unchecked.** Context-window routing error, TPU misconfiguration, compiler bug; why quality evals on production systems matter.
-- Google Cloud incident report, 2025-06-12 (Service Control): status.cloud.google.com/incidents/ow5i3PPK96RduMcb1SsW. **Unchecked.** Blank fields hit an unprotected code path; the recovery herd effect lacked randomized exponential backoff.
-- Anthropic, "Effective context engineering for AI agents" (Sept 2025): search the title on anthropic.com/engineering. **Unchecked.**
-- OWASP Top 10 for LLM Applications, 2026 edition: fetch the official list from the OWASP GenAI Security Project before citing. A summary note existed at labs.cloudsecurityalliance.org (Tier 2). **Unchecked.**
-- FDE role evidence: a job-board mirror of an Anthropic Applied AI FDE listing (Tier 2, dated 2026-08-18) was recorded earlier; prefer the original posting on anthropic.com/careers. **Unchecked.**
-- Gaps to research: a primary-source enterprise RAG failure case; a primary-source agent permission or tool-misuse incident; evaluation practice for LLM features in production; a customer-deployment case study from a vendor's forward-deployed team; the Deloitte FDE posting the user linked (not opened in this revision).
+- Anthropic, "Claude Frontier Academy" (2026-10-02). **Read 2026-10-09.** The role standard in `AGENTS.md` section 2.
+- Matt Pocock, `teach` skill (github.com/mattpocock/skills, skills/productivity/teach). **Read 2026-10-09.** Origin of the layout and formats.
+- Anthropic Engineering: "Building effective agents", "Effective context engineering for AI agents". **Found 2026-10-09.**
+- OWASP GenAI LLM Top 10 2026 (v1.0, 2026-08-03) and the Agentic Applications Top 10 (Dec 2025). **Found 2026-10-09**; open the official pages before citing.
+- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025). **Unchecked.**
+- Google Cloud incident report 2025-06-12 (Service Control): status.cloud.google.com/incidents/ow5i3PPK96RduMcb1SsW. **Unchecked.**
+- Gaps: a primary-source enterprise RAG failure; an agent tool-misuse incident; evaluation practice for LLM features in production; a vendor customer-deployment case study.
+
+## P§8. Building a branch map (when the journey lacks lesson-level units)
+
+Use when the readiness check in `AGENTS.md` section 5 finds no usable unit.
+
+1. Read the active journey's goal and gates, `MISSION.md`, and the evidence list.
+2. Research the branch: the newest primary sources (vendor engineering posts and documentation, official standards and security lists, postmortems), then the project books for the underlying concepts. Open each page you rely on. Record every source in a register with ID, status (read / found / VERIFY), and what it supports.
+3. Write the tree in the format of `fde-journey-map.md`: levels, units with IDs (`L<level>.<n>`), priority P0-P3, time `[T=n]`, source tags `[S#]`, and one of Evidence / NO-EVIDENCE / VERIFY per unit. Name the project evidence only when you can point to it; otherwise mark NO-EVIDENCE.
+4. List gaps where no good source exists and add them to `RESOURCES.md`.
+5. Show the tree to the user in compact form. After confirmation, teach the first unit. Do not teach during map building.

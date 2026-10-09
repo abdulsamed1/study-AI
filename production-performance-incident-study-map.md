@@ -1,12 +1,16 @@
 # Production Performance & Traffic-Spike Engineering — Study Map
 
 > **Purpose:** Build the ability to diagnose, explain, mitigate, and permanently improve production systems when latency rises, throughput collapses, resources saturate, dependencies slow down, or traffic changes abruptly.
+
 > **Scope:** This is a focused journey for **performance incidents, overload, capacity limits, bottleneck analysis, resilience under pressure, and production debugging**.
+
 > **Core principle:** Do not memorize a fixed recipe such as `Load Balancer → Scale → Redis → Queue`. Diagnose the mechanism first. The intervention depends on the actual constraint, workload, correctness requirements, and failure mode.
 
 ---
 
 ## How to use this map
+
+**Supporting branch.** Opened from `fde-journey-map.md` (Phase A diagnostic, Level 6) or when the user asks for production-incident diagnosis. It is not the default start of any other journey.
 
 *Revised 2026-10-09. This file says WHAT to learn. Teaching, assessment, and record rules are in `AGENTS.md`; templates in `TEACHING-PROTOCOLS.md`.*
 
