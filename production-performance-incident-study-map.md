@@ -1,22 +1,17 @@
 # Production Performance & Traffic-Spike Engineering — Study Map
 
 > **Purpose:** Build the ability to diagnose, explain, mitigate, and permanently improve production systems when latency rises, throughput collapses, resources saturate, dependencies slow down, or traffic changes abruptly.
-
 > **Scope:** This is a focused journey for **performance incidents, overload, capacity limits, bottleneck analysis, resilience under pressure, and production debugging**.
-
 > **Core principle:** Do not memorize a fixed recipe such as `Load Balancer → Scale → Redis → Queue`. Diagnose the mechanism first. The intervention depends on the actual constraint, workload, correctness requirements, and failure mode.
 
 ---
 
-## How to use this map (sessions, tools, evidence)
+## How to use this map
 
-*Revised 2026-10-09. Teaching rules live in `AGENTS.md`; procedures in `TEACHING-PROTOCOLS.md`. This file says WHAT to learn.*
+*Revised 2026-10-09. This file says WHAT to learn. Teaching, assessment, and record rules are in `AGENTS.md`; templates in `TEACHING-PROTOCOLS.md`.*
 
-- **One session = one branch.** Pick one branch (for example `PERF-L2-C`), introduce at most two new concepts, teach through a real incident, give exactly one practice task, and write one learning record when the capability is demonstrated.
-- **Teach before you quiz.** A level's "Learn" section is taught as a lesson first. The Practice task and exit criteria come after.
-- **Branch IDs** for Progress Records: `PERF-L0` ... `PERF-L9`, plus the branch letter where one exists (`PERF-L2-C`).
-- **Evidence rule.** Tick a Mastery box only when a learning record, a lab result, or a project file proves it. Write the record number next to the box (for example `(LR-0007)`). Reading a chapter is not evidence.
-- **Modes.** Workspace (Claude Code / OpenCode): write lessons, records, casebook entries. ChatGPT Project: end with a Progress Record you save. NotebookLM: sources only; name the source to add when a case is missing.
+- **Branch IDs:** `PERF-L0` … `PERF-L9`, plus the branch letter where one exists (`PERF-L2-C`). Use them when stating a session outcome.
+- **Evidence rule:** tick a Mastery box only when a learning record, a lab result, or a project file proves it, and write its reference beside the box.
 
 | Level | Casebook concepts to research (`casebook/<slug>.md`) | Lab |
 |---|---|---|
@@ -1029,7 +1024,7 @@ L0-L8 are model-agnostic. A deployed agent adds a dependency with unusual proper
 
 Record per call: workflow step, model identifier, input and output size, latency, retry count, outcome, estimated cost, and a trace id that ties it to the request. Without these fields the L1 diagnostic path cannot run.
 
-**Verification rule.** Provider limits, error codes, parameters, and pricing change. Before teaching any specific number or parameter, check the current official documentation and state the date. Never quote limits from memory.
+Provider limits, error codes, parameters, and pricing change; verify them as `AGENTS.md` section 11 requires before teaching any specific value.
 
 ## Practice
 
@@ -1136,7 +1131,6 @@ State the mechanism you would check, then separate experience from knowledge. Sa
 - Adjacent experience: "I have not run this in production. I have reproduced it in a lab with <setup>, and the measurement showed <result>."
 - Unknown: "I do not know yet. The measurement that would tell us is <metric or trace>."
 
-Never claim a deployment, a number, or ownership that `EVIDENCE.md` does not support.
 
 ---
 
@@ -1387,7 +1381,7 @@ Answer the production scenario in your own words, without naming a tool until th
 
 ### Step 8 — Record it
 
-Write a learning record only if you demonstrated the capability (a corrected misconception, a lab result, a decision you defended). Add a glossary term only once you can use it correctly. Update the reference sheet. Add the case to `casebook/<concept>.md`. Then re-ask the same idea in a changed scenario after a gap of days, not on the same day.
+Consolidate as in `AGENTS.md` section 6, step 10, then re-ask the same idea in a changed scenario after a gap of days.
 
 ---
 
@@ -1395,7 +1389,7 @@ Write a learning record only if you demonstrated the capability (a corrected mis
 
 The journey is complete when I can handle the following cases without falling into a generic architecture checklist.
 
-**Evidence rule:** tick a box only when a learning record, lab result, or project file proves it, and write its reference next to the box.
+The evidence rule above applies to every box.
 
 ## Performance diagnosis
 
