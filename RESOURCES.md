@@ -48,36 +48,38 @@ artifact used by the lesson.
 
 | ID | Source | Publisher | Type | Coverage | Access | Last verified |
 |---|---|---|---|---|---|---|
-| S1 | [Claude Frontier Academy](https://www.anthropic.com/news/claude-frontier-academy) | Anthropic | Role standard | FDE-style delivery and scenario assessment | Public | 2026-10-09 |
-| S2 | [Forward Deployed Engineer, Frontier GenAI](https://apply.deloitte.com/careers/JobDetail/Forward-Deployed-Engineer-Frontier-GenAI/350555) | Deloitte | Job evidence | Role expectations and production GenAI experience | Public listing | 2026-10-09 |
-| S3 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic Engineering | Engineering article | Workflows, agents, and composition patterns | Public | 2026-10-09 |
+| S1 | [Claude Frontier Academy](https://www.anthropic.com/news/claude-frontier-academy) | Anthropic | Role standard | FDE Residency standard (announced 2026-10-02): $100M, 10,000 FDEs by end-2027, medical-model residency, simulated enterprise deployment, graded practical, badges from early 2027 | Public | 2026-10-09 |
+| S2 | [Forward Deployed Engineer, Frontier GenAI](https://apply.deloitte.com/careers/JobDetail/Forward-Deployed-Engineer-Frontier-GenAI/350555) | Deloitte | Job evidence — STALE unless re-opened | Single listing; superseded by S1 as role standard | Public listing | 2026-10-09 |
+| S3 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic Engineering | Engineering article | Workflows, agents, and composition patterns. Note page banner: tooling landscape changed since Dec 2024 — patterns stand, tooling examples need re-check | Public | 2026-10-09 |
 | S4 | [Claude API documentation](https://docs.anthropic.com/en/docs) | Anthropic | Official documentation | Messages, tools, structured output, limits, and model behavior | Public; re-check per lesson | 2026-10-09 |
-| S5 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic Engineering | Engineering article | Context budgets, retrieval, and just-in-time context | Public | 2026-10-09 |
-| S6 | [Model Context Protocol specification](https://modelcontextprotocol.io/specification/latest) | Model Context Protocol | Specification | Tool and context interoperability, authorization concepts | Public; versioned | 2026-10-09 |
-| S7 | [Writing tools for AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) | Anthropic Engineering | Engineering article | Tool contracts, descriptions, and agent usability | Public | 2026-10-09 |
-| S8 | [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) | Anthropic Engineering | Engineering article | Multi-agent decomposition, delegation, and cost trade-offs | Public | 2026-10-09 |
+| S5 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic Engineering | Engineering article | Context budgets, retrieval, and just-in-time context (article 2025-09-29: smallest high-signal token set, just-in-time loading, compaction, structured note-taking, sub-agent distillation) | Public | 2026-10-09 |
+| S6 | [Model Context Protocol specification](https://modelcontextprotocol.io/specification/latest) | Model Context Protocol | Specification | Tool/context interop (not safety) + authorization (OAuth 2.1, RFC9728 discovery, RFC8707 audience binding, PKCE; descriptions untrusted, consent before invoke). Pin spec date per lesson — current 2026-07-28 | Public; versioned | 2026-10-09 |
+| S7 | [Writing tools for AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) | Anthropic Engineering | Engineering article | Tool contracts and eval-driven iteration (article 2025-09-11): minimal toolset, namespacing, token-efficient returns, description-as-new-hire-doc | Public | 2026-10-09 |
+| S8 | [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) | Anthropic Engineering | Engineering article | Multi-agent decomposition and trade-offs (article 2025-06-13): parallelization cuts, 40% tool-ergonomics win, single-call 0.0–1.0 LLM judge, end-state eval, resume-from-checkpoint | Public | 2026-10-09 |
 | S9 | [A postmortem of three recent issues](https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues) | Anthropic Engineering | Postmortem | Reliability failures and operational learning | Public | 2026-10-09 |
 | S10 | [Google Cloud Service Control incident](https://status.cloud.google.com/incidents/ow5i3PPK96RduMcb1SsW) | Google Cloud | Official incident report | Dependency failure, impact, and mitigation | Public | 2026-10-09 |
 | S11 | [Building AI-powered products](https://www.oreilly.com/library/view/building-ai-powered/9781098166505/) | O'Reilly | Book | AI engineering product and production foundations | Book access may be paid | 2026-10-09 |
 | S12 | [Building Effective AI Agents enterprise guide](https://claude.com/resources/guides/building-effective-ai-agents) | Anthropic | Enterprise guide | Choosing single-agent, workflow, and multi-agent designs | Public | 2026-10-09 |
 | S13 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic Engineering | Engineering article | Checkpoints, progress, and long-running agent execution | Public | 2026-10-09 |
 | S14 | [Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp) | Anthropic Engineering | Engineering article | Efficient tool use and MCP code execution | Public | 2026-10-09 |
-| S15 | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) | Anthropic Engineering | Engineering article | Evaluation design, graders, and regression practice | Public | 2026-10-09 |
-| S16 | [OWASP GenAI LLM Top 10](https://genai.owasp.org/llm-top-10/) | OWASP GenAI Security Project | Security guidance | LLM application threats and mitigations | Public; use current edition | 2026-10-09 |
-| S17 | [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/initiatives/agentic-security/) | OWASP GenAI Security Project | Security guidance | Agent-specific risks and controls | Public; use current edition | 2026-10-09 |
+| S15 | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) | Anthropic Engineering | Engineering article | Evaluation design, graders, and regression practice (2026-01-09 refresh: 20–50 starter tasks from real failures, trial isolation, transcript review, eval-driven development) | Public | 2026-10-09 |
+| S16 | [OWASP GenAI LLM Top 10](https://genai.owasp.org/llm-top-10/) | OWASP GenAI Security Project | Security guidance | LLM Top 10 2026 (published 2026-08-04) — always cite the edition | Public; use current edition | 2026-10-09 |
+| S17 | [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/initiatives/agentic-security/) | OWASP GenAI Security Project | Security guidance | Agentic Top 10 2026 (Dec 2025, ASI01–ASI10, 100+ experts) — always cite the edition | Public; use current edition | 2026-10-09 |
 | S18 | [MIT 6.824 Distributed Systems](https://pdos.csail.mit.edu/6.824/) | MIT | University course | Replication, fault tolerance, and distributed-system reasoning | Public materials | 2026-10-09 |
 | S19 | Designing Data-Intensive Applications, 2nd Edition | Martin Kleppmann and Chris Riccomini | Book — Uploaded in both study tools | Data systems, consistency, replication, and stream processing | NotebookLM + ChatGPT Project | 2026-10-09 |
 | S20 | Fundamentals of Software Architecture, 2nd Edition | Mark Richards and Neal Ford | Book — Uploaded in both study tools | Architecture trade-offs and decision-making | NotebookLM + ChatGPT Project | 2026-10-09 |
-| S21 | [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) | OpenAI | Official SDK documentation | Agents, tools, handoffs, guardrails, and tracing | Public; re-check per lesson | 2026-10-09 |
-| S22 | [OpenAI evaluations guide](https://platform.openai.com/docs/guides/evals) | OpenAI | Official documentation | Evaluation datasets, graders, and regression workflows | Public; re-check per lesson | 2026-10-09 |
+| S21 | [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) | OpenAI | Official SDK documentation | Agents, tools, handoffs, guardrails, sessions, sandbox agents, MCP, human-in-the-loop, tracing (verified current 2026-10-09) | Public; re-check per lesson | 2026-10-09 |
+| S22 | [OpenAI evaluations guide](https://platform.openai.com/docs/guides/evals) | OpenAI | Official documentation — DEPRECATED for procedures | Evals platform read-only 2026-10-31, shutdown 2026-11-30 (banner verified 2026-10-09); teach the Datasets/evaluation-getting-started flow instead | Public; do not use for procedures | 2026-10-09 |
 | S23 | [Google Agent Development Kit](https://google.github.io/adk-docs/) | Google | Official SDK documentation | Agent workflows, tools, sessions, and deployment concepts | Public; re-check per lesson | 2026-10-09 |
-| S24 | [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) | NIST | Government framework | AI risk governance, measurement, and management | Public | 2026-10-09 |
+| S24 | [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) | NIST | Government framework | AI RMF 1.0 (Jan 2023) + GenAI Profile NIST AI 600-1 (July 2024): twelve GAI risks with Govern/Map/Measure/Manage actions — cite the profile | Public | 2026-10-09 |
 | S25 | [Site Reliability Engineering book](https://sre.google/sre-book/table-of-contents/) | Google | Book | Reliability, monitoring, incident response, and operations | Public online edition | 2026-10-09 |
 | S26 | Building Microservices: Designing Fine-Grained Systems | Sam Newman | Book — Uploaded in both study tools | Service boundaries, integration, deployment, and operational trade-offs | NotebookLM + ChatGPT Project | 2026-10-09 |
 | S27 | Understanding Distributed Systems, 2nd Edition | Roberto Vitillo | Book — Uploaded in both study tools | Distributed-system fundamentals, failure, consistency, and operations | NotebookLM + ChatGPT Project | 2026-10-09 |
 | S28 | Foundations of Scalable Systems | To verify from uploaded title page | Book — Uploaded in both study tools | Scalable-system architecture and operational trade-offs | NotebookLM + ChatGPT Project | 2026-10-09 |
 | S29 | Designing Distributed Systems, 2nd Edition | Brendan Burns | Book — Uploaded in both study tools | Patterns and paradigms for scalable, reliable Kubernetes systems | NotebookLM + ChatGPT Project | 2026-10-09 |
 | S30 | [FDE Academy](https://fde.academy/) | FDE Academy | FDE curriculum/role signal | Technical background, Python or SQL foundation, cloud exposure, AI/ML foundations, and technical communication | Public; re-check for current program details | 2026-10-09 |
+| S31 | [Seven Failure Points When Engineering a Retrieval Augmented Generation System](https://arxiv.org/abs/2401.05856) | Barnett et al., Deakin University (CAIN 2024) | Peer-reviewed experience report | RAG failure taxonomy FP1–FP7 (missing content, missed rank, consolidation exclusion, extraction failure, wrong format, specificity, incompleteness); validation-in-operation, robustness evolves | Public (arXiv) | 2026-10-09 |
+| S32 | EchoLeak chain: [Aim Labs disclosure](https://www.aim.security/lp/aim-labs-echoleak-blogpost) · CVE-2025-32711 · [Reddy & Gujral analysis](https://arxiv.org/abs/2509.10540) | Aim Security / Microsoft / AAAI-SS | Disclosure + CVE + peer analysis | Zero-click indirect prompt injection in M365 Copilot (CVSS 9.3): XPIA bypass, ref-style Markdown redaction bypass, image auto-fetch, Teams CSP-proxy; patched server-side May/June 2025; no in-the-wild exploitation observed | Public | 2026-10-09 |
 
 ## F-series — foundational sources used by the roadmap
 
@@ -108,31 +110,30 @@ for primary technical evidence.
 These are research leads, not evidence. Keep them here until the exact artifact
 is opened and checked. Do not cite a person or organization by name alone.
 
-- A primary-source enterprise RAG failure with enough technical detail to teach
-  retrieval failure mechanisms.
-- A first-party customer deployment case study with measurable adoption and
-  business outcomes.
+- A first-party customer deployment case study with measured adoption and business outcomes at honest provenance (leads: Coinbase support-chatbot write-up, Thomson Reuters CoCounsel/Cowork write-ups — vendor-reported numbers only until independently confirmed).
 - The titles *A Common-Sense Guide to AI Engineering* and *An Illustrated
   Guide to AI Agents* must each be tied to a canonical publication page or
   publisher listing before use.
 - The author and canonical publication details for *Foundations of Scalable
   Systems* must be confirmed from its uploaded title page before citation.
-- A primary statistics-for-LLM-evaluation tutorial that covers variance,
-  sample size, and meaningful comparison.
+- A primary statistics-for-LLM-evaluation tutorial covering variance, sample size, and meaningful comparison (applied level per journey rule 11 — no ML-theory texts).
+- Python-track authorities for Phases 2–3: official Python docs (typing, asyncio, packaging) and a runtime-validation library guide — open before registering.
+- Integration hardening for Phase 8 (leads, unopened): Stripe idempotency article, AWS Builders' Library timeouts/retries/backoff-with-jitter, GitHub webhooks best practices.
+- Further agent-incident primaries beyond EchoLeak (e.g., names in the OWASP Agentic 2026 announcement) — open the primary before any casebook use.
+- OpenAI Datasets / evaluation-getting-started guide (successor to the deprecated S22 flow); Anthropic enterprise guide procedures (S12); code execution with MCP (S14).
 - Additional high-signal leads may be added only as links to specific articles,
   talks, papers, repos, or course pages; generic names and broad lists are not
   accepted entries.
 
 ## Coverage gaps
 
-- No verified primary source yet covers the full RAG failure taxonomy required
-  by L2.2-L2.3.
-- No verified primary source yet provides a practical statistical treatment for
-  comparing noisy LLM evaluation results.
-- No verified agent tool-misuse incident is currently strong enough for a
-  casebook entry.
+- No verified primary source yet provides a practical statistical treatment for comparing noisy LLM evaluation results (P14.3 uses the labeled interim protocol).
+- No verified Python-track authorities yet for Phases 2–3 (typing, asyncio, packaging, runtime validation).
+- No verified ingestion/access-control lifecycle how-to yet for P12.2/P15.4 (permission inheritance, retention, deletion).
+- Residual RAG depth gap: chunking, embedding, and reranking tuning beyond the Barnett FP taxonomy.
+- Enterprise outcome numbers with independent provenance (narratives exist as vendor-reported leads).
 
-Lessons must name these as gaps rather than cite them as evidence.
+Lessons must name these as gaps rather than cite them as evidence. Scope guard: nothing in these gaps authorizes ML training, model-building, or researcher topics — fill them only with GenAI-application engineering sources (journey rule 11).
 
 ## Update procedure
 

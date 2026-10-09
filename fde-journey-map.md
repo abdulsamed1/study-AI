@@ -20,6 +20,7 @@
 8. **Separate evidence from synthesis.** Each lecture labels source-backed facts, mentor synthesis, and practice. If reliable source coverage is missing, say so instead of filling the gap silently.
 9. **No invented professional evidence.** A lab proves a lab skill; it does not prove production experience or business impact. Label simulated data and pilots honestly.
 10. **This is a dependency graph represented as a mostly linear path.** Some concepts can be revisited later. Do not force advanced internals when the mission does not need them.
+11. **Stay on the FDE/AI-engineer track.** Out of scope: training or building foundation models, ML research, and math beyond the applied evaluation protocol in P14.3 (see `MISSION.md`). Teach models and providers as engineering constraints — guarantees, cost, latency, failure modes — never as model internals.
 
 ## 2. Roadmap at a glance
 
@@ -93,7 +94,7 @@ Every lesson follows this record shape:
 
 **Goal:** Know what success means before choosing technologies. **Gate G0:** a written problem brief and an honest skills baseline.
 
-- **P0.1 — FDE delivery loop** — Depends on: none. Learn the lifecycle from ambiguous request to handover; distinguish a demo, a working system, and a deployed outcome. **Proof:** draw the delivery loop and list evidence required at each stage. Sources: `AGENTS.md` §§1–2, S1–S2.
+- **P0.1 — FDE delivery loop** — Depends on: none. Learn the lifecycle from ambiguous request to handover; distinguish a demo, a working system, and a deployed outcome. **Proof:** draw the delivery loop and list evidence required at each stage. Sources: `AGENTS.md` §§1–2, S1 (Claude Frontier Academy announcement, 2026-10-02 — primary role standard: medical-model residency, simulated deployment, graded practical, badges early 2027); S2 is a single listing, treat as stale unless re-opened.
 - **P0.2 — Technical baseline and workbench check** — Depends on: P0.1. Inventory what can be explained, built, tested, debugged, and operated today. **Proof:** evidence-based skills ledger; no self-ratings without examples. Source: `EVIDENCE.md`.
 - **P0.3 — Problem brief and baseline metric** — Depends on: P0.1–P0.2. Identify users, present workflow, pain, baseline, constraints, risk, and success metric. **Proof:** one-page problem brief with assumptions marked. Sources: S1–S2.
 
@@ -115,7 +116,7 @@ Every lesson follows this record shape:
 - **P2.2 — AI-service data contracts and runtime validation** — Depends on: P2.1, P1.5. JSON, schemas, serialization, missing/null fields, provider responses, and validation at trust boundaries. **Proof:** reject malformed model/tool output before domain logic. Sources: F2, F5, S4, S21.
 - **P2.3 — Async I/O, concurrency, cancellation, and timeouts** — Depends on: P2.1–P2.2. Apply existing programming knowledge to provider calls, retrieval, tools, queues, and bounded parallelism. **Proof:** run concurrent calls with deterministic timeout, cancellation, and cleanup behavior. Sources: F3, F13.
 - **P2.4 — Python/TypeScript AI SDK ergonomics** — Depends on: P2.1–P2.3. Read SDK types, inspect request/response objects, manage dependencies, pin versions, and isolate provider adapters. **Proof:** a small adapter with typed inputs, safe configuration, and tests. Sources: F3, F5, S4, S21.
-- **P2.5 — AI-engineering test seam** — Depends on: P2.2–P2.4. Mock provider boundaries without pretending mocks prove model quality; preserve fixtures for real evaluation later. **Proof:** unit tests for contract/error paths plus a clearly separated live smoke test. Sources: F8, S15, S22.
+- **P2.5 — AI-engineering test seam** — Depends on: P2.2–P2.4. Mock provider boundaries without pretending mocks prove model quality; preserve fixtures for real evaluation later. **Proof:** unit tests for contract/error paths plus a clearly separated live smoke test. Sources: F8, S15; S22 is deprecated (OpenAI Evals read-only 2026-10-31, shutdown 2026-11-30 — use the Datasets/evaluation-getting-started flow, verified at teach time).
 
 # Phase 3 — Chosen implementation runtime
 
@@ -210,7 +211,7 @@ work. The objective is the AI-service capability, not TypeScript itself.
 **Goal:** Choose the right solution before building it. This phase reuses the engineering knowledge already acquired.
 
 - **P10.1 — Workflow observation and stakeholder questions** — Depends on: P0.3, P7.1. Map inputs, decisions, handoffs, exceptions, and existing tools. **Proof:** current-state workflow with unanswered questions labelled.
-- **P10.2 — Deterministic code vs workflow vs agent** — Depends on: P10.1, P7.5, P8.1. Choose the least complex design that meets the need; identify where autonomy is useful and where it is dangerous. **Proof:** written option comparison including a non-AI option. Sources: S3, S12.
+- **P10.2 — Deterministic code vs workflow vs agent** — Depends on: P10.1, P7.5, P8.1. Choose the least complex design that meets the need; identify where autonomy is useful and where it is dangerous. **Proof:** written option comparison including a non-AI option. Sources: S3 (note its banner: tooling landscape changed since Dec 2024 — patterns stand, tooling examples need re-check), S12.
 - **P10.3 — Baseline, outcome metric, and adoption constraints** — Depends on: P0.3, P9.4, P10.1. Separate technical proxy metrics from business outcomes; note how the baseline will be gathered. **Proof:** measurement plan with owner and collection method.
 - **P10.4 — System design and risk boundary** — Depends on: P6.6, P7.5, P8.7, P9.7, P10.2–P10.3. Define components, data flows, trust boundaries, failure behavior, and ownership. **Proof:** architecture diagram and ADR. Sources: S20, S24.
 
@@ -222,7 +223,7 @@ work. The objective is the AI-service capability, not TypeScript itself.
 - **P11.2 — Request anatomy, tokens, context window, and response metadata** — Depends on: P11.1, P3.3. Messages, instructions, output limits, finish reasons, and provider-specific request/response contracts. **Proof:** build a minimal model call and log safe request metadata. Sources: S4, S21.
 - **P11.3 — Structured outputs and runtime validation** — Depends on: P3.3, P11.2. JSON/schema-constrained output where supported, parse/validation failure, and bounded repair. **Proof:** invalid model output cannot reach the domain layer unvalidated. Sources: S4, S21.
 - **P11.4 — Model errors, rate limits, latency, cost, and budgets** — Depends on: P8.3, P9.3, P11.2. Provider failures, concurrency caps, request budgets, token accounting, and timeout behavior. **Proof:** cost/latency/error budget and tested fallback behavior. Sources: S4, S21.
-- **P11.5 — Prompt/context versioning and model changes** — Depends on: P11.2–P11.4, P14.1. Treat prompts, schemas, retrieval settings, and model identifiers as versioned inputs to behavior. **Proof:** versioned configuration and an evaluation rerun on a deliberate change. Sources: S4, S15, S22.
+- **P11.5 — Prompt/context versioning and model changes** — Depends on: P11.2–P11.4, P14.1. Treat prompts, schemas, retrieval settings, and model identifiers as versioned inputs to behavior. **Proof:** versioned configuration and an evaluation rerun on a deliberate change. Sources: S4, S15; S22 is deprecated (see P2.5 note).
 - **P11.6 — Decide where an LLM belongs in the architecture** — Depends on: P10.2–P10.4, P11.1–P11.5. Keep deterministic invariants outside the model when possible; define fallback and human-review boundaries. **Proof:** updated ADR with failure containment and reasons not to use an LLM in selected steps. Sources: S3, S12.
 
 # Phase 12 — Context engineering, retrieval, RAG, and memory
@@ -230,11 +231,11 @@ work. The objective is the AI-service capability, not TypeScript itself.
 **Goal:** Provide the model with relevant, permissioned information and measure whether retrieval actually helps.
 
 - **P12.1 — Context engineering and information budgets** — Depends on: P11.1–P11.2. Select useful context, keep it current, and avoid flooding the model with irrelevant material. **Proof:** compare two context assembly strategies using fixed examples. Sources: S5, F12.
-- **P12.2 — Data ingestion and document lifecycle** — Depends on: P5.1–P5.6, P12.1. Sources, parsing, metadata, versioning, deletion, and permission inheritance. **Proof:** ingestion pipeline with provenance and re-index/delete behavior.
-- **P12.3 — Chunking, embeddings, lexical search, and vector search** — Depends on: P12.2, P11.2. Understand the pipeline and what each retrieval method contributes without prematurely choosing a vector database. **Proof:** inspect results for a small controlled corpus. Sources: F12, S5.
+- **P12.2 — Data ingestion and document lifecycle** — Depends on: P5.1–P5.6, P12.1; co-read P15.4 (permission inheritance, retention, and deletion are designed at ingestion time, not retrofitted). Sources, parsing, metadata, versioning, deletion, and permission inheritance. **Proof:** ingestion pipeline with provenance and re-index/delete behavior.
+- **P12.3 — Chunking, embeddings, lexical search, and vector search** — Depends on: P12.2, P11.2. Understand the pipeline and what each retrieval method contributes without prematurely choosing a vector database. Engineering scope only (rule 11): treat chunking/embedding settings as API parameters and measure their effect; no model training or embedding math. **Proof:** inspect results for a small controlled corpus. Sources: F12, S5.
 - **P12.4 — Retrieval pipeline: filters, hybrid search, reranking** — Depends on: P12.3, P4.6, P9.3. Improve recall/relevance while preserving tenant and access filters. **Proof:** retrieval results with measured top-k quality on a labelled set. Sources: F12, S5.
-- **P12.5 — RAG grounding, citations, abstention, and failure taxonomy** — Depends on: P12.1–P12.4, P11.3. Distinguish retrieval failure, missing source coverage, synthesis error, and unsupported answer. **Proof:** label a test set by failure type and make the system abstain appropriately. **Source note:** `RESOURCES.md` records a RAG failure-taxonomy coverage gap; research and verify a primary source before teaching this lesson.
-- **P12.6 — Evaluate retrieval separately from generation** — Depends on: P12.4–P12.5, P14.1–P14.2. Measure whether the right evidence was retrieved before judging the final answer. **Proof:** report retrieval and answer-quality results separately. Sources: S15, S22; source gaps must remain explicit.
+- **P12.5 — RAG grounding, citations, abstention, and failure taxonomy** — Depends on: P12.1–P12.4, P11.3. Distinguish retrieval failure, missing source coverage, synthesis error, and unsupported answer. **Proof:** label a test set by failure type and make the system abstain appropriately. **Source:** Barnett et al., *Seven Failure Points When Engineering a RAG System* (arXiv:2401.05856, 2024-01-11; CAIN 2024): FP1 missing content, FP2 missed top-rank, FP3 consolidation exclusion, FP4 extraction failure under noise/contradiction, FP5 wrong format, FP6 specificity, FP7 incompleteness. Residual gap: chunking/embedding/reranking tuning depth (their §6 future work) — label it as such.
+- **P12.6 — Evaluate retrieval separately from generation** — Depends on: P12.4–P12.5, P14.1–P14.2. Measure whether the right evidence was retrieved before judging the final answer. **Proof:** report retrieval and answer-quality results separately. Sources: S15 (method); S22 deprecated (see P2.5 note); the P14.3 statistics caveat applies.
 - **P12.7 — Conversation state, durable memory, compaction, and freshness** — Depends on: P6.5, P12.1–P12.6. Separate session state, durable business facts, retrieved knowledge, and generated summaries. **Proof:** define state ownership, retention, expiry, and update rules. Sources: S5, S8, S13.
 
 # Phase 13 — Workflows, tools, agents, and MCP
@@ -245,16 +246,16 @@ work. The objective is the AI-service capability, not TypeScript itself.
 - **P13.2 — Tool contracts and safe tool design** — Depends on: P4.6, P6.6, P11.3. Explicit arguments, schema, permissions, side effects, clear errors, and idempotency. **Proof:** implement a read-only tool with adversarial input tests. Sources: S7, S21.
 - **P13.3 — Agent loop, stop conditions, and budgets** — Depends on: P13.1–P13.2, P8.2–P8.5, P11.4. Define state, action, observation, exit criteria, maximum steps, and failure recovery. **Proof:** a bounded agent cannot run forever or repeat a harmful side effect. Sources: S3, S13, S21.
 - **P13.4 — State, checkpoints, and long-running workflows** — Depends on: P6.1–P6.5, P8.5–P8.7, P13.3. Resume work safely after interruptions and preserve an auditable progress record. **Proof:** kill and resume a job without losing correctness. Sources: S13, S19.
-- **P13.5 — MCP and external tool integration** — Depends on: P4.4, P13.2–P13.4, P15.2. Understand the protocol boundary, server trust, authorization, and the difference between interoperability and safety. **Proof:** connect one low-risk tool and document its trust/permission boundary. Sources: S6, S14.
+- **P13.5 — MCP and external tool integration** — Depends on: P4.4, P13.2–P13.4, P15.2. Understand the protocol boundary, server trust, authorization, and the difference between interoperability and safety. **Proof:** connect one low-risk tool and document its trust/permission boundary. Sources: S6 (pin the spec date in the lesson record — current 2026-07-28; authorization is OAuth 2.1 with RFC9728 discovery and RFC8707 audience binding; tool descriptions are untrusted; explicit user consent before invocation), S14 (verify before citing). Interoperability is not safety.
 - **P13.6 — Multi-agent systems and delegation economics** — Depends on: P13.1–P13.5, P14.1. Learn when parallel agents help and when coordination, latency, cost, and failure risk outweigh benefits. **Proof:** compare a single-agent/workflow baseline to a justified multi-agent design; default is not to use multiple agents. Source: S8.
 
 # Phase 14 — Evaluation, testing, and observability for AI systems
 
 **Goal:** Treat quality as a measured property, not a few impressive demo outputs.
 
-- **P14.1 — Turn requirements and failures into evaluation cases** — Depends on: P0.3, P7.2, P11.6. Build representative, edge, and adversarial cases from real workflows and documented failure modes. **Proof:** versioned evaluation set with expected outcomes and provenance. Sources: S15, S22.
-- **P14.2 — Graders: code-based, model-based, and human review** — Depends on: P14.1, P11.3. Choose a grader that matches the property; analyze false positives/negatives and judge reliability. **Proof:** compare grader decisions against a human-reviewed sample. Sources: S15, S22.
-- **P14.3 — Quality dimensions and statistical uncertainty** — Depends on: P14.1–P14.2, P9.4. Sample size, run-to-run variation, confidence, slices, and meaningful before/after comparison. **Proof:** evaluation report that states limits and avoids overclaiming. **Source note:** `RESOURCES.md` records a statistics-for-evaluation coverage gap; verify a suitable primary tutorial before teaching details.
+- **P14.1 — Turn requirements and failures into evaluation cases** — Depends on: P0.3, P7.2, P11.6. Build representative, edge, and adversarial cases from real workflows and documented failure modes. **Proof:** versioned evaluation set with expected outcomes and provenance. Sources: S15 (2026-01-09 refresh: start with 20–50 tasks from real failures, isolate trials, read transcripts, eval-driven development); S22 deprecated (see P2.5 note).
+- **P14.2 — Graders: code-based, model-based, and human review** — Depends on: P14.1, P11.3. Choose a grader that matches the property; analyze false positives/negatives and judge reliability. **Proof:** compare grader decisions against a human-reviewed sample. Sources: S15; S22 deprecated (see P2.5 note). Grader pattern: single-call 0.0–1.0 LLM judge against a rubric (factual accuracy, citation accuracy, completeness, source quality, tool efficiency) per S8.
+- **P14.3 — Quality dimensions and statistical uncertainty** — Depends on: P14.1–P14.2, P9.4. Sample size, run-to-run variation, confidence, slices, and meaningful before/after comparison. **Proof:** evaluation report that states limits and avoids overclaiming. **Method (interim, mentor synthesis — not a statistics text; rule 11 caps math here):** fixed prompts and seeds, at least three repeats on small sets, report n plus observed range, split results by failure slice, compare before/after on identical sets only, and pre-register a block threshold calibrated from baseline repeat noise. `RESOURCES.md` still records a primary statistics tutorial as missing.
 - **P14.4 — Regression gates and change management** — Depends on: P11.5, P12.6, P14.1–P14.3. Re-run evaluations when prompts, models, retrieval, tools, or policies change. **Proof:** CI or documented release gate that blocks a known regression.
 - **P14.5 — Trace a complete AI request** — Depends on: P9.3, P11.2–P11.4, P12.4, P13.3. Trace model calls, retrieval, tools, retries, token/cost information, and final outcomes while redacting sensitive data. **Proof:** diagnose a failed run from a trace. Sources: S9, F9, S21.
 - **P14.6 — Failure analysis and operational learning loop** — Depends on: P9.5, P14.1–P14.5. Classify failures, add a regression case, make one change, and measure it. **Proof:** one complete loop from observed failure to verified improvement. Sources: S9, S15.
@@ -263,8 +264,10 @@ work. The objective is the AI-service capability, not TypeScript itself.
 
 **Goal:** Bound what the system, model, and tools can access or change, even when the model is wrong or manipulated.
 
+**Source pins for every lesson below:** OWASP LLM Top 10 2026 (published 2026-08-04) and OWASP Top 10 for Agentic Applications 2026 (December 2025, ASI01–ASI10) — always cite the edition; NIST AI RMF 1.0 (January 2023) plus the GenAI Profile NIST AI 600-1 (July 2024, twelve GAI risks with Govern/Map/Measure/Manage actions) — cite the profile, not just the framework homepage.
+
 - **P15.1 — Assets, threat actors, trust boundaries, and abuse cases** — Depends on: P4.4, P10.4, P11.6. Identify data, credentials, actions, tenants, external systems, and likely attack paths. **Proof:** threat model with mitigations and residual risk. Sources: S16–S17, S24, F11.
-- **P15.2 — Prompt injection and untrusted content** — Depends on: P12.2–P12.5, P13.2. Direct/indirect injection, data-as-instruction confusion, and why prompting alone is not a security boundary. **Proof:** adversarial tests and an architecture-level mitigation plan. Sources: S16–S17.
+- **P15.2 — Prompt injection and untrusted content** — Depends on: P12.2–P12.5, P13.2. Direct/indirect injection, data-as-instruction confusion, and why prompting alone is not a security boundary. **Proof:** adversarial tests and an architecture-level mitigation plan. Sources: S16–S17; anchor case EchoLeak (CVE-2025-32711, CVSS 9.3, disclosed by Aim Labs June 2025): benign-email XPIA bypass → reference-style Markdown link-redaction bypass → image auto-fetch → Teams preview-API CSP proxy; fixed server-side May/June 2025; no in-the-wild exploitation observed. Teach it as demonstrated vulnerability with defense-in-depth mitigations (provenance-based access control, output sandboxing, strict CSP without open proxies), never as a how-to.
 - **P15.3 — Least privilege, authorization, and human approvals** — Depends on: P4.4, P13.2–P13.5, P15.1. Allowlisted tools, scoped identities, user confirmation for consequential actions, and server-side policy enforcement. **Proof:** tool permission matrix plus denied-action tests. Sources: S16–S17, S24.
 - **P15.4 — Sensitive data, secrets, tenant isolation, and retention** — Depends on: P3.7, P5.1–P5.6, P12.2, P15.1. Data minimization, access controls, log redaction, encryption responsibilities, and deletion flows. **Proof:** data-flow and retention review. Sources: S16, S24, F11.
 - **P15.5 — Secure API and dependency boundaries** — Depends on: P4.4–P4.6, P9.1–P9.2, P15.1–P15.4. Authorization flaws, injection, resource exhaustion, dependency trust, and configuration mistakes. **Proof:** security checklist and tests mapped to actual routes and tools. Source: F11.
@@ -340,20 +343,21 @@ chapter or page has been read.
 
 The following IDs are defined in `RESOURCES.md`; consult that file for publisher, verification state, edition, and access notes. Only entries marked **Verified** may support a factual claim. The most relevant starting points are:
 
-- **S1–S2:** FDE role standard and role expectations.
-- **S3, S7–S8, S12–S14:** agent/workflow patterns, tool design, multi-agent trade-offs, long-running execution, MCP-related engineering.
-- **S4, S21–S23:** official model APIs, agent SDKs, and evaluation tools; re-check current versions.
+- **S1:** FDE role standard — the Claude Frontier Academy announcement (2026-10-02) is primary: $100M program, 10,000 FDEs by end-2027, medical-model residency, simulated enterprise deployment, graded practical, badges from early 2027. **S2:** single Deloitte job listing — treat as stale/unverified until re-opened; superseded by S1.
+- **S3, S7–S8, S12–S14:** agent/workflow patterns, tool design, multi-agent trade-offs, long-running execution, MCP-related engineering. Note S3's banner (tooling landscape changed since Dec 2024): patterns stand, tooling examples need re-checking.
+- **S6:** MCP specification — pin the spec date in each lesson record (current 2026-07-28; priors 2025-11-25, 2025-06-18).
+- **S4, S21–S23:** official model APIs, agent SDKs, and evaluation tools; re-check current versions. S22 (OpenAI evals guide) is deprecated — the Evals platform goes read-only 2026-10-31 and shuts down 2026-11-30; teach the Datasets/evaluation-getting-started flow instead (banner verified 2026-10-09).
 - **S5:** context engineering.
 - **S9–S10:** reliability postmortem and incident evidence.
-- **S15, S22:** evaluation methodology and tooling.
-- **S16–S17, S24:** AI security and risk management.
+- **S15:** evaluation methodology and agent-eval practice (2026-01-09 refresh). **S22:** deprecated (see S4/S21–S23 note).
+- **S16–S17:** OWASP LLM Top 10 2026 and Agentic Top 10 2026 — always cite the edition. **S24:** NIST AI RMF 1.0 plus GenAI Profile NIST AI 600-1 — cite the profile.
 - **S18–S19, S25–S29:** distributed systems, data systems, architecture, scalability, and SRE foundations.
 
 ### Known source gaps — keep visible
 
-- `RESOURCES.md` flags that a comprehensive, verified primary-source RAG failure taxonomy is still missing.
-- `RESOURCES.md` flags that a suitable primary tutorial on statistical uncertainty for LLM evaluation is still missing.
-- Agent tool-misuse incident evidence needs stronger verification before it becomes a casebook claim.
+- RAG failure taxonomy: adopted Barnett et al. 2024 (FP1–FP7) for P12.5; the residual gap is chunking/embedding/reranking tuning depth, still flagged in `RESOURCES.md`.
+- `RESOURCES.md` still flags a suitable primary tutorial on statistical uncertainty for LLM evaluation as missing; P14.3 uses the labeled interim protocol.
+- Agent tool-misuse: EchoLeak (CVE-2025-32711) is verified for casebook use; further incidents named in the OWASP Agentic 2026 announcement remain leads until their primaries are opened.
 - For any topic whose supporting source is not verified, the lesson must label it as a research gap and avoid stating it as established fact.
 
 ## 8. Progress ledger template
