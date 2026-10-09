@@ -17,6 +17,13 @@ belongs in one of three sections:
 The AI must read this file before teaching. It must not silently ignore a
 reference in the second section or treat it as verified.
 
+This file is not a dump of names, newsletters, communities, or broad roadmap
+ideas. Only concrete artifacts may enter a source section: a book, paper,
+course page, blog post, job listing, official documentation, or another
+specific publication with a canonical URL. User-supplied roadmaps and lists of
+people or organizations are discovery leads only until they are tied to a
+specific artifact and date-verified.
+
 Books may be listed as citations even when access is paywalled; do not
 reproduce copyrighted text. API, product, model, and security claims require
 current official documentation or a dated primary source. Cite the exact
@@ -29,7 +36,13 @@ not reproduce the book or treat a generated summary as the source.
 
 People, organizations, newsletters, conferences, and communities are discovery
 leads only. A durable entry must identify a specific artifact with a canonical
-URL, explain its relevance, and record its verification status.
+URL, explain its relevance, and record its verification status. A person or an
+organization name by itself is never a source. Roadmaps and career feeds such as
+[roadmap.sh/ai-engineer](https://roadmap.sh/ai-engineer),
+[FDE Academy](https://fde.academy/), and
+[The Batch — AI Careers](https://www.deeplearning.ai/the-batch/tag/ai-careers)
+are valid discovery inputs only when they are opened and tied to a specific
+artifact used by the lesson.
 
 ## Verified references
 
@@ -64,38 +77,51 @@ URL, explain its relevance, and record its verification status.
 | S27 | Understanding Distributed Systems, 2nd Edition | Roberto Vitillo | Book — Uploaded in both study tools | Distributed-system fundamentals, failure, consistency, and operations | NotebookLM + ChatGPT Project | 2026-10-09 |
 | S28 | Foundations of Scalable Systems | To verify from uploaded title page | Book — Uploaded in both study tools | Scalable-system architecture and operational trade-offs | NotebookLM + ChatGPT Project | 2026-10-09 |
 | S29 | Designing Distributed Systems, 2nd Edition | Brendan Burns | Book — Uploaded in both study tools | Patterns and paradigms for scalable, reliable Kubernetes systems | NotebookLM + ChatGPT Project | 2026-10-09 |
+| S30 | [FDE Academy](https://fde.academy/) | FDE Academy | FDE curriculum/role signal | Technical background, Python or SQL foundation, cloud exposure, AI/ML foundations, and technical communication | Public; re-check for current program details | 2026-10-09 |
+
+## F-series — foundational sources used by the roadmap
+
+These are concrete artifacts used by the active journey. Re-open the exact
+page used before teaching and record the subsection or version in the lesson
+record. F13 and F14 are cross-check and discovery sources, not a replacement
+for primary technical evidence.
+
+| ID | Source | Publisher | Type | Coverage | Access | Last verified |
+|---|---|---|---|---|---|---|
+| F1 | [Pro Git, 2nd Edition — online book](https://git-scm.com/book/en/v2) | Git | Online book | Git, collaboration, history, branching, and reproducible work | Public | 2026-10-09 |
+| F2 | [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) | MDN | Official guide | JavaScript language and core concepts | Public; re-check per lesson | 2026-10-09 |
+| F3 | [Node.js Learn](https://nodejs.org/learn) | Node.js | Official learning documentation | Runtime, async work, testing, HTTP, diagnostics, and security | Public; re-check per lesson | 2026-10-09 |
+| F4 | [MDN HTTP Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview) | MDN | Official guide | HTTP messages, methods, status codes, and API mental models | Public; re-check per lesson | 2026-10-09 |
+| F5 | [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro) | TypeScript | Official handbook | Types, narrowing, functions, modules, and compiler behavior | Public; re-check per lesson | 2026-10-09 |
+| F6 | [PostgreSQL Documentation](https://www.postgresql.org/docs/current/) | PostgreSQL | Official documentation | SQL, constraints, indexes, transactions, isolation, and concurrency | Public; re-check per lesson | 2026-10-09 |
+| F7 | [Docker Get Started](https://docs.docker.com/get-started/) | Docker | Official guide | Containers and local environment fundamentals | Public; re-check per lesson | 2026-10-09 |
+| F8 | [Playwright Test documentation](https://playwright.dev/docs/intro) | Playwright | Official documentation | Practical automated testing and CI tests | Public; re-check per lesson | 2026-10-09 |
+| F9 | [OpenTelemetry documentation](https://opentelemetry.io/docs/) | OpenTelemetry | Official documentation | Traces, metrics, logs, instrumentation, and context propagation | Public; re-check per lesson | 2026-10-09 |
+| F10 | [Google Cloud Well-Architected Framework — Reliability](https://docs.cloud.google.com/architecture/framework/reliability) | Google Cloud | Architecture guidance | Reliability goals, observation, response, recovery, and postmortems | Public; re-check per lesson | 2026-10-09 |
+| F11 | [OWASP API Security Project](https://owasp.org/projects/api-security-project) | OWASP | Security guidance | API attack surfaces and authorization/security risks | Public; use current edition | 2026-10-09 |
+| F12 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) and [Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval) | Anthropic Engineering | Engineering articles | Context budgets, retrieval design, and retrieval improvement techniques; these do not replace independent evaluation | Public; re-check per lesson | 2026-10-09 |
+| F13 | [AI Engineer roadmap](https://roadmap.sh/ai-engineer) | roadmap.sh | Roadmap cross-check | AI-engineering coverage across implementation, LLM applications, RAG, agents, deployment, and MLOps | Public; re-check for current scope | 2026-10-09 |
+| F14 | [The Batch — AI Careers](https://www.deeplearning.ai/the-batch/tag/ai-careers) | DeepLearning.AI | Career discovery feed | Current AI-career articles and evolving industry skills; not a prerequisite order or sole evidence | Public; re-check per lesson | 2026-10-09 |
 
 ## References to verify
 
-These are references supplied for the study path but not yet tied to a checked,
-specific artifact. For people and organizations, find the relevant article,
-book, course, talk, paper, repository, or documentation page first. Do not cite
-the name alone.
+These are research leads, not evidence. Keep them here until the exact artifact
+is opened and checked. Do not cite a person or organization by name alone.
 
 - A primary-source enterprise RAG failure with enough technical detail to teach
   retrieval failure mechanisms.
 - A first-party customer deployment case study with measurable adoption and
   business outcomes.
 - The titles *A Common-Sense Guide to AI Engineering* and *An Illustrated
-  Guide to AI Agents*
+  Guide to AI Agents* must each be tied to a canonical publication page or
+  publisher listing before use.
 - The author and canonical publication details for *Foundations of Scalable
   Systems* must be confirmed from its uploaded title page before citation.
 - A primary statistics-for-LLM-evaluation tutorial that covers variance,
   sample size, and meaningful comparison.
-- People: Andrej Karpathy; Simon Willison; Chip Huyen; Hamel Husain;
-  Eugene Yan; Sebastian Raschka; Harrison Chase; Jerry Liu; Jason Liu; Shreya
-  Shankar; Lilian Weng; Jeremy Howard; swyx; François Chollet; Logan Kilpatrick;
-  Yohei Nakajima; Addy Osmani; James Briggs; Paul Iusztin; Aidan Gomez; Dario
-  Amodei; Mira Murati; Alexandr Wang; Aravind Srinivas; Cassie Kozyrkov; Andrej
-  Tomašević; Nathan Lambert; Jason Wei; Harrison Kinsley; Sebastian Buck; Vicki
-  Boykis; Hamza El-Khatib; Riley Goodside; Omar Sanseviero; Thomas Wolf; Clem
-  Delangue; Lewis Tunstall; Maxime Labonne; Jay Alammar; Chris Albon; Rachel
-  Thomas; Tim Dettmers; Tri Dao; Percy Liang; Andrej Bauer; Jim Fan; Bo Wang;
-  Ethan Mollick; Ethan Perez.
-- Organizations and publications: Anthropic Engineering; OpenAI Engineering;
-  Google DeepMind; Hugging Face; LangChain; LlamaIndex; Weights & Biases; Modal;
-  Replicate; Pinecone; Cohere; Together AI; Latent Space; The Batch; AI
-  Engineer World's Fair.
+- Additional high-signal leads may be added only as links to specific articles,
+  talks, papers, repos, or course pages; generic names and broad lists are not
+  accepted entries.
 
 ## Coverage gaps
 
@@ -110,8 +136,9 @@ Lessons must name these as gaps rather than cite them as evidence.
 
 ## Update procedure
 
-1. Open the publisher's canonical page.
-2. Confirm title, publisher, relevance.
-3. Record the date and exact section/chapter used.
-4. Move failed or obsolete entries to **References to verify** or **Coverage
+1. Open the publisher's canonical page or the exact artifact being cited.
+2. Confirm title, publisher, relevance, and whether the resource is still
+   current.
+3. Record the date and exact section, chapter, page, or subsection used.
+4. Move failed, stale, or weak entries to **References to verify** or **Coverage
    gaps**; do not silently retain them as verified.

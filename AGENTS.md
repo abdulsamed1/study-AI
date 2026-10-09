@@ -54,7 +54,7 @@ For Anthropic/OpenAI behavior, APIs, SDKs, products, models, or current recommen
 
 Read only what the session needs: `MISSION.md`, `NOTES.md`, newest learning records, `EVIDENCE.md`, the active journey file, relevant project files, relevant casebook entries.
 
-**Active journey.** It is the journey whose goal matches `MISSION.md` and the user's request (for the FDE mission, `fde-journey-map.md`). Supporting maps (the performance map, interview maps) are opened only when the active journey names them or the user asks for them. A journey with an interview deadline becomes active only when the user names that interview. Never pick a map because it is the most detailed. If two journeys fit, ask once.
+**Active journey.** It is the journey whose goal matches `MISSION.md` and the user's request (for the FDE mission, `fde-journey-map.md`). This file is the single canonical FDE journey and contains both the outcome map and the detailed engineering sequence. Supporting maps (the performance map, interview maps) are opened only when the active journey names them or the user asks for them. A journey with an interview deadline becomes active only when the user names that interview. Never pick a map because it is the most detailed. If two journeys fit, ask once.
 
 **Readiness check, every time the user asks to start or continue.**
 1. Read the active journey and recall state (section 3 for mode B).
