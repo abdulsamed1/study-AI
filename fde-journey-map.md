@@ -93,29 +93,10 @@ Adoption and impact need real users: with none, run a small pilot or label the r
 
 ## Source register
 
-Status as of 2026-10-09. "Read" means opened and read in full for this revision. "Found" means a search returned the title or page; open it before teaching from it.
-
-| ID | Source | Status |
-|---|---|---|
-| S1 | Anthropic, "Claude Frontier Academy" (2026-10-02), anthropic.com/news/claude-frontier-academy | Read. Nomination by employer; named project; scenario-based assessment |
-| S2 | Deloitte, "Forward Deployed Engineer, Frontier GenAI", job 350555, apply.deloitte.com | Read. Requires 3+ years software or data engineering, 1+ year building GenAI in client or production settings, 1+ year on a frontier platform (Claude API, tool use, Claude Code, Gemini API, OpenAI Agents SDK named); travel about 50%; US locations; limited sponsorship; recruiting ends 2026-10-30 |
-| S3 | Anthropic Engineering, "Building effective agents", anthropic.com/engineering/building-effective-agents | Found. Workflows vs agents; the five patterns |
-| S4 | Claude API documentation (current messages, tool use, structured output, rate limits pages) | VERIFY at lesson time; state the date |
-| S5 | Anthropic Engineering, "Effective context engineering for AI agents", anthropic.com/engineering/effective-context-engineering-for-ai-agents | Found. A secondary page dates it 2025-09-29 |
-| S6 | Model Context Protocol specification, modelcontextprotocol.io | VERIFY. Open the current spec |
-| S7 | Anthropic Engineering, "Writing tools for AI agents – with AI agents" | Found only as a reference inside S5; open before teaching |
-| S8 | Anthropic Engineering, "How we built our multi-agent research system" | Found as a title in a secondary list; open |
-| S9 | Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025) | Unchecked; open |
-| S10 | Google Cloud incident report 2025-06-12 (Service Control), status.cloud.google.com/incidents/ow5i3PPK96RduMcb1SsW | Unchecked; open |
-| S11 | Project books: *Fundamentals of Software Architecture*, *Building Microservices*, *Designing Data-Intensive Applications*, *Understanding Distributed Systems*, *Foundations of Scalable Systems*, *Designing Distributed Systems* | Tier 1 for what they cover; cite the chapter after reading the table of contents |
-| S12 | Anthropic, "Building Effective AI Agents" enterprise guide, claude.com/resources/guides/building-effective-ai-agents | Found. Single vs multi-agent vs workflow decision framework |
-| S13 | Anthropic Engineering, "Effective harnesses for long-running agents" | Found as a title in a secondary list; open |
-| S14 | Anthropic Engineering, "Code execution with MCP: building more efficient AI agents" | Found as a title in a secondary list; open |
-| S15 | Anthropic Engineering, "Demystifying evals for AI agents" | Found as a title in a secondary list; open |
-| S16 | OWASP GenAI Security Project, "OWASP GenAI LLM Top 10 2026" (v1.0, 2026-08-03), genai.owasp.org/resource/owasp-genai-llm-top-10-2026/ | Found; official page not opened. Open it before citing the ranking |
-| S17 | OWASP Top 10 for Agentic Applications (December 2025, ASI01-ASI10) | Found through a research note; open the official list |
-
-Known gaps (add to `RESOURCES.md`): a primary RAG source; a primary statistics-for-evaluation source; a primary-source RAG failure; an agent tool-misuse incident; a vendor customer-deployment case study.
+The canonical source register is [`RESOURCES.md`](RESOURCES.md). Lesson tags
+refer to its IDs. Only entries marked **Verified** may support teaching;
+Candidates and Gaps are not evidence. Re-check current API, product, model, and
+security sources before the lesson and record the date and exact section used.
 
 ## Casebook concepts by level
 

@@ -146,7 +146,53 @@ Status key: **read** = opened in full on the date shown; **found** = a search re
 - Google Cloud incident report 2025-06-12 (Service Control): status.cloud.google.com/incidents/ow5i3PPK96RduMcb1SsW. **Unchecked.**
 - Gaps: a primary-source enterprise RAG failure; an agent tool-misuse incident; evaluation practice for LLM features in production; a vendor customer-deployment case study.
 
-## P§8. Building a branch map (when the journey lacks lesson-level units)
+## P§8. Source-grounded study-pack procedure
+
+### Source triage
+
+For each source needed by a lesson:
+
+1. Open the publisher's canonical page or the supplied book.
+2. Confirm title, publisher, relevance, and URL.
+3. Record the date and exact section, chapter, or page in `RESOURCES.md`.
+4. Mark it Verified only after those checks; move failed or obsolete entries to
+   Candidates or Gaps.
+
+### Lesson preparation
+
+Select one usable unit from the active journey. Open only its Verified source
+IDs and the specific sections needed for that unit; do not load the entire
+library into every lesson. Prepare one realistic scenario, one retrieval
+question per part, and one final practice task. Label lesson text as
+Source-backed fact, Mentor synthesis, or Practice.
+
+### Tool import and export
+
+The minimum shared file set is:
+
+    MISSION.md
+    AGENTS.md
+    TEACHING-PROTOCOLS.md
+    fde-journey-map.md
+    RESOURCES.md
+    EVIDENCE.md
+
+In ChatGPT Projects, use the files as project sources and keep instructions
+short: follow `AGENTS.md`, use `TEACHING-PROTOCOLS.md` when referenced, and
+cite the uploaded sources. In NotebookLM, add the same files as sources, add
+the selected primary sources for the current unit, and require notebook
+citations. Generated quizzes, summaries, and audio are practice artifacts; do
+not promote them to durable learning records until checked against a cited
+source.
+
+### Synchronization
+
+Re-check API, product, model, and security sources before teaching current
+claims. When a source changes, update its registry row first, then compare
+the affected journey tags, lesson citations, and evidence records. Never
+silently replace a source or turn a candidate into evidence.
+
+## P§9. Building a branch map (when the journey lacks lesson-level units)
 
 Use when the readiness check in `AGENTS.md` section 5 finds no usable unit.
 
