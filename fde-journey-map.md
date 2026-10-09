@@ -2,8 +2,6 @@
 
 **Purpose:** Build durable engineering capability for taking a real business problem from discovery to a reliable, evaluated, secure, deployed AI-enabled system. This is a long-form learning journey.
 
-**Status:** Active canonical journey, revised 2026-10-09. This file combines the journey map and the detailed engineering roadmap. The interview-focused `estaie-study-map.md` remains a separate, time-boxed branch and must not determine the depth or order of this curriculum.
-
 **Mission alignment:** FDE = problem discovery → choose the right solution (including non-AI) → build → evaluate → secure → deploy → integrate into work → measure impact → hand over. The target is demonstrable engineering judgment, not completion of a syllabus.
 
 ---
@@ -326,10 +324,9 @@ The capstone must remain small enough to finish and test. Add a component only w
 ## 6. Supporting branches — not required all at once
 
 - **Production performance and traffic spikes:** open `production-performance-incident-study-map.md` when Phase 9 diagnosis exposes a gap or a real project needs it. Do not study all performance topics up front.
-- **Integration interview preparation:** open `estaie-study-map.md` only when that specific interview or role is active. Its compressed order reflects time pressure and interview evidence, not the full prerequisite path.
 - **AI Security specialization:** deepen OWASP/NIST, red teaming, secure SDLC, and security labs after Phase 15 or when the capstone risk requires it.
 - **Distributed systems depth:** use *Designing Data-Intensive Applications*, 2nd ed.; *Understanding Distributed Systems*, 2nd ed.; *Building Microservices*; *Designing Distributed Systems*, 2nd ed.; and *Foundations of Scalable Systems* as chapter-level sources only when the lesson needs them. Confirm the author/title/edition from each book's title page before citing it.
-- **Framework specialization:** learn NestJS, Next.js, a specific queue, vector store, cloud platform, or agent SDK after the underlying contract/problem is understood. Avoid framework-first tutorials disconnected from the capstone.
+- **Framework specialization:** Avoid framework-first tutorials disconnected from the capstone.
 
 ## 7. Source register for this map
 
@@ -384,6 +381,7 @@ Phase 15 [ ] P15.1 [ ] P15.2 [ ] P15.3 [ ] P15.4 [ ] P15.5 [ ] P15.6
 Phase 16 [ ] P16.1 [ ] P16.2 [ ] P16.3 [ ] P16.4 [ ] P16.5
 Phase 17 [ ] P17.1 [ ] P17.2 [ ] P17.3 [ ] P17.4
 ```
+
 
 ## 9. What this roadmap does and does not claim
 
