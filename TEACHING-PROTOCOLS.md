@@ -9,7 +9,7 @@ Formats adapted from the `teach` skill by Matt Pocock (github.com/mattpocock/ski
     MISSION.md                      why the user is learning this; one screen at most
     NOTES.md                        user preferences and working notes
     EVIDENCE.md                     supported by evidence / needs learning / must not be claimed
-    RESOURCES.md                    trusted sources: Knowledge / Wisdom (communities) / Gaps
+    RESOURCES.md                    verified references / references to verify / coverage gaps
     GLOSSARY.md                     one-line definitions; every lesson uses these terms
     casebook/INDEX.md               concept -> cases -> transferable pattern
     casebook/<concept>.md           researched real failures for one concept
@@ -38,7 +38,7 @@ One mission per workspace. Push back on vagueness: interview before writing. Kee
     ## Wisdom (Communities)
     - [Community](url)
       Why it is high signal. Use for: <what to ask there>.
-    ## Gaps
+    ## Coverage gaps
     - <area the mission needs where no good source exists yet>
 
 Rules: annotate every entry; surface gaps explicitly; prune sources that prove shallow or wrong; record if the user opted out of communities. Source tiers are in `AGENTS.md` section 10; books named by a journey are Tier 1 for the concepts they cover (cite the chapter).
@@ -96,13 +96,23 @@ Mode A: also write `lessons/NNNN-slug.html`: self-contained, linking the shared 
 Mode B: Markdown in the reply, one part per message.
 Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: checklists, decision tables, sequence diagrams.
 
-## P§4. Practice sources and retrieval schedule
+## P§4. Dynamic research-driven teaching policy
+
+- Preserve the instructional framework while generating each lecture dynamically around the current learning objective and the learner's demonstrated knowledge, gaps, and goals.
+- Reuse a static lecture or use case only when it remains accurate, relevant, and pedagogically useful; do not depend on a fixed lecture for every session.
+- When web search is available, use it selectively for current tools, APIs, production implementations, failure analyses, benchmarks, or new practitioner techniques that materially improve the lesson.
+- If web search is unavailable, state the limitation clearly and avoid claiming source verification you did not perform.
+- Use sources in this order: official technical documentation and engineering blogs; technical publications and reproducible implementations; recognized practitioners and research groups; community discussions used cautiously.
+- Integrate the external material into the lesson by connecting it to the problem, system design, trade-offs, failure modes, and a practice challenge. Separate documented facts from source-supported claims and from the mentor's interpretation.
+- Keep lectures coherent and practical: prefer a few highly relevant sources over a long list of links or names.
+
+## P§5. Practice sources and retrieval schedule
 
 - Build the practice task from a casebook scenario changed slightly (new constraint, new failure point).
 - Warm-ups revisit older records inside new scenarios. Suggested spacing: next session, about a week later, about a month later. Re-asking the same question teaches the question, not the concept.
 - Interleave related production decisions during skill practice only, never while the user is still acquiring the concept.
 
-## P§5. Setting up each tool
+## P§6. Setting up each tool
 
 
 **(mode B)**
@@ -129,24 +139,20 @@ Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: c
 - agentic reads `AGENTS.md` and takes extra files from the `instructions` list in `opencode.jsonc` if the user use OPENCODE. Check the current docs for both, since the syntax changes.
 - Keep this file out of the always-loaded list; `AGENTS.md` says when to open it.
 
-## P§6. Maintaining AGENTS.md
+## P§7. Maintaining AGENTS.md
 
 Add a rule to `AGENTS.md` only after its absence caused a real mistake; move formats and procedures here instead of growing the core. Journey files and this file cite `AGENTS.md` section numbers and never restate its rules; when you notice a repeated rule, delete the copy in the lower-priority file. Reason to stay lean: a February 2026 ICLR paper (Gloaguen et al., arXiv 2602.11988), cited by the previous version of this file and not re-checked in this revision, reports that repository context files tended to reduce coding-agent success and raised cost. It covers coding agents, not tutoring, so treat it as a reason to be careful, not as a measurement of this setup.
 Review `AGENTS.md` after every 10 sessions: delete rules the mentor never needed, and fix the mistakes that recurred.
 
-## P§7. Starter sources for AI deployment work
+## P§8. External resources and candidate roadmaps
 
-Status key: **read** = opened in full on the date shown; **found** = a search returned it, not yet opened; **unchecked** = carried from an earlier version. Re-open anything not "read" before teaching from it. The full register for the FDE journey, with IDs, is in `fde-journey-map.md`.
+Do not add a static source list to this procedure file. External resources,
+candidate sources, and candidate roadmaps belong in `RESOURCES.md` or the
+active journey file. Treat those files as inputs to source triage, not as
+automatic evidence. Open and verify only the sources needed for the current
+lesson, then record their status and the exact section used in `RESOURCES.md`.
 
-- Anthropic, "Claude Frontier Academy" (2026-10-02). **Read 2026-10-09.** The role standard in `AGENTS.md` section 2.
-- Matt Pocock, `teach` skill (github.com/mattpocock/skills, skills/productivity/teach). **Read 2026-10-09.** Origin of the layout and formats.
-- Anthropic Engineering: "Building effective agents", "Effective context engineering for AI agents". **Found 2026-10-09.**
-- OWASP GenAI LLM Top 10 2026 (v1.0, 2026-08-03) and the Agentic Applications Top 10 (Dec 2025). **Found 2026-10-09**; open the official pages before citing.
-- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025). **Unchecked.**
-- Google Cloud incident report 2025-06-12 (Service Control): status.cloud.google.com/incidents/ow5i3PPK96RduMcb1SsW. **Unchecked.**
-- Gaps: a primary-source enterprise RAG failure; an agent tool-misuse incident; evaluation practice for LLM features in production; a vendor customer-deployment case study.
-
-## P§8. Source-grounded study-pack procedure
+## P§9. Source-grounded study-pack procedure
 
 ### Source triage
 
@@ -156,7 +162,7 @@ For each source needed by a lesson:
 2. Confirm title, publisher, relevance, and URL.
 3. Record the date and exact section, chapter, or page in `RESOURCES.md`.
 4. Mark it Verified only after those checks; move failed or obsolete entries to
-   Candidates or Gaps.
+   References to verify or Coverage gaps.
 
 ### Lesson preparation
 
@@ -192,7 +198,7 @@ claims. When a source changes, update its registry row first, then compare
 the affected journey tags, lesson citations, and evidence records. Never
 silently replace a source or turn a candidate into evidence.
 
-## P§9. Building a branch map (when the journey lacks lesson-level units)
+## P§10. Building a branch map (when the journey lacks lesson-level units)
 
 Use when the readiness check in `AGENTS.md` section 5 finds no usable unit.
 

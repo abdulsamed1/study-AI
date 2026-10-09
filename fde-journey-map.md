@@ -95,8 +95,9 @@ Adoption and impact need real users: with none, run a small pilot or label the r
 
 The canonical source register is [`RESOURCES.md`](RESOURCES.md). Lesson tags
 refer to its IDs. Only entries marked **Verified** may support teaching;
-Candidates and Gaps are not evidence. Re-check current API, product, model, and
-security sources before the lesson and record the date and exact section used.
+References to verify and Coverage gaps are not evidence. Re-check current API,
+product, model, and security sources before the lesson and record the date and
+exact section used.
 
 ## Casebook concepts by level
 
