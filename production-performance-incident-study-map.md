@@ -10,7 +10,7 @@
 
 ## How to use this map
 
-**Supporting branch.** Opened from `fde-journey-map.md` (Phase A diagnostic, Level 6) or when the user asks for production-incident diagnosis. It is not the default start of any other journey.
+**Supporting branch.** Opened from `fde-journey-map.md` (P0.2 baseline check, or when P9.6 exposes a gap) or when the user asks for production-incident diagnosis. It is not the default start of any other journey.
 
 *Revised 2026-10-09. This file says WHAT to learn. Teaching, assessment, and record rules are in `AGENTS.md`; templates in `TEACHING-PROTOCOLS.md`.*
 
@@ -1021,14 +1021,14 @@ L0-L8 are model-agnostic. A deployed agent adds a dependency with unusual proper
 
 ### 5. Trade-offs that need evaluation, not intuition
 
-- Cheaper or faster model, shorter context, fewer tool calls, a cache, or a non-AI fallback each change quality as well as latency and cost. No such change ships without re-running the evaluation set from the FDE delivery loop (`AGENTS.md` section 7).
+- Cheaper or faster model, shorter context, fewer tool calls, a cache, or a non-AI fallback each change quality as well as latency and cost. No such change ships without re-running the evaluation set from the FDE delivery loop (`AGENTS.md` section 6).
 - Graceful degradation order: smaller model, then deterministic path, then human review, chosen by business criticality.
 
 ### 6. Observability for LLM calls
 
 Record per call: workflow step, model identifier, input and output size, latency, retry count, outcome, estimated cost, and a trace id that ties it to the request. Without these fields the L1 diagnostic path cannot run.
 
-Provider limits, error codes, parameters, and pricing change; verify them as `AGENTS.md` section 11 requires before teaching any specific value.
+Provider limits, error codes, parameters, and pricing change; verify them as `AGENTS.md` section 10 requires before teaching any specific value.
 
 ## Practice
 
@@ -1223,7 +1223,7 @@ Use this before proposing a fix in a real incident.
 
 # Labs — Learn by Breaking and Measuring
 
-The project should have a small repeatable lab environment where the same API can be subjected to different failure modes.
+The project should have a small repeatable lab environment where the same API can be subjected to different failure modes. Run it as the TypeScript/Node.js capstone service plus the P4.7 stub provider; Lab 8's stub model service may be written in Python where the AI lessons require it. When an agent wrote the code under test, state the hypothesis and the measurement before reading the code (journey rule 12).
 
 ## Lab 1 — CPU inefficiency
 
@@ -1318,6 +1318,7 @@ Measure:
 - hit ratio;
 - origin request rate;
 - latency;
+- memory use as the number of distinct keys grows without a bound, diagnosed from runtime evidence, and the effect of adding a size bound;
 - behavior when the cache is unavailable.
 
 **Goal:** see both the benefit and the failure mode.
@@ -1385,7 +1386,7 @@ Answer the production scenario in your own words, without naming a tool until th
 
 ### Step 8 — Record it
 
-Consolidate as in `AGENTS.md` section 6, step 10, then re-ask the same idea in a changed scenario after a gap of days.
+Consolidate as in `AGENTS.md` section 5, step 10, then re-ask the same idea in a changed scenario after a gap of days.
 
 ---
 
@@ -1521,9 +1522,10 @@ These materials are treated as **scenario input**, not as a substitute for sourc
 
 Open the primary source, read it, and record the case with the format in `TEACHING-PROTOCOLS.md` P§2 before teaching from it.
 
-- Google Cloud incident report, 2025-06-12 (Service Control): recovery without randomized exponential backoff. Link in P§7. Unchecked.
-- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): evaluation of production quality. Link in P§7. Unchecked.
-- Possible further cases, named from memory and unchecked: Facebook's September 2010 outage; Slack's 2021-01-04 outage; Cloudflare's 2025-11-18 outage; AWS us-east-1 on 2025-10-20. Confirm each exists, read the postmortem, and discard any that do not fit a level.
+- Google Cloud incident report, 2025-06-12 (Service Control): recovery without randomized exponential backoff. Link: S10 in `RESOURCES.md`. Unchecked.
+- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): evaluation of production quality. Link: S9 in `RESOURCES.md`. Unchecked.
+- Possible further cases, named from memory and unchecked: Facebook's September 2010 outage; Slack's 2021-01-04 outage; AWS us-east-1 on 2025-10-20. Confirm each exists, read the postmortem, and discard any that do not fit a level.
+- Read and registered on 2026-10-14: Cloudflare's 2025-11-18 outage (S35) and its resilience plan (S36). Candidate levels: L4 (retry backlog after recovery), L5 and L8 (failure propagation, configuration pushed everywhere at once). S35 is a first-party account; S36 is a stated plan, not a measured outcome.
 - If fewer than five solid cases exist for a concept, say so and record the gap in `RESOURCES.md`.
 
 ---
