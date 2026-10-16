@@ -12,7 +12,7 @@
 
 **Supporting branch.** Opened from `fde-journey-map.md` (P0.2 baseline check, or when P9.6 exposes a gap) or when the user asks for production-incident diagnosis. It is not the default start of any other journey.
 
-*Revised 2026-10-09. This file says WHAT to learn. Teaching, assessment, and record rules are in `AGENTS.md`; templates in `TEACHING-PROTOCOLS.md`.*
+*Revised 2026-10-16. This file says WHAT to learn. Teaching, assessment, and record rules are in `AGENTS.md`; templates in `TEACHING-PROTOCOLS.md`.*
 
 - **Branch IDs:** `PERF-L0` … `PERF-L9`, plus the branch letter where one exists (`PERF-L2-C`). Use them when stating a session outcome.
 - **Evidence rule:** tick a Mastery box only when a learning record, a lab result, or a project file proves it, and write its reference beside the box.
