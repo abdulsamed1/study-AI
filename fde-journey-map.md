@@ -228,6 +228,8 @@ P3.1–P3.2 and P3.4–P3.7 (P3.3 is merged into P2.2; see its tombstone) are Ph
 
   **Proof:** at least one architecture fitness check that can be validated (automated, or a named manual verification method), plus a risk assessment listing the top assumptions from the P7.5b ADR, their potential impact, and the cheapest way to test each. Sources: S20 ch. 6 and 22; S41.
 
+- **P7.6 — Evolutionary architecture decisions: change cost and build-vs-buy** — **Priority:** important. Depends on: P7.5b, P7.5c. Treat the architecture as evolutionary: identify which decisions are expensive to reverse (the P7.5b ADR consequences) and schedule their re-evaluation against the P7.5c fitness and risk hooks. Then build-vs-buy: for each candidate capability — build, buy, or adopt open source — weigh fit to the recorded requirements, multi-year ownership cost (operations, upgrades, exit), lock-in, and differentiation. **Proof:** the P7.5b ADR extended with one explicit evolutionary decision (what will change, the trigger condition that forces re-evaluation), plus one build-vs-buy comparison whose costs state their assumptions. Revisit triggers are re-used by the P10.7 design review. Sources: S26 ch. 16 [TOC]; S38 ch. 15 [TOC]; S33.
+
 - **P7.5b — Fitness functions, risk analysis, architecture diagrams, and ADRs.** Tombstone: split into P7.5b (diagrams + ADRs) and P7.5c (fitness functions + risk analysis); the ADR stays in P7.5b.
 
 # Phase 8 — Integration and distributed-systems foundations
@@ -415,7 +417,7 @@ Every must-have unit is re-tested in a changed scenario by the named later unit,
 | **G2 — Can build a correct service** | HTTP contract with error model, validation, database schema, migration, provider contract sheet, integration tests, agent review record for one diff, quality-attribute table, architecture ADR with fitness check | Phases 4–7 |
 | **G3 — Understands failure and concurrency** | Idempotency, concurrency test, bounded retries, durable processing, outbox crash test, reconciliation replay | Phases 6–9 |
 | **G4 — Can reason about production** | CI/CD with rollback rehearsal, logs/metrics/traces, SLI computed from fault runs, incident analysis with stakeholder update, executed fault matrix and runbook | Phase 9 |
-| **G5 — Can choose and design an AI use case** | Option comparison including non-AI, system-design brief (requirements, capacity worksheet, diagrams, ADR with alternatives, failure/security risk matrix, validation plan), baseline | Phase 10 |
+| **G5 — Can choose and design an AI use case** | Option comparison including non-AI, system-design brief (requirements, capacity worksheet, diagrams, ADR with alternatives, failure/security risk matrix, validation plan), design review with go/adjust/stop (P10.7), baseline | Phase 10 |
 | **G6 — Can build an LLM application with context** | Validated model interface, measurable retrieval, explicit state and failure behavior | Phases 11–12 |
 | **G7 — Can control agent behavior** | Bounded tool use, permissions, stop conditions, recovery and approval paths | Phase 13 + Phase 15 |
 | **G8 — Can measure and secure quality** | Evaluation set/report, regression gate, threat model, adversarial tests, traces | Phases 14–15 |
@@ -501,7 +503,7 @@ Phase 3  [ ] P3.1 [ ] P3.2 [ ] P3.4 [ ] P3.5 [ ] P3.6 [ ] P3.7
 Phase 4  [ ] P4.1 [ ] P4.2 [ ] P4.3 [ ] P4.4 [ ] P4.5 [ ] P4.6 [ ] P4.7a [ ] P4.7b [ ] P4.8a [ ] P4.8b [ ] P4.9
 Phase 5  [ ] P5.1 [ ] P5.2 [ ] P5.3 [ ] P5.4 [ ] P5.5 [ ] P5.6 [ ] P5.7
 Phase 6  [ ] P6.1 [ ] P6.2 [ ] P6.3 [ ] P6.4 [ ] P6.5 [ ] P6.6
-Phase 7  [ ] P7.1 [ ] P7.2 [ ] P7.3 [ ] P7.4 [ ] P7.5a [ ] P7.5b [ ] P7.5c
+Phase 7  [ ] P7.1 [ ] P7.2 [ ] P7.3 [ ] P7.4 [ ] P7.5a [ ] P7.5b [ ] P7.5c [ ] P7.6
 Phase 8  [ ] P8.1 [ ] P8.2 [ ] P8.3 [ ] P8.4 [ ] P8.5 [ ] P8.6 [ ] P8.7
 Phase 9  [ ] P9.1 [ ] P9.2 [ ] P9.3 [ ] P9.4 [ ] P9.5 [ ] P9.6 [ ] P9.7
 Phase 10 [ ] P10.1 [ ] P10.2 [ ] P10.3 [ ] P10.4a [ ] P10.5 [ ] P10.6 [ ] P10.4b [ ] P10.4c [ ] P10.7
