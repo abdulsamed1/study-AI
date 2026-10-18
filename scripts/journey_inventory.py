@@ -223,7 +223,7 @@ def build_report() -> dict:
         for a, b in re.findall(r"(\d+)\s*[—–-]\s*(\d+)", g["phases"]):
             gate_phases.update(range(int(a), int(b) + 1))
 
-    retrieval_table = re.search(r"## 3\..*?Retrieval table.*?\n(\|.*?)(?:\n\n|\Z)", text, re.S)
+    retrieval_table = re.search(r"^#{2,6} ?Retrieval table\s*\n([^#]*?)(?:\n#+ |\Z)", text, re.M | re.S)
     retrieval_ids: set[str] = set()
     if retrieval_table:
         retrieval_ids = {x for x in re.findall(r"\bP\d+\.\d+[a-z]?\b", retrieval_table.group(1))}
@@ -363,10 +363,10 @@ def probe_report(text: str, rep: dict) -> list[dict]:
     add("D5 P9.7 retitled", "backups" not in blocks.get("P9.7", "P9.7").lower() if "P9.7" in blocks else "P9.7" in tomb,
         "title no longer claims backups")
     # F: one failure-matrix template, reuse elsewhere
-    add("F template in P6.4", has("P6.4", "failure, detection, containment, recovery, owner"),
+    add("F template in P6.4", has("P6.4", "containment | recovery | owner"),
         "template defined in P6.4")
-    for reuse_unit in ("P8.1", "P9.7", "P16.1"):
-        add(f"F {reuse_unit} reuse", has(reuse_unit, "reuse"), f"{reuse_unit} says reuse + delta")
+    for reuse_unit in ("P8.1", "P9.7", "P16.1", "P10.4c", "P4.8b"):
+        add(f"F {reuse_unit} reuse", has(reuse_unit, "reus"), f"{reuse_unit} says reuse + delta")
     # A: coupled-with semantics documented
     add("A Coupled with documented", "Coupled with" in text, "field documented in section 3")
     # E: retrieval table exists
