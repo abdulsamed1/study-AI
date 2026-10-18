@@ -391,12 +391,20 @@ def probe_report(text: str, rep: dict) -> list[dict]:
 
 def violations(rep: dict) -> list[str]:
     v: list[str] = []
-    for key in ("phase_numbering_gaps", "duplicate_ids", "cycles", "unknown_dependency_refs",
+    # A phase-numbering gap is expected when the "missing" ID is a tombstone
+    # (it was merged or split and the ledger was updated on purpose).
+    tomb_ids = {t["id"] for t in rep.get("tombstones", [])}
+    numbered = [g for g in rep["phase_numbering_gaps"]
+                if not any(t in g for t in tomb_ids)]
+    if numbered:
+        v.append(f"phase_numbering_gaps: {numbered}")
+    for key in ("duplicate_ids", "cycles", "unknown_dependency_refs",
                 "coupled_with_missing_targets", "units_without_priority", "units_without_source",
                 "units_without_exactly_one_proof", "ledger_missing", "ledger_extra",
                 "ledger_duplicates", "phases_without_gate", "must_have_without_retrieval_entry",
                 "sources_cited_not_registered"):
-        if rep[key]:
+        val = rep[key]
+        if val:
             v.append(f"{key}: {rep[key]}")
     if rep["forward_dependencies_by_file_order"]:
         v.append(f"forward_dependencies_by_file_order: {rep['forward_dependencies_by_file_order']}")
