@@ -143,7 +143,7 @@ is opened and checked. Do not cite a person or organization by name alone.
 - Postman, *API Security Best Practices* (https://blog.postman.com/api-security-best-practices/; dated 2026-02-19 in the learner's list). Not opened; at most a secondary checklist, never a substitute for S39, OWASP, or primary platform documentation.
 - Cloudflare API Shield, BOLA vulnerability detection (https://developers.cloudflare.com/api-shield/security/bola-vulnerability-detection/; updated 2026-09-29 in the learner's list). Not opened; product-specific, so separate Cloudflare's detection description from general authorization-testing requirements.
 - Stripe's AI-benchmark repository (https://github.com/stripe/ai/tree/main/benchmarks), described in S37. Not opened.
-- OpenAPI Specification 3.1 (https://spec.openapis.org/oas/v3.1.0; JSON Schema 2020-12 dialect): lead for P4.6's machine-readable contract work and the P4.8a contract-sheet claims; not opened.
+- OpenAPI Specification 3.1 (https://spec.openapis.org/oas/v3.1.0; JSON Schema 2020-12 dialect): lead for P4.3's contract-source-of-truth artifact (one machine-readable contract document) and the P4.8a contract-sheet claims; not opened.
 - roadmap.sh pages for API security best practices, backend, software architect, and forward deployed engineer: all four were opened 2026-10-14. They render their skill nodes client-side and the fetched text contained none (only page descriptions and, on the Backend page, introductory prose), so no skill cluster could be extracted and none is registered as a source.
 - Additional high-signal leads may be added only as links to specific articles,
   talks, papers, repos, or course pages; generic names and broad lists are not
