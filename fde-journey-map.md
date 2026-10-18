@@ -425,12 +425,15 @@ The following IDs are defined in `RESOURCES.md`; consult that file for publisher
 
 ### Known source gaps — keep visible
 
-- RAG failure taxonomy: adopted Barnett et al. 2024 (FP1–FP7) for P12.5; the residual gap is chunking/embedding/reranking tuning depth, still flagged in `RESOURCES.md`.
-- `RESOURCES.md` still flags a suitable primary tutorial on statistical uncertainty for LLM evaluation as missing; P14.3 uses the labeled interim protocol.
-- Agent tool-misuse: EchoLeak (CVE-2025-32711) is verified for casebook use; further incidents named in the OWASP Agentic 2026 announcement remain leads until their primaries are opened.
-- Webhook signature verification and raw-body handling (P8.4): no verified provider source yet; the provider documentation leads in `RESOURCES.md` are unopened.
-- Human-in-the-loop practice (rule 12): S40 and S41 are qualitative vendor and practitioner material and S37 is a small vendor benchmark. None measures the effect of a review practice, so teach the requirements as engineering judgment, not as proven effect sizes.
-- For any topic whose supporting source is not verified, the lesson must label it as a research gap and avoid stating it as established fact.
+Full entries live in the RESOURCES.md coverage gaps list, kept current there; this map records only what each gap costs in a lesson:
+
+- RAG chunking/embedding/reranking tuning depth: P12.5 stays at failure-taxonomy depth (Barnett et al. FP1–FP7); tuning claims are labeled as research gaps, not facts.
+- Statistical-uncertainty tutorial for LLM evaluation: P14.3 teaches from the labeled interim protocol only; it does not cite an unverified source as established.
+- Agent tool-misuse incidents: Phase 13/15 use verified EchoLeak (CVE-2025-32711); every other named incident stays a casebook lead until its primary is opened.
+- Webhook signature verification and raw-body handling (P8.4): the unit's rules stand on F4/S39 general guidance and are labeled provider-unverified until a primary source is opened.
+- Human-in-the-loop practice: S40/S41/S37 are qualitative; teach review requirements as engineering judgment, not as measured effect sizes.
+
+For any topic whose supporting source is not verified, the lesson labels it as a research gap and never states it as established fact.
 
 ## 8. Progress ledger template
 
