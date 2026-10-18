@@ -369,6 +369,7 @@ Every must-have unit is re-tested in a changed scenario by the named later unit,
 | P4.7a | P17.2 | Extend an existing vertical slice with a contract change and keep its tests honest. |
 | P4.7b | P9.7 | Trigger each fault mode of the shared harness during a full degradation drill. |
 | P4.8a | P13.5 | Onboard an MCP server like a third-party provider: document its guarantees, tag documented/observed/unknown. |
+| P4.9 | P13.2 | Re-check the tool/agent authorization reasoning against the issuance role matrix you built. |
 | P4.8b | P13.5 | Drive a token lifecycle against a server whose documented auth differs from its observed behavior. |
 | P5.2 | P8.7 | Write the reconciliation query that finds divergent aggregates across two stores. |
 | P5.3 | P6.1 | Decide which invariant is enforced by a constraint and which must live inside the transaction. |
