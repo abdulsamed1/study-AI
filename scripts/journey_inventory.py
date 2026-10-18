@@ -42,7 +42,7 @@ PROOF_FIELD = re.compile(r"\*\*(Proof|Artifact):\*\*")
 TOMBSTONE = re.compile(r"merged into|split into", re.I)
 INTERNAL_REFS = ("AGENTS.md", "EVIDENCE.md", "RESOURCES.md",
                  "production-performance-incident-study-map.md", "TEACHING-PROTOCOLS.md")
-AUTHOR_NAMES = ["Barnett", "Aim Labs", "Seven Failure Points", "EchoLeak", "Kleppmann",
+AUTHOR_NAMES = ["Barnett", "Aim Labs", "Seven Failure Points", "Kleppmann",
                 "Richards", "Ford", "Newman", "Vitillo", "Burns", "Gorton", "Sadalage",
                 "Dehghani", "Dahl", "arXiv"]
 STOPWORDS = {"the", "a", "an", "and", "or", "to", "of", "in", "for", "with", "is", "are",
