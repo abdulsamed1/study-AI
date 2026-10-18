@@ -380,8 +380,8 @@ def probe_report(text: str, rep: dict) -> list[dict]:
     # D10: text dedupe
     n_python = len(re.findall(r"\bPython\b", text))
     add("G/H Python statements <=5", n_python <= 5, f"count={n_python}")
-    s22_full = len(re.findall(r"2026-10-31|2026-11-30", text))
-    add("H S22 full note once", s22_full <= 1, f"platform dates occurrences={s22_full}")
+    s22_full = sum(1 for ln in text.splitlines() if re.search(r"2026-10-31|2026-11-30", ln))
+    add("H S22 full note once", s22_full <= 1, f"note lines={s22_full}")
     add("I gaps -> RESOURCES pointer", "RESOURCES.md coverage gaps" in text, "section 7 points to RESOURCES.md")
     # J: IDs instead of author names
     names = [c for c in rep["units_with_author_names"]]
