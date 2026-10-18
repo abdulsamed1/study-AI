@@ -347,6 +347,56 @@ P3.1–P3.2 and P3.4–P3.7 (P3.3 is merged into P2.2; see its tombstone) are Ph
 
 ---
 
+#### Retrieval table
+
+Every must-have unit is re-tested in a changed scenario by the named later unit, per `TEACHING-PROTOCOLS.md` §5 (retrieval and spacing). No per-unit Retrieval field is written in the unit lines; this table is the single definition.
+
+| Unit | Re-tested by | Changed-scenario prompt |
+|---|---|---|
+| P0.2 | P2.1 | Re-run the baseline check against the new capstone repo before writing the language ADR. |
+| P0.3 | P10.1 | Re-frame the problem brief for a second, real workflow; declare baseline and constraints again from scratch. |
+| P1.2 | P9.2 | Prepare a hotfix release: branching, history, and revert decisions under release pressure. |
+| P1.3 | P4.7a | Read an unfamiliar change in the capstone repo and predict its blast radius before running it. |
+| P2.2 | P11.3 | Treat an untrusted model response as data entering a trust boundary; validate and reject poisoned fields. |
+| P2.3 | P3.6 | Propagate cancellation through the async contract and prove no work outlives its request. |
+| P3.4 | P17.2 | Reproduce the capstone slice from a lockfile and scripts with no oral context. |
+| P3.5 | P9.6 | From live runtime evidence, find a blocking operation that throttles concurrency in the running service. |
+| P3.6 | P8.5 | Kill a worker mid-task and account for every in-flight resource of the at-least-once queue. |
+| P4.4 | P13.2 | Design tool permissions: who may call the tool, scoped to what; test allowed and denied calls. |
+| P4.5 | P8.3 | Apply a budget to a retry policy and explain which outcomes stay client-retryable. |
+| P4.6 | P8.6 | Evolve an API contract without breaking the dual-write/outbox consumers. |
+| P4.7a | P17.2 | Extend an existing vertical slice with a contract change and keep its tests honest. |
+| P4.7b | P9.7 | Trigger each fault mode of the shared harness during a full degradation drill. |
+| P4.8a | P13.5 | Onboard an MCP server like a third-party provider: document its guarantees, tag documented/observed/unknown. |
+| P4.8b | P13.5 | Drive a token lifecycle against a server whose documented auth differs from its observed behavior. |
+| P5.2 | P8.7 | Write the reconciliation query that finds divergent aggregates across two stores. |
+| P5.3 | P6.1 | Decide which invariant is enforced by a constraint and which must live inside the transaction. |
+| P5.5 | P16.3 | Schedule a schema migration inside a progressive rollout with rollback criteria. |
+| P5.6 | P8.7 | Diagnose an application-level data divergence: code bug or data drift; prove which. |
+| P6.1 | P8.6 | Redraw transaction boundaries so the outbox write and the state change commit atomically. |
+| P6.5 | P8.5 | Explain where measured time comes from, and what duplicates an event delivered at a scaling edge. |
+| P7.2 | P14.1 | Build adversarial evaluation cases from requirements the way representative tests were built. |
+| P7.3 | P14.2 | Choose graders for the model pipeline exactly as test doubles were chosen: what is faked, what is not. |
+| P7.4 | P17.2 | Refactor a slice after agent-written changes and defend the diff in a review record. |
+| P8.2 | P13.2 | Make every tool invocation idempotent, including retries by the model's caller. |
+| P8.3 | P11.4 | Honor provider rate limits and budget a model call like a dependency call. |
+| P8.4 | P13.4 | Accept an event you did not design: signature, ordering, and replay against your receiver contract. |
+| P8.5 | P13.4 | Route external events through the worker pipeline preserving at-least-once delivery. |
+| P8.6 | P17.2 | Investigate a slice's partial write: which side committed, and how the saga compensates. |
+| P8.7 | P16.3 | Decide the rollout's verification step: which state the reconciliation loop must reach before expanding. |
+| P9.2 | P16.3 | Roll back a deployed pilot using the established release workflow. |
+| P9.3 | P17.3 | Walk a stakeholder through one trace from the evidence pack, tying log to span to business step. |
+| P9.4 | P16.5 | Report the pilot: which SLI moved, whether the error budget survived, and what did not get measured. |
+| P9.7 | P17.2 | Keep a degraded slice serving within stated limits while the failure is fixed. |
+| P11.2 | P14.1 | Explain an evaluation failure through the raw request/response metadata, not through folklore. |
+| P14.1 | P17.3 | Defend the provenance of every case in the evidence pack's evaluation report. |
+| P14.4 | P17.3 | Show which regression gate each capstone change passed and why it was set at that threshold. |
+| P15.1 | P15.2 | Model a new adversary (the model itself is untrusted) against the updated trust boundaries. |
+| P17.1 | P17.2 | Justify the slice order of the chosen workflow when scope pressure cuts the timeline in half. |
+| P17.2 | P17.3 | Assemble the evidence pack per slice, using the review records and traces produced along the way. |
+| P17.3 | P17.4 | Defend the evidence pack against a hostile reviewer who discounts one line of evidence. |
+| P17.4 | capstone debrief | Re-run the decision defense in a changed scenario (new constraint, new failure) after the debrief. |
+
 ## 4. Phase gates: proof before progression
 
 | Gate | Required proof | Lessons generally involved |
