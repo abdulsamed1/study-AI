@@ -98,7 +98,8 @@ def parse_units(text: str) -> tuple[list[dict], list[dict]]:
         if head_stop:
             block = block[:head_stop.start()]
         body = block
-        if TOMBSTONE.search(title):
+        first_line = block.splitlines()[0]
+        if TOMBSTONE.search(title) or TOMBSTONE.search(block[:300]):
             tombstones.append({"id": unit_id, "title": title.strip()})
             continue
         pm = PRIORITY.search(body)

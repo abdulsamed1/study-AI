@@ -216,16 +216,23 @@ labs need: typing, async, validation, packaging, and logging.
 
   **Proof:** a quality-attribute table for a realistic scenario, with at least three attributes that have measurable targets and named measurement methods; and a written comparison of at least two plausible architecture styles (including the simplest adequate option) against the identified attributes, with explicit trade-offs. Sources: S20 ch. 4–6, 11, and 19 (read) and ch. 7, 9 [TOC]; S26 ch. 2–3; S38 ch. 2–5 and 7 [TOC]; S19 ch. 1–2; S33; S41.
 
-- **P7.5b — Fitness functions, risk analysis, architecture diagrams, and ADRs** — **Priority:** important. Depends on: P7.5a. Validate and record an architecture decision so it can be checked, communicated, and revisited. The unit covers four connected skills:
+- **P7.5b — Architecture diagrams and architectural decision records** — **Priority:** important. Depends on: P7.5a. Record an architecture decision so it can be checked, communicated, and revisited, before any AI coding agent implements it. The unit covers two connected skills:
+
+  1. **Architecture diagrams:** select the appropriate level of detail and communicate system context, components, dependencies, and important runtime interactions without creating misleading diagrams. Use the C4 model's abstraction hierarchy (system context → container → component) as a practical default; other notations are acceptable when they serve the same purpose. Source-backed: S20 ch. 23 (diagramming architecture); S42 (C4 model: abstractions, diagrams, notation, review checklist).
+  2. **Decision records:** record the context, requirements identified in P7.5a, plausible alternatives, constraints, rationale, consequences, risks, and conditions for revisiting a decision. The ADR must be written before any AI coding agent implements the chosen design. Source-backed: S20 ch. 21 (architectural decisions); S38 ch. 1 and 15 [TOC] (trade-off analysis and ADRs).
+
+  The architecture decision exercise must compare at least three plausible options, including the simplest adequate option and a meaningful comparison between an in-process modular boundary and a separately deployed alternative. Quality attributes must have measurable targets from P7.5a. Constraints, consequences, unresolved risks, and conditions that would trigger reconsideration are recorded. This ADR is the one later design units reuse — P10.4a/b/c extend it rather than producing a second three-option exercise.
+
+  **Proof:** an ADR written before any agent implements the chosen option, comparing at least three options (including simplest adequate and modular-monolith vs. separately deployed), plus appropriately scoped architecture diagrams (at minimum a context diagram and a component/container diagram). Compare any vendor guidance used (S33) with the books before adopting it. Sources: S20 ch. 19, 21, 23; S38 ch. 1 and 15 [TOC]; S42; S33; S41.
+
+- **P7.5c — Fitness functions and architecture risk analysis** — **Priority:** important. Depends on: P7.5a, P7.5b. Validate the decision recorded in P7.5b so its most important constraints stay observable and its risks are honest. The unit covers two connected skills:
 
   1. **Fitness functions and governance:** show how a valuable architectural constraint can be checked automatically or monitored consistently — for example, a dependency-direction check (extending P7.1's proof), a response-time budget in CI, or a module-coupling metric. The point is not to automate everything but to make the most important constraints observable. Source-backed: S20 ch. 6 (measuring and governing architecture characteristics, fitness functions).
   2. **Architecture risk analysis:** identify risky assumptions, expensive-to-reverse decisions, unknown failure modes, and the cheapest practical way to validate them before committing. Source-backed: S20 ch. 22 (analyzing architecture risk).
-  3. **Architecture diagrams:** select the appropriate level of detail and communicate system context, components, dependencies, and important runtime interactions without creating misleading diagrams. Use the C4 model's abstraction hierarchy (system context → container → component) as a practical default; other notations are acceptable when they serve the same purpose. Source-backed: S20 ch. 23 (diagramming architecture); S42 (C4 model: abstractions, diagrams, notation, review checklist).
-  4. **Decision records:** record the context, requirements identified in P7.5a, plausible alternatives, constraints, rationale, consequences, risks, and conditions for revisiting a decision. The ADR must be written before any AI coding agent implements the chosen design. Source-backed: S20 ch. 21 (architectural decisions); S38 ch. 1 and 15 [TOC] (trade-off analysis and ADRs).
 
-  The architecture decision exercise must compare at least three plausible options, including the simplest adequate option and a meaningful comparison between an in-process modular boundary and a separately deployed alternative. Quality attributes must have measurable targets from P7.5a. Constraints, consequences, unresolved risks, and conditions that would trigger reconsideration are recorded.
+  **Proof:** at least one architecture fitness check that can be validated (automated, or a named manual verification method), plus a risk assessment listing the top assumptions from the P7.5b ADR, their potential impact, and the cheapest way to test each. Sources: S20 ch. 6 and 22; S41.
 
-  **Proof:** an ADR written before any agent implements the chosen option, comparing at least three options (including simplest adequate and modular-monolith vs. separately deployed); appropriately scoped architecture diagrams (at minimum a context diagram and a component/container diagram); at least one architecture fitness check that can be validated (automated or with a named manual verification method); and a risk assessment listing the top assumptions, their potential impact, and the cheapest way to test each. Compare any vendor guidance used (S33) with the books before adopting it. Sources: S20 ch. 6, 19, 21–23; S38 ch. 1 and 15 [TOC]; S42; S33; S41.
+- **P7.5b — Fitness functions, risk analysis, architecture diagrams, and ADRs.** Tombstone: split into P7.5b (diagrams + ADRs) and P7.5c (fitness functions + risk analysis); the ADR stays in P7.5b.
 
 # Phase 8 — Integration and distributed-systems foundations
 
@@ -439,7 +446,7 @@ Phase 3  [ ] P3.1 [ ] P3.2 [ ] P3.4 [ ] P3.5 [ ] P3.6 [ ] P3.7
 Phase 4  [ ] P4.1 [ ] P4.2 [ ] P4.3 [ ] P4.4 [ ] P4.5 [ ] P4.6 [ ] P4.7a [ ] P4.7b [ ] P4.8a [ ] P4.8b
 Phase 5  [ ] P5.1 [ ] P5.2 [ ] P5.3 [ ] P5.4 [ ] P5.5 [ ] P5.6 [ ] P5.7
 Phase 6  [ ] P6.1 [ ] P6.2 [ ] P6.3 [ ] P6.4 [ ] P6.5 [ ] P6.6
-Phase 7  [ ] P7.1 [ ] P7.2 [ ] P7.3 [ ] P7.4 [ ] P7.5a [ ] P7.5b
+Phase 7  [ ] P7.1 [ ] P7.2 [ ] P7.3 [ ] P7.4 [ ] P7.5a [ ] P7.5b [ ] P7.5c
 Phase 8  [ ] P8.1 [ ] P8.2 [ ] P8.3 [ ] P8.4 [ ] P8.5 [ ] P8.6 [ ] P8.7
 Phase 9  [ ] P9.1 [ ] P9.2 [ ] P9.3 [ ] P9.4 [ ] P9.5 [ ] P9.6 [ ] P9.7
 Phase 10 [ ] P10.1 [ ] P10.2 [ ] P10.3 [ ] P10.4
