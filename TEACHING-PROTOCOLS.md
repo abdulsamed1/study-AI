@@ -172,6 +172,13 @@ library into every lesson. Prepare one realistic scenario, one retrieval
 question per part, and one final practice task. Label lesson text as
 Source-backed fact, Mentor synthesis, or Practice.
 
+Decide the unit's working mode before preparing the practice task, and record
+it with the lesson: (1) the learner writes and debugs the code; (2) the
+learner specifies the work and reviews agent-produced code; (3) delegated
+implementation combined with a learner-designed experiment and independent
+verification. Follow the active journey's rules on human-in-the-loop
+engineering and on hand-writing versus review; do not restate them here.
+
 ### Tool import and export
 
 The minimum shared file set is:
