@@ -386,7 +386,7 @@ Every must-have unit is re-tested in a changed scenario by the named later unit,
 | P4.7a | P17.2 | Extend an existing vertical slice with a contract change and keep its tests honest. |
 | P4.7b | P9.7 | Trigger each fault mode of the shared harness during a full degradation drill. |
 | P4.8a | P13.5 | Onboard an MCP server like a third-party provider: document its guarantees, tag documented/observed/unknown. |
-| P4.9 | P13.2 | Re-check the tool/agent authorization reasoning against the issuance role matrix you built. |
+| P4.9 | P15.3 | Audit the role matrix you issued against a least-privilege policy: for each role, name the actions the policy should deny and show your matrix denies them (issuance side, not tool-consumption side). |
 | P4.8b | P13.5 | Drive a token lifecycle against a server whose documented auth differs from its observed behavior. |
 | P5.2 | P8.7 | Write the reconciliation query that finds divergent aggregates across two stores. |
 | P5.3 | P6.1 | Decide which invariant is enforced by a constraint and which must live inside the transaction. |
@@ -400,7 +400,7 @@ Every must-have unit is re-tested in a changed scenario by the named later unit,
 | P8.2 | P13.2 | Make every tool invocation idempotent, including retries by the model's caller. |
 | P8.3 | P11.4 | Honor provider rate limits and budget a model call like a dependency call. |
 | P8.4 | P13.4 | Accept an event you did not design: signature, ordering, and replay against your receiver contract. |
-| P8.5 | P13.4 | Route external events through the worker pipeline preserving at-least-once delivery. |
+| P8.5 | P16.1 | Contain a failing AI dependency while the worker keeps delivering without duplicate business effects — what the at-least-once queue guarantees under the containment policy. |
 | P8.6 | P17.2 | Investigate a slice's partial write: which side committed, and how the saga compensates. |
 | P8.7 | P16.3 | Decide the rollout's verification step: which state the reconciliation loop must reach before expanding. |
 | P9.2 | P16.3 | Roll back a deployed pilot using the established release workflow. |
