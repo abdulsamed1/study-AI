@@ -391,6 +391,74 @@ def probe_report(text: str, rep: dict) -> list[dict]:
     # J: IDs instead of author names
     names = [c for c in rep["units_with_author_names"]]
     add("J no author-name citations", not names, str(names))
+    # W6: forward P-ID references inside a unit body (later unit named before it is taught)
+    # Deliberate cases are listed with a reason; Coupled-with mentions and explicit
+    # revisit phrasings ("revisited in", "re-tested by") are exempt by design.
+    allowed_forward = {
+        "P0.3": {"P10.3": "division of labor: this unit declares the baseline, P10.3 plans its collection",
+                 "P16.5": "division of labor: P16.5 reports the measured before/after"},
+        "P2.1": {"P11.2": "stack split: Python enters the journey later, at P11.2"},
+        "P2.3": {"P3.6": "runtime/leak evidence is deliberately proved in the next phase (P3.6), not here"},
+        "P2.5": {"P4.8a": "names the later check that would falsify the mock's assumptions",
+                 "P14.1": "names the later check that would falsify the mock's assumptions"},
+        "P3.7": {"P11.2": "closing note of Phase 3: these capabilities re-appear only through P11.2's later carry-over"},
+        "P4.4": {"P4.9": "division of labor inside Phase 4: P4.4 consumes credentials, P4.9 issues them"},
+        "P4.5": {"P8.3": "client-side retry decision here; budget, backoff, and jitter mechanics are taught once later in P8.3"},
+        "P5.7": {"P9.7": "data-level restore here; P9.7 reuses this proof inside its service-level drills"},
+        "P10.3": {"P16.5": "division of labor: this unit plans collection, P16.5 reports"},
+        "P11.3": {"P11.5": "the versioning rule is owned by P11.5; P11.3 names it as the rule that invalidates recorded behavior"},
+        "P3.4": {"P3.7": "P3.4 defers configuration and secrets to P3.7, the next unit in the same phase"},
+        "P8.3": {"P10.5": "the overload-control boundary is named so the learner does not teach server-side quotas in the client unit"},
+        "P12.6": {"P14.3": "the statistics caveat is stated once in P14.3 by design; P12.6 applies it without depending on Phase 14"},
+    }
+    order = {uid: i for i, uid in enumerate(rep["ids_in_file_order"])}
+    revisit_markers = ("revisited in", "re-tested by", "revisits", "revisited by")
+    fwd_hits = []
+    for uid, block in blocks.items():
+        if uid not in order:
+            continue
+        coupled_seg = ""
+        m = re.search(r"Coupled with:", block)
+        if m:
+            tail = block[m.end():]
+            depth = 0
+            end = len(tail)
+            for i, ch in enumerate(tail):
+                if ch == "(":
+                    depth += 1
+                elif ch == ")":
+                    depth -= 1
+                elif ch == "." and depth <= 0 and (i + 1 >= len(tail) or tail[i + 1] in " \n"):
+                    end = i
+                    break
+            coupled_seg = tail[:end]
+        body = block
+        for token in set(re.findall(r"\bP\d+\.\d+[a-z]?\b", body)):
+            if token == uid or token not in order:
+                continue
+            if order[token] <= order[uid]:
+                continue
+            pos = body.find(token)
+            ctx_text = (body[max(0, pos - 150):pos + 150] if pos != -1 else token).strip()
+            if token in coupled_seg:
+                fwd_hits.append({"unit": uid, "ref": token, "kind": "coupled", "verdict": "exempt: coupled-with",
+                                 "context": ctx_text[:160]})
+                continue
+            low = ctx_text.lower()
+            if any(mk in low for mk in revisit_markers):
+                fwd_hits.append({"unit": uid, "ref": token, "kind": "revisit", "verdict": "exempt: explicit revisit",
+                                 "context": ctx_text[:160]})
+                continue
+            documented = allowed_forward.get(uid, {})
+            if token in documented:
+                fwd_hits.append({"unit": uid, "ref": token, "kind": "documented", "verdict": "deliberate: " + documented[token],
+                                 "context": ctx_text[:160]})
+                continue
+            fwd_hits.append({"unit": uid, "ref": token, "kind": "real", "verdict": "REAL forward reference — fix or document",
+                             "context": ctx_text[:160]})
+    rep["forward_pid_references"] = fwd_hits
+    rep["forward_pid_real"] = [h for h in fwd_hits if h["kind"] == "real"]
+
     return probes
 
 
@@ -411,6 +479,8 @@ def violations(rep: dict) -> list[str]:
         val = rep[key]
         if val:
             v.append(f"{key}: {rep[key]}")
+    if rep["forward_pid_real"]:
+        v.append(f"forward_pid_real: {rep['forward_pid_real']}")
     if rep["forward_dependencies_by_file_order"]:
         v.append(f"forward_dependencies_by_file_order: {rep['forward_dependencies_by_file_order']}")
     if rep["units_with_author_names"]:
@@ -470,6 +540,12 @@ def main() -> int:
     print("  -- decision probes --")
     for p in rep["probe_report"]:
         print(f"    {p['result']:4} {p['probe']}  ({p['detail']})")
+    print("  -- forward P-ID references in unit bodies --")
+    for h in rep["forward_pid_references"]:
+        print(f"    {h['kind']:10} {h['unit']} -> {h['ref']}  {h['verdict']}")
+        print(f"               {h['context']}")
+    if not rep["forward_pid_references"]:
+        print("    none")
     return 1 if (args.strict and v) else 0
 
 
