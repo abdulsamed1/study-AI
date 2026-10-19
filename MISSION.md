@@ -15,7 +15,7 @@ Get hired as an FDE by being able to show one real, evaluated, secured, deployed
 
 ## Constraints
 
-- I do not edit files by hand: in ChatGPT Project, progress lives in the Project's own memory (see `AGENTS.md` section 3).
+- I do not edit project files by hand: in ChatGPT Project, progress lives in the Project's own memory (see `AGENTS.md` section 3). Writing code by hand as a learning exercise is a separate decision, made per lesson under the journey's hand-writing versus review rule.
 - Explanations in simple English; technical terms.
 - current baseline: set in session 1.
 
