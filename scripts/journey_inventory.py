@@ -363,11 +363,16 @@ def probe_report(text: str, rep: dict) -> list[dict]:
     add("D4 P8.3 references P4.5", has("P8.3", "P4.5"), "P8.3 -> P4.5 boundary")
     add("D5 P9.7 retitled", "backups" not in blocks.get("P9.7", "P9.7").lower() if "P9.7" in blocks else "P9.7" in tomb,
         "title no longer claims backups")
-    # F: one failure-matrix template, reuse elsewhere
-    add("F template in P6.4", has("P6.4", "containment | recovery | owner"),
-        "template defined in P6.4")
-    for reuse_unit in ("P8.1", "P9.7", "P16.1", "P10.4c", "P4.8b"):
-        add(f"F {reuse_unit} reuse", has(reuse_unit, "reus"), f"{reuse_unit} says reuse + delta")
+    # F: one failure-matrix template, defined in section 3, reused by its users
+    sec3 = re.search(r"^#{2,6} ?Artifact templates\s*\n(.*?)(?=^#{2,6} |\Z)", text, re.M | re.S)
+    sec3_text = sec3.group(1) if sec3 else ""
+    add("F template in section 3", "failure | detection | containment | recovery | owner" in sec3_text,
+        "failure-matrix template defined in the Artifact templates subsection")
+    for reuse_unit in ("P4.8b", "P6.4", "P8.1", "P9.7", "P10.4c", "P10.8", "P16.1"):
+        add(f"F {reuse_unit} reuse", has(reuse_unit, "failure-matrix template"),
+            f"{reuse_unit} uses the section 3 failure-matrix template")
+    add("F no unit owns the template", "P6.4 template" not in text and "P6.4 failure template" not in text,
+        "no unit text claims to own the template")
     # A: coupled-with semantics documented
     add("A Coupled with documented", "Coupled with" in text, "field documented in section 3")
     # E: retrieval table exists
