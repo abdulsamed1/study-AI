@@ -19,7 +19,7 @@
 - Adoption and measuring business impact
 - Reviewing AI-produced code with verified findings, independent verification, and a recorded accept, reject, or redirect decision (P1.3, P7.2–P7.4)
 - Choosing what to implement manually and what to delegate, stating the reason for the choice, and then explaining, modifying, or debugging the delegated result without the agent (journey rule 11; P4.7a, P7.4, P17.2, P17.4)
-- Integration failure testing against a controllable stub provider: duplicate, out-of-order, timeout-after-commit, expired credentials, schema drift (P4.7, P4.8, P8.2–P8.4)
+- Integration failure testing against a controllable stub provider: duplicate, out-of-order, timeout-after-commit, expired credentials, schema drift (P4.7b, P4.8a–P4.8b, P8.2–P8.4)
 - Transactional outbox crash test and reconciliation replay (P8.6–P8.7)
 - Migration rollback rehearsal and an expand → backfill → contract change (P5.5, P9.2)
 - Node.js runtime diagnosis: event-loop blocking, resource growth, bounded shutdown (P3.5–P3.6)

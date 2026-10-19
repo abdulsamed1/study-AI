@@ -1223,7 +1223,7 @@ Use this before proposing a fix in a real incident.
 
 # Labs — Learn by Breaking and Measuring
 
-The project should have a small repeatable lab environment where the same API can be subjected to different failure modes. Run it as the TypeScript/Node.js capstone service plus the P4.7 stub provider; Lab 8's stub model service may be written in Python where the AI lessons require it. When an agent wrote the code under test, state the hypothesis and the measurement before reading the code (journey rule 12).
+The project should have a small repeatable lab environment where the same API can be subjected to different failure modes. Run it as the TypeScript/Node.js capstone service plus the P4.7b stub provider; Lab 8's stub model service may be written in Python where the AI lessons require it. When an agent wrote the code under test, state the hypothesis and the measurement before reading the code (journey rule 10 and P9.3's proof).
 
 ## Lab 1 — CPU inefficiency
 
