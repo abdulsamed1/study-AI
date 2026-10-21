@@ -26,4 +26,4 @@
 ## Gaps
 
 - No single resource covers blockchain-specific system design well. Will supplement with domain knowledge from the user's blockchain background when relevant (e.g., distributed ledgers, consensus, on-chain vs off-chain).
-- Lessons are in English only, in simple English for the learner (level B1/A2); confirmed by the user 2026-10-21.
+- Lessons are in English only, in simple English for the learner (level B1/B2); confirmed by the user 2026-10-21.
