@@ -41,7 +41,7 @@ One mission per workspace. Push back on vagueness: interview before writing. Kee
     ## Coverage gaps
     - <area the mission needs where no good source exists yet>
 
-Rules: annotate every entry; surface gaps explicitly; prune sources that prove shallow or wrong; record if the user opted out of communities. Source tiers are in `AGENTS.md` section 10; books named by a journey are Tier 1 for the concepts they cover (cite the chapter).
+Rules: annotate every entry; surface gaps explicitly; prune sources that prove shallow or wrong; record if the user opted out of communities. Source tiers are in `AGENTS.md` section 9; books named by a journey are Tier 1 for the concepts they cover (cite the chapter).
 
 **GLOSSARY.md**
 

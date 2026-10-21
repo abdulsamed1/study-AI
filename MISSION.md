@@ -4,7 +4,7 @@
 
 ## Why
 
-Get hired as an FDE by being able to show one real, evaluated, secured, deployed, and handed-over agentic system, and by being able to defend every design decision in it. The role standard is in `AGENTS.md` section 2.
+Get hired as an FDE by being able to show one real, evaluated, secured, deployed, and handed-over agentic system, and by being able to defend every design decision in it. The role standard is in `AGENTS.md` section 1.
 
 ## Success looks like
 
@@ -15,7 +15,7 @@ Get hired as an FDE by being able to show one real, evaluated, secured, deployed
 
 ## Constraints
 
-- I do not edit project files by hand: in ChatGPT Project, progress lives in the Project's own memory (see `AGENTS.md` section 3). Writing code by hand as a learning exercise is a separate decision, made per lesson under the journey's hand-writing versus review rule.
+- I do not edit project files by hand: in ChatGPT Project, progress lives in the Project's own memory (see `AGENTS.md` section 2). Writing code by hand as a learning exercise is a separate decision, made per lesson under the journey's hand-writing versus review rule.
 - Explanations in simple English; technical terms.
 - current baseline: set in session 1.
 
