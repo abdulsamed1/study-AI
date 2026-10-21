@@ -12,8 +12,9 @@ Field semantics (see fde-journey-map.md section 3):
   Coupled with   non-blocking relationship; may point either direction
 
 Checks: cycles, forward dependencies by FILE ORDER, unknown or missing IDs,
-Coupled-with targets, priority/source presence, exactly one primary proof,
-ledger == unit list, gate coverage, retrieval-table coverage, oversized units,
+live/tombstone ID collisions, Coupled-with targets, priority/source presence,
+exactly one primary proof, ledger == unit list, gate coverage,
+retrieval-table coverage, oversized units,
 [TOC] vs (read) counts, author-name citations that should be S#/F# IDs, and
 near-duplicate proof detection (Jaccard) for the D1-D10 overlap audit.
 """
@@ -255,6 +256,7 @@ def build_report() -> dict:
         "tombstones": tombstones,
         "phase_numbering_gaps": gaps,
         "duplicate_ids": sorted({i for i in ids if ids.count(i) > 1}),
+        "tombstone_live_id_collisions": sorted({t["id"] for t in tombstones} & set(ids)),
         "cycles": cycles,
         "forward_dependencies_by_file_order": forward,
         "unknown_dependency_refs": unknown_dep,
@@ -471,7 +473,7 @@ def violations(rep: dict) -> list[str]:
                 if not any(t in g for t in tomb_ids)]
     if numbered:
         v.append(f"phase_numbering_gaps: {numbered}")
-    for key in ("duplicate_ids", "cycles", "unknown_dependency_refs",
+    for key in ("duplicate_ids", "tombstone_live_id_collisions", "cycles", "unknown_dependency_refs",
                 "coupled_with_missing_targets", "units_without_priority", "units_without_source",
                 "units_without_exactly_one_proof", "ledger_missing", "ledger_extra",
                 "ledger_duplicates", "phases_without_gate", "must_have_without_retrieval_entry",
@@ -527,6 +529,7 @@ def main() -> int:
 
     print("\n-- info --")
     print(f"  ledger == units: {'OK' if not (rep['ledger_missing'] or rep['ledger_extra']) else 'MISMATCH'}")
+    print(f"  live/tombstone ID collisions: {rep['tombstone_live_id_collisions'] or 'none'}")
     print(f"  retrieval table: {'found' if rep['retrieval_table_found'] else 'MISSING'}; "
           f"must-have without entry: {rep['must_have_without_retrieval_entry'] or 'none'}")
     print(f"  sources registered not cited: {rep['sources_registered_not_cited'] or 'none'}")

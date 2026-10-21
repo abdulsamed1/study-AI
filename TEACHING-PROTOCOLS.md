@@ -111,6 +111,7 @@ Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: c
 - Build the practice task from a casebook scenario changed slightly (new constraint, new failure point).
 - Warm-ups revisit older records inside new scenarios. Suggested spacing: next session, about a week later, about a month later. Re-asking the same question teaches the question, not the concept.
 - Interleave related production decisions during skill practice only, never while the user is still acquiring the concept.
+- **Defense drill (decision cards).** Pick one decision defense card (`fde-journey-map.md` §3) and escalate without teaching: what was decided and why; what else was possible; what the accepted tradeoff costs; what would make it wrong; the same decision under one changed constraint (for example half the budget, a stricter latency target, or no managed service). The learner answers without an agent and without the card's `owner's explanation` field. Score on the journey's Depth scale and write the result in the standard learning record (§1), including the card ID, the depth reached, and the first question that exposed a gap.
 
 ## P§6. Setting up each tool
 

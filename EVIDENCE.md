@@ -24,11 +24,17 @@
 - Migration rollback rehearsal and an expand → backfill → contract change (P5.5, P9.2)
 - Node.js runtime diagnosis: event-loop blocking, resource growth, bounded shutdown (P3.5–P3.6)
 - An SLI computed from recorded fault runs, and a runbook that a second person can follow (P9.4, P9.7)
+- Defending opran and eagles decisions from code-verified evidence: authorship, alternatives, tradeoffs, and failure conditions (P17.4; decision defense card in `fde-journey-map.md` §3)
+- Next.js server/client boundary and data flow in the existing opran website (P7.7)
+- Twenty/NestJS platform literacy: what the host provides versus what the Eagles app owns (P7.8)
 
 ## Must not be claimed
 
 - Any production deployment, user count, metric, or ownership not listed above under "Supported by evidence"
 - Production experience from training artifacts: lab runs, stub-provider tests, rollback rehearsals, and simulated incidents are practice evidence and must be labeled as such
 - Skill in a language or framework from agent-generated code alone; code that agents wrote counts only after an agent review record shows the learner understood and verified it
-- Behavior of any repository asserted from its documentation rather than from code, tests, or a recorded run
+- Platform-provided capabilities as own work: Twenty/NestJS modules, dependency injection, authentication, row-level permissions, or Cloudflare Workers/Hono/D1/KV mechanisms the owner did not design or implement
+- Documented targets as measured results, including opran's ≥99.9% uptime and <1% price-variance targets and Eagles' 30-minute acknowledgement SLA and 2–4h RTO/<1h RPO targets, unless a measurement is recorded
+- Behavior of any repository asserted from its documentation rather than from code, tests, or a recorded run — including opran and eagles, whose docs are as-built claims and can drift (opran `docs/ADR/adr-gap-analysis.md`; Eagles AD-15's deployed-filter trap)
+- Mechanism-level knowledge of components outside the study scope (Cloudflare Workers, Hono, Zod, D1, KV, Durable Objects); describe them at the depth of the project's ADRs and no further
 - A book chapter, source, or roadmap read as a demonstrated capability
