@@ -1523,8 +1523,8 @@ These materials are treated as **scenario input**, not as a substitute for sourc
 
 Open the primary source, read it, and record the case with the format in `TEACHING-PROTOCOLS.md` P§2 before teaching from it.
 
-- Google Cloud incident report, 2025-06-12 (Service Control): recovery without randomized exponential backoff. Link: S10 in `RESOURCES.md`. Unchecked.
-- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): evaluation of production quality. Link: S9 in `RESOURCES.md`. Unchecked.
+- Google Cloud incident report, 2025-06-12 (Service Control): recovery without randomized exponential backoff. Link: S10 in `RESOURCES.md` (read 2026-10-22).
+- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): evaluation of production quality. Link: S9 in `RESOURCES.md`. Unchecked — the artifact is listed as verified, but the page could not be opened on 2026-10-22, so re-read it before teaching from this case.
 - Possible further cases, named from memory and unchecked: Facebook's September 2010 outage; Slack's 2021-01-04 outage; AWS us-east-1 on 2025-10-20. Confirm each exists, read the postmortem, and discard any that do not fit a level.
 - Read and registered on 2026-10-14: Cloudflare's 2025-11-18 outage (S35) and its resilience plan (S36). Candidate levels: L4 (retry backlog after recovery), L5 and L8 (failure propagation, configuration pushed everywhere at once). S35 is a first-party account; S36 is a stated plan, not a measured outcome.
 - Case-count threshold and gap recording follow `AGENTS.md` §9.
