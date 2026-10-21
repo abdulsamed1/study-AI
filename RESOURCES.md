@@ -189,9 +189,8 @@ Lessons must name these as gaps rather than cite them as evidence. Scope guard: 
 
 ## Update procedure
 
-1. Open the publisher's canonical page or the exact artifact being cited.
-2. Confirm title, publisher, relevance, and whether the resource is still
-   current.
-3. Record the date and exact section, chapter, page, or subsection used.
-4. Move failed, stale, or weak entries to **References to verify** or **Coverage
-   gaps**; do not silently retain them as verified.
+Entry maintenance follows the Source-triage steps in `TEACHING-PROTOCOLS.md`
+P§9: open the primary source, confirm title, publisher, relevance, and
+currency, record the date and the exact sections read, and move failed or
+stale entries out of the verified section. Never silently re-classify an
+entry.

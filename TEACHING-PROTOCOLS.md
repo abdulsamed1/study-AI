@@ -154,10 +154,11 @@ lesson, then record their status and the exact section used in `RESOURCES.md`.
 For each source needed by a lesson:
 
 1. Open the publisher's canonical page or the supplied book.
-2. Confirm title, publisher, relevance, and URL.
+2. Confirm title, publisher, relevance, currency, and URL.
 3. Record the date and exact section, chapter, or page in `RESOURCES.md`.
 4. Mark it Verified only after those checks; move failed or obsolete entries to
-   References to verify or Coverage gaps.
+   References to verify or Coverage gaps; never silently retain a stale
+   or degraded entry as verified.
 
 ### Lesson preparation
 
