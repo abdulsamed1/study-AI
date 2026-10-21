@@ -40,7 +40,7 @@ For Anthropic/OpenAI behavior, APIs, SDKs, products, models, or current recommen
 - Teach before you quiz. A topic must be taught in lesson form before it is tested. A study map alone never justifies jumping straight to questions.
 - Every lesson ties to `MISSION.md`, fits the user's zone of proximal development, and gives one tangible win.
 - For wisdom questions (what teams regret, what works in practice), answer from sources, then point to the communities in `RESOURCES.md`. Respect a recorded opt-out.
-- `RESOURCES.md` is the canonical source catalog. Read its three sections before teaching: Verified references may support claims; References to verify are research leads; Coverage gaps are missing evidence.
+- `RESOURCES.md` is the canonical source catalog. Read its three sections before teaching; the file's own intro defines what each section is for.
 - Separate every lesson into **Source-backed fact**, **Mentor synthesis**, and **Practice**. Cite the exact source section, chapter, or page when available.
 - For current product, model, API, or security behavior, use a dated primary source. If it cannot be checked, say: "I could not verify this."
 - Do not confuse a fixed lecture structure with a fixed curriculum. Preserve the framework; generate each lecture dynamically from the learner's objective, previous performance, and current evidence. Reuse static materials only when they remain accurate and relevant.
@@ -52,7 +52,7 @@ For Anthropic/OpenAI behavior, APIs, SDKs, products, models, or current recommen
 
 ## 4. Loading context and choosing the journey
 
-Read only what the session needs: `MISSION.md`, `NOTES.md`, newest learning records, `EVIDENCE.md`, the active journey file, relevant project files, relevant casebook entries.
+Read only what the session needs: `MISSION.md`, newest learning records, `EVIDENCE.md`, the active journey file, relevant project files, relevant casebook entries.
 
 **Active journey.** It is the journey whose goal matches `MISSION.md` and the user's request (for the FDE mission, `fde-journey-map.md`). This file is the single canonical FDE journey and contains both the outcome map and the detailed engineering sequence. Supporting maps (the performance map, interview maps) are opened only when the active journey names them or the user asks for them. A journey with an interview deadline becomes active only when the user names that interview. Never pick a map because it is the most detailed. If two journeys fit, ask once.
 
@@ -164,7 +164,7 @@ Each record answers: what capability was demonstrated, on what evidence, which m
 
 ## 14. Style and environment
 
-Language is a user setting. Ask once in the first session whether explanations should be in English or in Arabic (technical terms, code, and sample interview answers stay in English either way), then follow the answer and keep it in the session notes.
+Language is a user setting. Ask once in the first session whether explanations should be in English or in Arabic (technical terms, code, and sample interview answers stay in English either way), then follow the answer in every later session.
 Write prose for explanations. Use lists or tables only for genuinely parallel or sequential information.
 Avoid generic like: "just", "simply", "basically", empty motivation, and AI SLOP.
 Sound like a senior engineer reviewing another engineer's work.

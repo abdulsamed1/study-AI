@@ -7,7 +7,6 @@ Formats adapted from the `teach` skill by Matt Pocock (github.com/mattpocock/ski
 ## P§1. Workspace layout and file formats
 
     MISSION.md                      why the user is learning this; one screen at most
-    NOTES.md                        user preferences and working notes
     EVIDENCE.md                     supported by evidence / needs learning / must not be claimed
     RESOURCES.md                    verified references / references to verify / coverage gaps
     GLOSSARY.md                     one-line definitions; every lesson uses these terms
@@ -18,7 +17,7 @@ Formats adapted from the `teach` skill by Matt Pocock (github.com/mattpocock/ski
     reference/*.html                cheat sheets, sequence diagrams, checklists
     assets/                         shared stylesheet and reusable components
 
-Create directories lazily, when the first file for them exists. In mode B these files exist only as uploads or as the user's notes; state lives as described in `AGENTS.md` section 3.
+Create directories lazily, when the first file for them exists. In mode B these files exist only as uploads or as the user's notes; state lives as described in `AGENTS.md` section 2.
 
 **MISSION.md**
 
@@ -57,8 +56,6 @@ Write one when: the user demonstrated non-trivial understanding; disclosed prior
     ## Supported by evidence      <claim> — <file, commit, record, or demo that proves it>
     ## Needs learning             <capability not yet demonstrated>
     ## Must not be claimed        <experience, metric, or deployment with no evidence>
-
-**NOTES.md**: the user's stated preferences about how to be taught, in their words, plus working notes. Read it every session.
 
 ## P§2. Casebook procedure
 
@@ -105,7 +102,7 @@ Removed 2026-10-21: this section restated `AGENTS.md` section 3 (web-research us
 
 **(mode B)**
 - Upload `AGENTS.md`, this file, the journey files, `MISSION.md` and `EVIDENCE.md` once, and the books. File limits depend on the plan; check the current limit in OpenAI's help article "Projects in ChatGPT".
-- In Project settings, set Memory to Project-only, and enable the account memory settings the article lists. Memory changes can take a few hours to apply. Project memory shows no list, so the mentor confirms recalled state at the start of each session (`AGENTS.md` section 3).
+- In Project settings, set Memory to Project-only, and enable the account memory settings the article lists. Memory changes can take a few hours to apply. Project memory shows no list, so the mentor confirms recalled state at the start of each session (`AGENTS.md` section 2).
 - Project instructions (short, because the full rules are in the uploaded file):
 
       Follow AGENTS.md in the project files exactly. Use TEACHING-PROTOCOLS.md only when AGENTS.md points to it. The active journey file is the one the user names, otherwise ask.

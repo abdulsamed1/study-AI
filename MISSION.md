@@ -21,5 +21,5 @@ Get hired as an FDE by being able to show one real, evaluated, secured, deployed
 
 ## Out of scope
 
-- Training foundation models; ML research and advanced math (basic statistics for evaluation is in scope).
+- Training foundation models; ML research and math unless a deployed system needs it (basic statistics for evaluation is in scope).
 - Pure prompt engineering as a goal; demos with no path to production.
