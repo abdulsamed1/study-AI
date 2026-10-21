@@ -42,12 +42,10 @@ both NotebookLM and the ChatGPT Project. They may be used as study references
 in either tool. Cite the book title, edition, author, and chapter or page; do
 not reproduce the book or treat a generated summary as the source.
 
-People, organizations, newsletters, conferences, and communities are discovery
-leads only. A durable entry must identify a specific artifact with a canonical
-URL, explain its relevance, and record its verification status. A person or an
-organization name by itself is never a source. Roadmaps and career feeds such as
-[roadmap.sh/ai-engineer](https://roadmap.sh/ai-engineer) and
-[The Batch — AI Careers](https://www.deeplearning.ai/the-batch/tag/ai-careers)
+A durable entry must identify a specific artifact with a canonical
+URL, explain its relevance, and record its verification status. Roadmaps and
+career feeds such as [roadmap.sh/ai-engineer](https://roadmap.sh/ai-engineer)
+and [The Batch — AI Careers](https://www.deeplearning.ai/the-batch/tag/ai-careers)
 are valid discovery inputs only when they are opened and tied to a specific
 artifact used by the lesson.
 
@@ -158,7 +156,7 @@ is opened and checked. Do not cite a person or organization by name alone.
 - Python-track authorities for the Phase 11–14 AI labs: official Python docs (typing, asyncio, packaging) and a runtime-validation library guide — open before registering.
 - Integration hardening for P8.2–P8.7 (leads, unopened on 2026-09-30; migrated from estaie-study-map 2026-10-09 — open and record exact section before teaching): Stripe idempotency (https://stripe.com/blog/idempotency); AWS Builders' Library timeouts/retries/backoff-with-jitter (https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/); GitHub webhooks best practices (https://docs.github.com/en/webhooks/using-webhooks/best-practices-for-using-webhooks); Stripe webhooks guide (docs.stripe.com/webhooks); Airbnb double-payments post (https://medium.com/airbnb-engineering/avoiding-double-payments-in-a-distributed-payments-system-2981f6b070bb); Google SRE ch. 22 cascading failures (https://sre.google/sre-book/addressing-cascading-failures/); Kleppmann distributed locking (https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html) + antirez Redlock reply (https://www.antirez.com/news/101); transactional outbox (https://microservices.io/patterns/data/transactional-outbox.html); Supabase range columns (https://supabase.com/blog/range-columns); Django ExclusionConstraint (https://docs.djangoproject.com/en/dev/ref/contrib/postgres/constraints); RateGain ARI push (https://developer.rategain.com/our-products/channel-manager/rg-bridge-supply-push/interface-specifications-availability-and-rates-notification-service); oneuptime Stripe-webhook atomic-enqueue 2026-09-13 (https://oneuptime.com/blog/post/2026-09-13-stripe-webhook-event-id-atomic-enqueue/view — Tier 2, confirm against provider docs).
 - Further agent-incident primaries beyond EchoLeak (e.g., names in the OWASP Agentic 2026 announcement) — open the primary before any casebook use.
-- OpenAI Datasets / evaluation-getting-started guide (successor to the deprecated S22 flow); Anthropic enterprise guide procedures (S12); code execution with MCP (S14).
+- OpenAI Datasets / evaluation-getting-started guide (successor to the deprecated S22 flow). S12 (Anthropic enterprise guide) and S14 (code execution with MCP) are verified; what remains a lead here is the procedural detail inside each (workflow sequences, the MCP code-API pattern).
 - RFC 9457, *Problem Details for HTTP APIs* (https://www.rfc-editor.org/rfc/rfc9457; IETF Proposed Standard, July 2023; obsoletes RFC 7807). Found, not read. Candidate unit: P4.3.
 - RFC 9700 / BCP 240, *Best Current Practice for OAuth 2.0 Security* (https://www.rfc-editor.org/rfc/rfc9700; January 2025). Found, not read. Candidate unit: P4.8b; also cross-check S6's OAuth statements.
 - Postman, *API Security Best Practices* (https://blog.postman.com/api-security-best-practices/; dated 2026-02-19 in the learner's list). Not opened; at most a secondary checklist, never a substitute for S39, OWASP, or primary platform documentation.
