@@ -383,7 +383,7 @@ Shared artifact shapes are defined once here, so no unit invents a second format
 
 #### Retrieval table
 
-Every must-have unit is re-tested in a changed scenario by the named later unit, per `TEACHING-PROTOCOLS.md` §5 (retrieval and spacing). No per-unit Retrieval field is written in the unit lines; this table is the single definition.
+Every must-have unit is re-tested in a changed scenario by the named later unit, per `TEACHING-PROTOCOLS.md` P§5 (retrieval and spacing). No per-unit Retrieval field is written in the unit lines; this table is the single definition.
 
 | Unit | Re-tested by | Changed-scenario prompt |
 |---|---|---|

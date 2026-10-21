@@ -95,7 +95,7 @@ Removed 2026-10-21: this section restated `AGENTS.md` section 3 (web-research us
 - Build the practice task from a casebook scenario changed slightly (new constraint, new failure point).
 - Warm-ups revisit older records inside new scenarios. Suggested spacing: next session, about a week later, about a month later. Re-asking the same question teaches the question, not the concept.
 - Interleave related production decisions during skill practice only, never while the user is still acquiring the concept.
-- **Defense drill (decision cards).** Pick one decision defense card (`fde-journey-map.md` §3) and escalate without teaching: what was decided and why; what else was possible; what the accepted tradeoff costs; what would make it wrong; the same decision under one changed constraint (for example half the budget, a stricter latency target, or no managed service). The learner answers without an agent and without the card's `owner's explanation` field. Score on the journey's Depth scale and write the result in the standard learning record (§1), including the card ID, the depth reached, and the first question that exposed a gap.
+- **Defense drill (decision cards).** Pick one decision defense card (`fde-journey-map.md` §3) and escalate without teaching: what was decided and why; what else was possible; what the accepted tradeoff costs; what would make it wrong; the same decision under one changed constraint (for example half the budget, a stricter latency target, or no managed service). The learner answers without an agent and without the card's `owner's explanation` field. Score on the journey's Depth scale and write the result in the standard learning record (P§1), including the card ID, the depth reached, and the first question that exposed a gap.
 
 ## P§6. Setting up each tool
 
@@ -193,7 +193,7 @@ silently replace a source or turn a candidate into evidence.
 
 ## P§10. Building a branch map (when the journey lacks lesson-level units)
 
-Use when the readiness check in `AGENTS.md` section 5 finds no usable unit.
+Use when the readiness check in `AGENTS.md` section 4 finds no usable unit.
 
 1. Read the active journey's goal and gates, `MISSION.md`, and the evidence list.
 2. Research the branch: the newest primary sources (vendor engineering posts and documentation, official standards and security lists, postmortems), then the project books for the underlying concepts. Open each page you rely on. Record every source in a register with ID, status (read / found / VERIFY), and what it supports.
