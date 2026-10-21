@@ -32,14 +32,7 @@ One mission per workspace. Push back on vagueness: interview before writing. Kee
 
 **RESOURCES.md**
 
-    ## Knowledge
-    - [Type: Title, author](url)
-      What it covers. Use for: <when to reach for it>.
-    ## Wisdom (Communities)
-    - [Community](url)
-      Why it is high signal. Use for: <what to ask there>.
-    ## Coverage gaps
-    - <area the mission needs where no good source exists yet>
+The section contract lives in the file itself: `RESOURCES.md` opens with `## How to use this file`, defining the three sections (Verified references / References to verify / Coverage gaps) and the entry rules for each. Keep the template operative there instead of a copy in this file.
 
 Rules: annotate every entry; surface gaps explicitly; prune sources that prove shallow or wrong; record if the user opted out of communities. Source tiers are in `AGENTS.md` section 9; books named by a journey are Tier 1 for the concepts they cover (cite the chapter).
 
