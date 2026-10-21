@@ -16,6 +16,7 @@
 
 - **Branch IDs:** `PERF-L0` … `PERF-L9`, plus the branch letter where one exists (`PERF-L2-C`). Use them when stating a session outcome.
 - **Evidence rule:** tick a Mastery box only when a learning record, a lab result, or a project file proves it, and write its reference beside the box.
+- **Source markers:** every chapter citation names its `RESOURCES.md` ID and its read status, following journey rule 7: `(read)` = the chapter was read in full, `(read: …)` = only the named sections were read, `[TOC]` = the chapter was identified from the book's table of contents and has not been read yet. Read status and dates are owned by `RESOURCES.md`.
 
 | Level | Casebook concepts to research (`casebook/<slug>.md`) | Lab |
 |---|---|---|
@@ -62,7 +63,7 @@ I can also explain why a tempting intervention is **wrong for the diagnosed mech
 - Prefer profiling, measurements, traces, query plans, load tests, and incident evidence over intuition.
 - Treat scalability and performance as related but distinct problems.
 - Treat a high CPU/memory/error metric as a **signal to investigate**, not automatically as the root cause.
-- Do not claim production experience with a tool merely because it was studied.
+- Do not claim production experience with a tool merely because it was studied (`AGENTS.md` §11).
 
 ### Out of scope
 
@@ -107,7 +108,7 @@ Foundations of Scalable Systems frames scalability around increasing capacity in
 
 **Study implication:** optimization can increase capacity; replication can increase capacity; neither should be selected before the constraint is understood.
 
-> Source: *Foundations of Scalable Systems*, Ian Gorton, Ch. 1, especially the sections on scalability, replication, optimization, performance, and the relationship between bottlenecks and added capacity.
+> Source: *Foundations of Scalable Systems* (S28), Ian Gorton, Ch. 1 (read), especially the sections on scalability, replication, optimization, performance, and the relationship between bottlenecks and added capacity.
 
 ---
 
@@ -220,8 +221,8 @@ I can state what evidence would make scaling appropriate and what evidence would
 
 ## Source path
 
-- *Foundations of Scalable Systems*, Ch. 1 — scalability, replication, optimization, performance, bottlenecks.
-- *Understanding Distributed Systems*, 2nd ed., Roberto Vitillo, Ch. 1.3 — performance, throughput, response time, capacity.
+- *Foundations of Scalable Systems* (S28), Ch. 1 (read) — scalability, replication, optimization, performance, bottlenecks.
+- *Understanding Distributed Systems*, 2nd ed., Roberto Vitillo (S27), Ch. 1.3 [TOC] — performance, throughput, response time, capacity.
 
 ---
 
@@ -301,9 +302,9 @@ I can move from a dashboard symptom to a bounded hypothesis and name the telemet
 
 ## Source path
 
-- *Understanding Distributed Systems*, Ch. 31 — Monitoring; Ch. 32 — Observability.
-- *Designing Distributed Systems*, 2nd ed., Brendan Burns, Ch. 14 — Monitoring and Observability Patterns: metrics, request monitoring, alerting, tracing.
-- *Foundations of Scalable Systems*, Ch. 5 material on application-service metrics, queues, thread pools, database connection pools, and data-driven performance experiments.
+- *Understanding Distributed Systems* (S27), Ch. 31 [TOC] — Monitoring; Ch. 32 [TOC] — Observability.
+- *Designing Distributed Systems*, 2nd ed., Brendan Burns (S29), Ch. 14 (read: monitoring and observability patterns) — metrics, request monitoring, alerting, tracing.
+- *Foundations of Scalable Systems* (S28), Ch. 5 [TOC] material on application-service metrics, queues, thread pools, database connection pools, and data-driven performance experiments.
 
 ---
 
@@ -391,8 +392,8 @@ I know what profiling or runtime telemetry I need before changing instance size.
 
 ## Source path
 
-- *Foundations of Scalable Systems*, Ch. 5 — application service execution, thread pools, request queues, database connection pools, utilization, latency.
-- *Foundations of Scalable Systems*, Part I — concurrency fundamentals only to the depth required to reason about contention and performance.
+- *Foundations of Scalable Systems* (S28), Ch. 5 [TOC] — application service execution, thread pools, request queues, database connection pools, utilization, latency.
+- *Foundations of Scalable Systems* (S28), Part I [TOC] — concurrency fundamentals only to the depth required to reason about contention and performance.
 
 ---
 
@@ -504,8 +505,8 @@ before suggesting database scaling.
 ## Source path
 
 - Supplied article material — N+1 query and performance-engineering examples.
-- *Foundations of Scalable Systems*, Ch. 1–2 — optimization, database bottlenecks, caching, and service/database interaction.
-- *Understanding Distributed Systems*, Ch. 19 — Data Storage; Ch. 20 — Caching.
+- *Foundations of Scalable Systems* (S28), Ch. 1 (read), Ch. 2 [TOC] — optimization, database bottlenecks, caching, and service/database interaction.
+- *Understanding Distributed Systems* (S27), Ch. 19 [TOC] — Data Storage; Ch. 20 [TOC] — Caching.
 
 ---
 
@@ -590,8 +591,8 @@ I can reason about timeout, retry, and circuit-breaker trade-offs without treati
 
 ## Source path
 
-- *Understanding Distributed Systems*, Ch. 24 — Common Failure Causes.
-- *Understanding Distributed Systems*, Ch. 27 — Downstream Resiliency: 27.1 Timeout; 27.2 Retry; retry backoff, jitter, and amplification; 27.3 Circuit breaker.
+- *Understanding Distributed Systems* (S27), Ch. 24 [TOC] — Common Failure Causes.
+- *Understanding Distributed Systems* (S27), Ch. 27 [TOC] — Downstream Resiliency: 27.1 Timeout; 27.2 Retry; retry backoff, jitter, and amplification; 27.3 Circuit breaker.
 
 ---
 
@@ -692,9 +693,9 @@ I can distinguish the three controls and choose among them based on **work seman
 
 ## Source path
 
-- *Understanding Distributed Systems*, Ch. 28 — Upstream Resiliency: 28.1 Load Shedding; 28.2 Load Leveling; 28.3 Rate Limiting; 28.4 Constant Work.
-- *Foundations of Scalable Systems*, Ch. 2 — increasing responsiveness with asynchronous queueing.
-- *Designing Distributed Systems*, Ch. 11 — Work Queue Systems; Ch. 12 — Event-Driven Batch Processing.
+- *Understanding Distributed Systems* (S27), Ch. 28 (read) — Upstream Resiliency: 28.1 Load Shedding; 28.2 Load Leveling; 28.3 Rate Limiting; 28.4 Constant Work.
+- *Foundations of Scalable Systems* (S28), Ch. 2 [TOC] — increasing responsiveness with asynchronous queueing.
+- *Designing Distributed Systems* (S29), Ch. 11 [TOC] — Work Queue Systems; Ch. 12 [TOC] — Event-Driven Batch Processing.
 
 ---
 
@@ -799,9 +800,9 @@ I can justify scaling from evidence and can predict at least one downstream bott
 
 ## Source path
 
-- *Foundations of Scalable Systems*, Ch. 1–2 — replication, optimization, scale-up/scale-out, service/database bottlenecks, caching, queueing.
-- *Understanding Distributed Systems*, Ch. 1.3 — capacity and scaling; Ch. 18 — Network Load Balancing.
-- *Designing Distributed Systems*, Ch. 6 — Replicated Load-Balanced Services.
+- *Foundations of Scalable Systems* (S28), Ch. 1 (read), Ch. 2 [TOC] — replication, optimization, scale-up/scale-out, service/database bottlenecks, caching, queueing.
+- *Understanding Distributed Systems* (S27), Ch. 1.3 [TOC] — capacity and scaling; Ch. 18 [TOC] — Network Load Balancing.
+- *Designing Distributed Systems* (S29), Ch. 6 [TOC] — Replicated Load-Balanced Services.
 
 ---
 
@@ -889,9 +890,9 @@ I can design a controlled experiment that separates:
 
 ## Source path
 
-- *Foundations of Scalable Systems*, Ch. 1–2 — performance/scalability experiments and bottleneck-focused scaling.
-- *Understanding Distributed Systems*, Ch. 29 — Testing; Ch. 31–32 — monitoring/observability.
-- *Designing Distributed Systems*, Ch. 14 — Monitoring and Observability Patterns.
+- *Foundations of Scalable Systems* (S28), Ch. 1 (read), Ch. 2 [TOC] — performance/scalability experiments and bottleneck-focused scaling.
+- *Understanding Distributed Systems* (S27), Ch. 29 [TOC] — Testing; Ch. 31–32 [TOC] — monitoring/observability.
+- *Designing Distributed Systems* (S29), Ch. 14 (read: monitoring and observability patterns) — Monitoring and Observability Patterns.
 
 ---
 
@@ -1046,8 +1047,8 @@ I do not change a model, context size, or retry policy without an evaluation che
 ## Source path
 
 - Current official provider documentation on rate limits, errors, streaming, and timeouts (verify and date it).
-- *Understanding Distributed Systems*, Vitillo, Ch. 27 — Downstream Resiliency.
-- *Foundations of Scalable Systems*, Gorton, Ch. 5 — pools, queues, utilization.
+- *Understanding Distributed Systems* (S27), Vitillo, Ch. 27 [TOC] — Downstream Resiliency.
+- *Foundations of Scalable Systems* (S28), Gorton, Ch. 5 [TOC] — pools, queues, utilization.
 - Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): why quality evals on production systems matter (re-open before teaching).
 
 ---
@@ -1459,47 +1460,47 @@ The evidence rule above applies to every box.
 
 # Primary Project Sources
 
-## 1. Foundations of Scalable Systems — Ian Gorton
+## 1. Foundations of Scalable Systems — Ian Gorton (S28)
 
 Use for the fundamental performance/scalability distinction and for the connection between optimization, replication, application capacity, database bottlenecks, caching, asynchronous queueing, and resource pools.
 
-Relevant material retrieved from the project source:
+Relevant chapters (read status recorded in `RESOURCES.md` S28):
 
-- Ch. 1 — scalability; replication and optimization; performance; bottlenecks.
-- Ch. 2 — service tiers; scale-out; database bottlenecks; caching; asynchronous queueing; hardware scalability.
-- Ch. 5 — application service execution; thread pools; request queues; database connection pools; utilization and monitoring.
+- Ch. 1 (read) — scalability; replication and optimization; performance; bottlenecks.
+- Ch. 2 [TOC] — service tiers; scale-out; database bottlenecks; caching; asynchronous queueing; hardware scalability.
+- Ch. 5 [TOC] — application service execution; thread pools; request queues; database connection pools; utilization and monitoring.
 
-## 2. Understanding Distributed Systems, 2nd ed. — Roberto Vitillo
+## 2. Understanding Distributed Systems, 2nd ed. — Roberto Vitillo (S27)
 
 Use for the operational reasoning around performance, load, capacity, overload, downstream failure, caching, monitoring, and observability.
 
-Relevant material:
+Relevant chapters (read status recorded in `RESOURCES.md` S27):
 
-- Ch. 1.3 — Scalability.
-- Ch. 18 — Network Load Balancing.
-- Ch. 19 — Data Storage.
-- Ch. 20 — Caching.
-- Ch. 23 — Messaging.
-- Ch. 24 — Common Failure Causes.
-- Ch. 26 — Fault Isolation.
-- Ch. 27 — Downstream Resiliency.
-- Ch. 28 — Upstream Resiliency.
-- Ch. 29 — Testing.
-- Ch. 31 — Monitoring.
-- Ch. 32 — Observability.
+- Ch. 1.3 [TOC] — Scalability.
+- Ch. 18 [TOC] — Network Load Balancing.
+- Ch. 19 [TOC] — Data Storage.
+- Ch. 20 [TOC] — Caching.
+- Ch. 23 [TOC] — Messaging.
+- Ch. 24 [TOC] — Common Failure Causes.
+- Ch. 26 [TOC] — Fault Isolation.
+- Ch. 27 [TOC] — Downstream Resiliency.
+- Ch. 28 (read) — Upstream Resiliency.
+- Ch. 29 [TOC] — Testing.
+- Ch. 31 [TOC] — Monitoring.
+- Ch. 32 [TOC] — Observability.
 
-## 3. Designing Distributed Systems, 2nd ed. — Brendan Burns
+## 3. Designing Distributed Systems, 2nd ed. — Brendan Burns (S29)
 
 Use selectively for implementation-oriented patterns and labs, not as a reason to study distributed systems broadly.
 
-Relevant material:
+Relevant chapters (read status recorded in `RESOURCES.md` S29):
 
-- Ch. 6 — Replicated Load-Balanced Services.
-- Ch. 9 — Functions and Event-Driven Processing.
-- Ch. 11 — Work Queue Systems.
-- Ch. 12 — Event-Driven Batch Processing.
-- Ch. 14 — Monitoring and Observability Patterns.
-- Ch. 16 — Common Failure Patterns, especially the thundering-herd and obsolete-work patterns.
+- Ch. 6 [TOC] — Replicated Load-Balanced Services.
+- Ch. 9 [TOC] — Functions and Event-Driven Processing.
+- Ch. 11 [TOC] — Work Queue Systems.
+- Ch. 12 [TOC] — Event-Driven Batch Processing.
+- Ch. 14 (read: monitoring and observability patterns) — Monitoring and Observability Patterns.
+- Ch. 16 (read) — Common Failure Patterns, especially the thundering-herd and obsolete-work patterns.
 
 ## 4. User-supplied production/performance articles
 
@@ -1526,7 +1527,7 @@ Open the primary source, read it, and record the case with the format in `TEACHI
 - Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): evaluation of production quality. Link: S9 in `RESOURCES.md`. Unchecked.
 - Possible further cases, named from memory and unchecked: Facebook's September 2010 outage; Slack's 2021-01-04 outage; AWS us-east-1 on 2025-10-20. Confirm each exists, read the postmortem, and discard any that do not fit a level.
 - Read and registered on 2026-10-14: Cloudflare's 2025-11-18 outage (S35) and its resilience plan (S36). Candidate levels: L4 (retry backlog after recovery), L5 and L8 (failure propagation, configuration pushed everywhere at once). S35 is a first-party account; S36 is a stated plan, not a measured outcome.
-- If fewer than five solid cases exist for a concept, say so and record the gap in `RESOURCES.md`.
+- Case-count threshold and gap recording follow `AGENTS.md` §9.
 
 ---
 
