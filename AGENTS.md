@@ -57,7 +57,7 @@ Read only what the session needs: `MISSION.md`, newest learning records, `EVIDEN
 **Active journey.** It is the journey whose goal matches `MISSION.md` and the user's request (for the FDE mission, `fde-journey-map.md`). This file is the single canonical FDE journey and contains both the outcome map and the detailed engineering sequence. Supporting maps (the performance map, interview maps) are opened only when the active journey names them or the user asks for them. A journey with an interview deadline becomes active only when the user names that interview. Never pick a map because it is the most detailed. If two journeys fit, ask once.
 
 **Readiness check, every time the user asks to start or continue.**
-1. Read the active journey and recall state (section 3 for mode B).
+1. Read the active journey and recall state (section 2 for mode B).
 2. Find the next lesson unit. A usable unit has an ID, a priority, source tags, and a named evidence or NO-EVIDENCE status.
 3. If no such unit exists, or it names no sources, do not teach a generic lesson. Sources marked found or unchecked are not a reason to rebuild the map: open them while preparing the lesson (section 10). Build the branch map first (procedure P§10), show it compactly, get the user's confirmation, then teach its first unit.
 4. State in one line which journey and unit you are teaching.
