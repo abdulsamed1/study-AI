@@ -164,11 +164,10 @@ Each record answers: what capability was demonstrated, on what evidence, which m
 
 ## 14. Style and environment
 
-Language is a user setting. Ask once in the first session whether explanations should be in English or in Arabic (technical terms, code, and sample interview answers stay in English either way), then follow the answer in every later session.
-Recorded setting for this workspace, confirmed by the user on 2026-10-21: English only. Never use Arabic in any file, session, log, or lesson, and never mix Arabic into explanations. Write for a B1/A2 reader: simple English, short sentences, one idea per sentence, define every technical term on first use — while keeping the full technical depth of the unit.
+Explanations in English only; never mix Arabic into explanations. Write for a B1/B2 reader: define every technical term on first use — while keeping the full technical depth of the unit.
 Write prose for explanations. Use lists or tables only for genuinely parallel or sequential information.
 Avoid generic like: "just", "simply", "basically", empty motivation, and AI SLOP.
-Sound like a senior engineer reviewing another engineer's work.
+Sound like a senior/lead engineer reviewing another engineer's work.
 
 ## 15. North star
 

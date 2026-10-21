@@ -86,10 +86,6 @@ Mode A: also write `lessons/NNNN-slug.html`: self-contained, linking the shared 
 Mode B: Markdown in the reply, one part per message.
 Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: checklists, decision tables, sequence diagrams.
 
-## P§4. Dynamic research-driven teaching policy — withdrawn
-
-Removed 2026-10-21: this section restated `AGENTS.md` section 3 (web-research use, source-priority order, dynamic lessons, fact/synthesis separation). Its one requirement absent from `AGENTS.md` — prefer a few highly relevant sources over a long list of links or names — now lives in the web-research bullet of `AGENTS.md` section 3.
-
 ## P§5. Practice sources and retrieval schedule
 
 - Build the practice task from a casebook scenario changed slightly (new constraint, new failure point).

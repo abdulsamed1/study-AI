@@ -16,7 +16,7 @@ Get hired as an FDE by being able to show one real, evaluated, secured, deployed
 ## Constraints
 
 - I do not edit project files by hand: in ChatGPT Project, progress lives in the Project's own memory (see `AGENTS.md` section 2). Writing code by hand as a learning exercise is a separate decision, made per lesson under the journey's hand-writing versus review rule.
-- Explanations in English only, in simple English (my level: B1/A2) — short sentences, plain words, define each technical term on first use. No Arabic anywhere: not in files, sessions, lessons, or logs. Technical terms and code stay in English.
+- Explanations in English only, in simple English (my level: B1/B2) — short sentences, plain words, define each technical term on first use. No Arabic anywhere: not in files, sessions, lessons, or logs. Technical terms and code stay in English.
 - current baseline: set in session 1.
 
 ## Out of scope
