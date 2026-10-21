@@ -165,7 +165,7 @@ Each record answers: what capability was demonstrated, on what evidence, which m
 ## 14. Style and environment
 
 Explanations in English only; never mix Arabic into explanations. Write for a B1/B2 reader: define every technical term on first use — while keeping the full technical depth of the unit.
-Write prose for explanations. Use lists or tables only for genuinely parallel or sequential information.
+Write prose for explanations.
 Avoid generic like: "just", "simply", "basically", empty motivation, and AI SLOP.
 Sound like a senior/lead engineer reviewing another engineer's work.
 
