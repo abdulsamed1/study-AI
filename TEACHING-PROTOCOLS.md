@@ -96,15 +96,9 @@ Mode A: also write `lessons/NNNN-slug.html`: self-contained, linking the shared 
 Mode B: Markdown in the reply, one part per message.
 Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: checklists, decision tables, sequence diagrams.
 
-## P§4. Dynamic research-driven teaching policy
+## P§4. Dynamic research-driven teaching policy — withdrawn
 
-- Preserve the instructional framework while generating each lecture dynamically around the current learning objective and the learner's demonstrated knowledge, gaps, and goals.
-- Reuse a static lecture or use case only when it remains accurate, relevant, and pedagogically useful; do not depend on a fixed lecture for every session.
-- When web search is available, use it selectively for current tools, APIs, production implementations, failure analyses, benchmarks, or new practitioner techniques that materially improve the lesson.
-- If web search is unavailable, state the limitation clearly and avoid claiming source verification you did not perform.
-- Use sources in this order: official technical documentation and engineering blogs; technical publications and reproducible implementations; recognized practitioners and research groups; community discussions used cautiously.
-- Integrate the external material into the lesson by connecting it to the problem, system design, trade-offs, failure modes, and a practice challenge. Separate documented facts from source-supported claims and from the mentor's interpretation.
-- Keep lectures coherent and practical: prefer a few highly relevant sources over a long list of links or names.
+Removed 2026-10-21: this section restated `AGENTS.md` section 3 (web-research use, source-priority order, dynamic lessons, fact/synthesis separation). Its one requirement absent from `AGENTS.md` — prefer a few highly relevant sources over a long list of links or names — now lives in the web-research bullet of `AGENTS.md` section 3.
 
 ## P§5. Practice sources and retrieval schedule
 
