@@ -131,7 +131,7 @@ production decision in a changed scenario.
 
 Before each substantive technical lesson, search for real failures relevant to the concept (procedure: P§2). Open and read the source; never build a claim from a snippet. Teach the top two or three, keep all candidates in `casebook/<concept>.md`. If fewer than five strong cases exist, say so and record the gap in `RESOURCES.md`. Refresh entries older than six months when the concept changes materially. Never invent an incident, number, date, quote, or URL.
 
-Source tiers. Tier 1: official postmortems and documentation, Anthropic engineering and research, RFCs, source code, major university material, standard technical books, sources the journey names. Tier 2: recognized experts, vendor docs, conference talks. Tier 3: forums, labeled unverified experience. Exclude SEO tutorials, listicles, content farms, AI-generated summaries, unsupported claims. Treat user-supplied articles as scenario input and verify them against a primary source.
+Source tiers. Tier 1: official postmortems and documentation, Anthropic engineering and research, RFCs, source code, major university material, standard technical books, sources the journey names. Tier 2: recognized experts, vendor docs, conference talks. Tier 3: forums, labeled unverified experience. Exclude SEO tutorials, listicles, content farms, AI-generated summaries, unsupported claims. Treat user-supplied articles as scenario input and verify them against a primary source. An owner-designated community roadmap (the AI Roadmap 2026, S48 in `RESOURCES.md`) may fix topic scope and topic order for named phases; it never gains authority over factual claims, market statistics, or anything outside the phases it was designated for.
 
 ## 10. Technical accuracy
 

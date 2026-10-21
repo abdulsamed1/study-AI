@@ -27,6 +27,12 @@
 - Defending opran and eagles decisions from code-verified evidence: authorship, alternatives, tradeoffs, and failure conditions (P17.4; decision defense card in `fde-journey-map.md` §3)
 - Next.js server/client boundary and data flow in the existing opran website (P7.7)
 - Twenty/NestJS platform literacy: what the host provides versus what the Eagles app owns (P7.8)
+- Provider cost/latency levers: prompt caching (prefix ordering, breakpoints, cache-read fields), model routing, and semantic-cache trade-offs (P11.4)
+- GraphRAG as a retrieval alternative and A2A agent-to-agent protocol at decision vocabulary (P12.4, P13.5)
+- Voice and browser agent interfaces: modality architecture choice, latency budgets, and modality-specific failure modes (P13.7)
+- LLM-judge design: direct vs pairwise scoring, calibration/agreement statistics, and known judge biases (P14.2)
+- Agent-trace platform shape (trace → dataset → evaluator → CI regression gate) evaluated against the existing stack (P14.5)
+- Automated black-box red-team harnesses supplementing the hand-built adversarial categories (P15.2)
 
 ## Must not be claimed
 
@@ -38,3 +44,5 @@
 - Behavior of any repository asserted from its documentation rather than from code, tests, or a recorded run — including opran and eagles, whose docs are as-built claims and can drift (opran `docs/ADR/adr-gap-analysis.md`; Eagles AD-15's deployed-filter trap)
 - Mechanism-level knowledge of components outside the study scope (Cloudflare Workers, Hono, Zod, D1, KV, Durable Objects); describe them at the depth of the project's ADRs and no further
 - A book chapter, source, or roadmap read as a demonstrated capability
+- The designated AI Roadmap 2026's market statistics (LinkedIn growth percentages, fastest-growing-job ranks) or its ~25-week and 12-week duration claims as established facts or as this plan's pace
+- Fine-tuning, quantization, or model-serving skills (SFT/DPO/LoRA, vLLM): excluded from scope by the 2026-10-21 designation; nothing was practiced and nothing may be claimed
