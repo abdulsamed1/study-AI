@@ -1,6 +1,6 @@
 # EVIDENCE.md
 
-*Seed, uploaded once. Later changes live in project memory (ChatGPT) or in saved notes (NotebookLM); the mentor restates the ledger at the start of a session for correction. Rules: `AGENTS.md` section 11.*
+*Seed, uploaded once. Later changes arrive through the session-export block (P§6) and are merged into this file by the workspace agent. The repository is the source of truth. Rules: `AGENTS.md` section 11.*
 
 ## Supported by evidence
 

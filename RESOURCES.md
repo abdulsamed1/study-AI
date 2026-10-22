@@ -40,7 +40,9 @@ under Verified references.
 Books marked **Uploaded in both study tools** are fully supplied by the user in
 both NotebookLM and the ChatGPT Project. They may be used as study references
 in either tool. Cite the book title, edition, author, and chapter or page; do
-not reproduce the book or treat a generated summary as the source.
+not reproduce the book or treat a generated summary as the source. The six
+books carrying that marker are also on disk in `books/`, so a chapter read in
+the workspace is recorded with that path as the tool.
 
 A durable entry must identify a specific artifact with a canonical
 URL, explain its relevance, and record its verification status. Roadmaps and

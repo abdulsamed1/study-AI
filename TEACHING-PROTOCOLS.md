@@ -95,30 +95,56 @@ Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: c
 
 ## P§6. Setting up each tool
 
+Per-tool setup lives here. `AGENTS.md` section 2 defines the modes; this file
+only says how to configure each tool.
 
-**(mode B)**
-- Upload `AGENTS.md`, this file, the journey files, `MISSION.md` and `EVIDENCE.md` once, and the books. File limits depend on the plan; check the current limit in OpenAI's help article "Projects in ChatGPT".
+**Mode A — workspace**
+- agentic reads `AGENTS.md` and takes extra files from the `instructions` list in `opencode.jsonc` if the user use OPENCODE. Check the current docs for both, since the syntax changes.
+- Keep this file out of the always-loaded list; `AGENTS.md` says when to open it.
+
+**Mode B — chat with files**
+
+*Claude Project*
+- Upload the files in the P§9 manifest. Project knowledge holds the files; "Set project instructions" holds the short instruction text (the full rules are in the uploaded file):
+
+      Follow AGENTS.md in the project files exactly. Use TEACHING-PROTOCOLS.md only when AGENTS.md points to it. The active journey file is the one the user names, otherwise ask.
+
+- Project memory is on by default and is scoped to the project; to keep it fully separate, turn off "Use account memory" on the project page. A reply can be kept by adding it to the project sources.
+- A redesigned Projects experience (one conversation, parallel cloud threads) is in beta from 2026-09-17; it does not change the setup above.
+
+*ChatGPT Project*
+- Upload the files in the P§9 manifest. File limits depend on the plan; check the current limit in OpenAI's help article "Projects in ChatGPT".
 - In Project settings, set Memory to Project-only, and enable the account memory settings the article lists. Memory changes can take a few hours to apply. Project memory shows no list, so the mentor confirms recalled state at the start of each session (`AGENTS.md` section 2).
 - Project instructions (short, because the full rules are in the uploaded file):
 
       Follow AGENTS.md in the project files exactly. Use TEACHING-PROTOCOLS.md only when AGENTS.md points to it. The active journey file is the one the user names, otherwise ask.
 
-- Optional, for a reply that must persist verbatim (for example an agreed mission): the response menu offers "Save to project", which adds it as a project source.
+- Optional, for a reply that must persist verbatim (for example an agreed mission): the response menu offers "Add to project sources", which adds it as a project source.
 
-- Sources: `AGENTS.md`, this file, the journey files, books, postmortems, `MISSION.md`, `EVIDENCE.md`, and your saved notes.
+**Mode C — chat without files**
+- The agent sees only what the user pastes. The user pastes the files in the P§9 manifest that the lesson needs, plus the selected primary sources.
+- NotebookLM keeps chat history inside the notebook, but the agent cannot read that history back as state across sessions, so it needs the session-export block below. Generated quizzes, summaries, and audio are practice artifacts, not sources.
 - Chat configuration (the same two sentences, adjusted for sources only):
 
       Follow AGENTS.md among the sources, in mode C. Answer only from the sources and cite them.
 
-- NotebookLM keeps no memory of earlier chats. End each session with this block and save it as a note or source:
+### Session export (modes B and C)
 
-      Save these notes — <date>
-      Learned: <1-3 lines>   Open questions: <lines>   Source to add: <names>
-      Record: <what was demonstrated, evidence, next target>
+Every chat session ends with this block, in every chat mode. It is the only path
+for syncing chat-mode progress into the repository.
 
-**Workspace (mode A)**
-- agentic reads `AGENTS.md` and takes extra files from the `instructions` list in `opencode.jsonc` if the user use OPENCODE. Check the current docs for both, since the syntax changes.
-- Keep this file out of the always-loaded list; `AGENTS.md` says when to open it.
+    Session export — <date>
+    Learning record: <what was demonstrated, evidence, next target>    (P§1 format)
+    Glossary terms earned: <term — one-line definition>                (P§1 format)
+    EVIDENCE changes: <Supported by evidence | Needs learning | Must not be claimed — claim, then the file, commit, record, or demo that proves it>
+    RESOURCES changes: <S-ID — status change, or a new lead with its URL and what it would support>
+    Next unit: <unit ID and part>
+
+The repository is the source of truth. The workspace agent merges an export in
+this order: `learning-records/` file first, then `GLOSSARY.md`, then the three
+`EVIDENCE.md` lists, then `RESOURCES.md` (opening the artifact before changing a
+status), then the journey ledger. Never apply an export that contradicts the
+repository without asking the user which is current.
 
 ## P§7. Maintaining AGENTS.md
 

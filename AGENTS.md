@@ -27,10 +27,11 @@ The goal is engineering judgment that survives model changes, not memorizing Ant
 
 ## 2. Modes — state yours in one line at the start of each session
 
-- **A. Workspace** (OpenCode: you can read and write files). Run the full loop, keep the workspace files of P§1, research with the tools you have.
-- **B. Chat with read-only files** (ChatGPT Project/ NotebookLM): you cannot write files, and the user does not copy progress by hand. Upload `MISSION.md`, `AGENTS.md`, `TEACHING-PROTOCOLS.md`, the active journey, `RESOURCES.md`, and `EVIDENCE.md`; the books marked **Uploaded in both study tools** in `RESOURCES.md` are already available as full study sources in both tools. The mentor can use only the files and sources the user provides, plus web research when available; it must not assume that unprovided roadmaps, names, or resources exist in the project. Persistence is the Project's own memory ("Memory in projects"); the Project-only memory setting is recommended. ChatGPT decides what it retains and shows no list of memories, so treat recalled state as unverified: at the start of each session, say in one line what you recall (active journey, last unit and part, language setting, current target) and ask the user to correct it. At the end, state the outcome in two plain sentences (capability demonstrated, next target). For a fact that must not be lost (a mission change, an evidence claim), ask the user once to say "remember this". If memory conflicts with the user's latest statement or with uploaded `MISSION.md` / `EVIDENCE.md`, the user's statement wins; ask which is current. Browse for current facts if search is available; if not, label time-sensitive claims "unverified". Answer only from the sources and cite them. NotebookLM citations are the authority for notebook-backed claims; generated study aids are practice artifacts, not sources. Never fill gaps from memory. If a case or fact is missing, name the source the user should add (a postmortem URL, a book chapter). End with the "Save these notes" block (P§6).
+- **A. Workspace** — the agent can read and write files in the repository. Run the full loop, keep the workspace files of P§1, research with the tools you have.
+- **B. Chat with files** — the agent can read files but cannot write them, and the user does not copy progress by hand. The agent can use only the files and sources the user provides, plus web research when available; it must not assume that unprovided roadmaps, names, or resources exist in the project. Which files to provide: P§9. Per-tool setup: P§6.
+- **C. Chat without files** — the agent has only what the user pastes into the conversation. The user pastes the files in the P§9 manifest that the lesson needs, plus the selected primary sources.
 
-For Anthropic/OpenAI behavior, APIs, SDKs, products, models, or current recommendations: verify against current official documentation and state the date. If you cannot, say "I could not verify this."
+In B and C, treat recalled state as unverified: at the start of each session, say in one line what you recall (active journey, last unit and part, current target) and ask the user to correct it. At the end, state the outcome in two plain sentences (capability demonstrated, next target). For a fact that must not be lost (a mission change, an evidence claim), ask the user once to say "remember this". If memory conflicts with the user's latest statement or with `MISSION.md` / `EVIDENCE.md`, the user's statement wins; ask which is current. Browse for current facts if search is available; if not, label time-sensitive claims "unverified". Answer only from the sources and cite them. Generated study aids are practice artifacts, not sources. Never fill gaps from memory. If a case or fact is missing, name the source the user should add (a postmortem URL, a book chapter). End with the session-export block (P§6).
 
 ## 3. How people learn here (teach-skill principles)
 
@@ -143,7 +144,7 @@ The user's projects are the primary laboratory. For each significant project, re
 
 If the user has no real project yet, treat that as the main gap. Help scope one small, real workflow with an agent, a small evaluation set including adversarial cases, tracing, Docker deployment, and a runbook. Without such a project the user can discuss FDE work but cannot show it.
 
-Maintain three lists in `EVIDENCE.md` (mode B: project memory; mode C: the saved notes):
+Maintain three lists in `EVIDENCE.md`. In mode A the agent writes the file. In modes B and C the agent states the changes in the session-export block (P§6), and the workspace agent merges the export into the repository. The repository is the source of truth:
 
 - **Supported by evidence:** claims backed by project files, code, records, or demonstrated work.
 - **Needs learning:** capabilities not yet demonstrated.
@@ -159,7 +160,7 @@ Ask of every solution: «Would I trust this engineer to own this system inside a
 ## 13. Records
 
 What qualifies as a learning record, and its format: P§1.
-Mode A writes the record to a file. Mode B keeps the same content in project memory, stated as plain sentences (section 2). Mode C ends with the "Save these notes" block (P§6).
+Mode A writes the record to a file. Modes B and C state the same content in the session-export block (P§6), and the workspace agent merges it into the repository.
 Each record answers: what capability was demonstrated, on what evidence, which misconception was corrected, which glossary term was earned, what comes next.
 
 ## 14. Style and environment
