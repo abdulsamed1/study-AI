@@ -13,11 +13,11 @@ Formats adapted from the `teach` skill by Matt Pocock (github.com/mattpocock/ski
     casebook/INDEX.md               concept -> cases -> transferable pattern
     casebook/<concept>.md           researched real failures for one concept
     learning-records/NNNN-slug.md   evidence of understanding
-    lessons/NNNN-slug.html          one short lesson each (modes B/C: Markdown in the reply)
+    lessons/NNNN-slug.html          one short lesson each (modes B and C: Markdown in the reply)
     reference/*.html                cheat sheets, sequence diagrams, checklists
     assets/                         shared stylesheet and reusable components
 
-Create directories lazily, when the first file for them exists. In mode B these files exist only as uploads or as the user's notes; state lives as described in `AGENTS.md` section 2.
+Create directories lazily, when the first file for them exists. In modes B and C these files exist only as uploads or as the user's notes; state lives as described in `AGENTS.md` section 2 and P§6.
 
 **MISSION.md**
 
@@ -83,7 +83,7 @@ Parts, one message each (stop at the part that reaches the unit's target depth):
 
 A part is roughly 400-700 words plus a diagram when useful. The source named for the unit is cited in Part 1 and the best primary source is repeated at the end.
 Mode A: also write `lessons/NNNN-slug.html`: self-contained, linking the shared stylesheet in `assets/` and the reference sheets, readable and printable. Reuse `assets/` components before writing new ones. Open the file with `xdg-open` on Fedora.
-Mode B: Markdown in the reply, one part per message.
+Modes B and C: Markdown in the reply, one part per message.
 Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: checklists, decision tables, sequence diagrams.
 
 ## P§5. Practice sources and retrieval schedule
@@ -189,21 +189,30 @@ engineering and on hand-writing versus review; do not restate them here.
 
 ### Tool import and export
 
-The minimum shared file set is:
+The file manifest — what each file is for, when it is loaded, who writes it,
+and which modes need it:
 
-    MISSION.md
-    AGENTS.md
-    TEACHING-PROTOCOLS.md
-    fde-journey-map.md
-    RESOURCES.md
-    EVIDENCE.md
+| File | Purpose | Loaded when | Written by | Modes |
+|---|---|---|---|---|
+| `MISSION.md` | why the user is learning this | every session | the user; the mentor drafts it only with the user's confirmation | A, B, C |
+| `AGENTS.md` | how to teach | every session | the user | A, B, C |
+| `TEACHING-PROTOCOLS.md` | procedures and formats | when a session needs one | the user | A, B, C |
+| `fde-journey-map.md` | the canonical FDE journey | every session | the user | A, B, C |
+| `production-performance-incident-study-map.md` | the performance branch | when the journey opens it | the user | A, B, C |
+| `RESOURCES.md` | canonical source catalog | before teaching, and on every source claim | the user | A, B, C |
+| `EVIDENCE.md` | the evidence ledger | every session | the user | A, B, C |
+| `GLOSSARY.md` | earned terms | when a term is earned | the user | A, B, C |
+| `casebook/` | real failures per concept | when a case is researched | the user | A, B, C |
+| `learning-records/` | evidence of understanding | when a record is earned | the user | A, B, C |
 
-In ChatGPT Projects, use the files as project sources and keep instructions
+The first seven are the minimum set for a lesson. `GLOSSARY.md`, `casebook/`
+and `learning-records/` are created as the first file for them exists (P§1).
+
+In a chat tool, use these files as project sources and keep instructions
 short: follow `AGENTS.md`, use `TEACHING-PROTOCOLS.md` when referenced, and
-cite the uploaded sources. In NotebookLM, add the same files as sources, add
-the selected primary sources for the current unit, and require notebook
-citations. Generated quizzes, summaries, and audio are practice artifacts; do
-not promote them to durable learning records until checked against a cited
+cite the uploaded sources. Add the selected primary sources for the current
+unit as well. Generated quizzes, summaries, and audio are practice artifacts;
+do not promote them to durable learning records until checked against a cited
 source.
 
 ### Synchronization

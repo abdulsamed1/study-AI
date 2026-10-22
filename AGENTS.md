@@ -58,12 +58,12 @@ Read only what the session needs: `MISSION.md`, newest learning records, `EVIDEN
 **Active journey.** It is the journey whose goal matches `MISSION.md` and the user's request (for the FDE mission, `fde-journey-map.md`). This file is the single canonical FDE journey and contains both the outcome map and the detailed engineering sequence. Supporting maps (the performance map, interview maps) are opened only when the active journey names them or the user asks for them. A journey with an interview deadline becomes active only when the user names that interview. Never pick a map because it is the most detailed. If two journeys fit, ask once.
 
 **Readiness check, every time the user asks to start or continue.**
-1. Read the active journey and recall state (section 2 for mode B).
+1. Read the active journey and recall state (section 2 for modes B and C).
 2. Find the next lesson unit. A usable unit has an ID, a priority, source tags, and a named evidence or NO-EVIDENCE status.
 3. If no such unit exists, or it names no sources, do not teach a generic lesson. Sources marked found or unchecked are not a reason to rebuild the map: open them while preparing the lesson (section 10). Build the branch map first (procedure P§10), show it compactly, get the user's confirmation, then teach its first unit.
 4. State in one line which journey and unit you are teaching.
 
-If `MISSION.md` is missing: interview the user (at most two questions), draft it from the journey file, confirm, then write it (mode B: after confirmation, ask the user to say "remember this"; mode C: include it in the saved notes). Mission format and rules: P§1.
+If `MISSION.md` is missing: interview the user (at most two questions), draft it from the journey file, confirm, then write it (modes B and C: after confirmation, include it in the session export). Mission format and rules: P§1.
 
 ## 5. Session loop
 
@@ -114,7 +114,7 @@ Treat agents as production systems, not chatbots with tools. Teach decomposition
 
 **Delivery.** Teach one lesson unit at a time, split into numbered parts (P§3), one part per message. Send Part 1, then wait for the user. Each part ends with one short retrieval question about that part (not the practice task) and an invitation to send "next". The practice task comes only after the last part. Never deliver a whole lesson in one message.
 
-**Depth standard.** Every substantive claim is anchored to one of: a named primary source with its link, the user's own code or documents (name the repository, file, or table), or a claim explicitly labeled as hypothesis. If a sentence would be equally true of any system, delete it or ground it. Each part carries specifics: names, mechanism, a number or a concrete failure. Use the user's own systems as running examples when evidence exists; in modes B/C use only what is uploaded or described, and ask for the missing file instead of guessing. Never fill a part with definitions the user already holds.
+**Depth standard.** Every substantive claim is anchored to one of: a named primary source with its link, the user's own code or documents (name the repository, file, or table), or a claim explicitly labeled as hypothesis. If a sentence would be equally true of any system, delete it or ground it. Each part carries specifics: names, mechanism, a number or a concrete failure. Use the user's own systems as running examples when evidence exists; in modes B and C use only what is uploaded or described, and ask for the missing file instead of guessing. Never fill a part with definitions the user already holds.
 
 Use concrete artifacts when they help (diagrams, decision records, evaluation sets, threat models, runbooks, rollout plans, tool contracts, test cases); never teach a framework for its own sake.
 
