@@ -54,7 +54,7 @@ artifact used by the lesson.
 ## Verified references
 
 | ID | Source | Publisher | Type | Status | Coverage | Access | Last verified |
-|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 | S1 | [Claude Frontier Academy](https://www.anthropic.com/news/claude-frontier-academy) | Anthropic | Role standard | Current | FDE Residency standard (announced 2026-10-02): $100M, 10,000 FDEs by end-2027, medical-model residency, simulated enterprise deployment, graded practical, badges from early 2027; the eligibility and program-structure sections state: targets hands-on engineers with strong fundamentals, simulated deployment covers use-case selection, security review, and handover, no technologies named | Public | 2026-10-14 |
 | S2 | [Forward Deployed Engineer, Frontier GenAI](https://apply.deloitte.com/en_US/careers/JobDetail/Forward-Deployed-Engineer-Frontier-GenAI/350555) | Deloitte | Job listing | Current listing; superseded as role standard | A current job listing, opened 2026-10-22 and still accepting applications in 39 locations. It is evidence that the FDE title is being hired; it is not the role standard, which is S1 | Public listing | 2026-10-22 |
 | S3 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic Engineering | Engineering article | Current | Workflows, agents, and composition patterns. Note page banner: tooling landscape changed since Dec 2024 — patterns stand, tooling examples need re-check | Public | 2026-10-09 |
@@ -127,7 +127,7 @@ record. F13 and F14 are cross-check and discovery sources, not a replacement
 for primary technical evidence.
 
 | ID | Source | Publisher | Type | Status | Coverage | Access | Last verified |
-|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 | F1 | [Pro Git, 2nd Edition — online book](https://git-scm.com/book/en/v2) | Git | Online book | Current | Git, collaboration, history, branching, and reproducible work | Public | 2026-10-09 |
 | F2 | [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) | MDN | Official guide | Current | JavaScript language and core concepts | Public; re-check per lesson | 2026-10-09 |
 | F3 | [Node.js Learn](https://nodejs.org/learn) | Node.js | Official learning documentation | Current | Runtime, async work, testing, HTTP, diagnostics, and security. Exact page read 2026-10-21: [The Node.js Event Loop](https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick) — What is the Event Loop, Event Loop Explained, Phases Overview and Phases in Detail (timers, pending callbacks, poll, check, close callbacks), setImmediate vs setTimeout, process.nextTick. Other F3 pages remain unrecorded | Public; re-check per lesson | 2026-10-21 |
