@@ -89,7 +89,7 @@ Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: c
 ## P§5. Practice sources and retrieval schedule
 
 - Build the practice task from a casebook scenario changed slightly (new constraint, new failure point).
-- Warm-ups revisit older records inside new scenarios. Suggested spacing: next session, about a week later, about a month later. Re-asking the same question teaches the question, not the concept.
+- Warm-ups revisit older records inside new scenarios. Suggested spacing: next session, and spaced later sessions across changing scenarios. Re-asking the same question teaches the question, not the concept.
 - Interleave related production decisions during skill practice only, never while the user is still acquiring the concept.
 - **Defense drill (decision cards).** Pick one decision defense card (`fde-journey-map.md` §3) and escalate without teaching: what was decided and why; what else was possible; what the accepted tradeoff costs; what would make it wrong; the same decision under one changed constraint (for example half the budget, a stricter latency target, or no managed service). The learner answers without an agent and without the card's `owner's explanation` field. Score on the journey's Depth scale and write the result in the standard learning record (P§1), including the card ID, the depth reached, and the first question that exposed a gap.
 
@@ -97,6 +97,17 @@ Reference sheets (`reference/*.html`) hold the compressed essence of a lesson: c
 
 Per-tool setup lives here. `AGENTS.md` section 2 defines the modes; this file
 only says how to configure each tool.
+
+**Python toolchain (required before P2.1; verify installed, do not assume).**
+
+- Interpreter: Python 3.11 or newer (`python --version`).
+- Environment: one virtual environment per project (`python -m venv .venv` or `uv venv`); never install into the system interpreter.
+- Dependencies: pinned in a lockfile (`requirements.txt` with hashes, or `uv.lock`/`poetry.lock`); reinstall from the lockfile in CI.
+- Runtime validation: Pydantic v2 (`pip install pydantic`); validate at every trust boundary, not deep in domain logic.
+- Static checking: mypy or pyright (`mypy --strict` or `pyright`); run in CI; treat new errors as failures.
+- Tests: pytest (`pytest -q`); contract and error-path tests use a stub provider, not live calls.
+- Verification before teaching P2.1: `python --version`, `pip --version`, `pytest --version`, `mypy --version` (or `pyright --version`), and `python -c "import pydantic; print(pydantic.VERSION)"` all succeed. Record the output in the session record.
+- Scope: this toolchain serves Phases 2–17. TypeScript/Node.js tooling (F3, F5) remains the reading context for P7.7–P7.8 and the owned-system labs; it is not a second implementation track.
 
 **Mode A — workspace**
 - The workspace agent reads `AGENTS.md` and takes extra files from the `instructions` list in `opencode.jsonc` if the user uses OpenCode. Check the current docs for both, since the syntax changes.
@@ -152,13 +163,11 @@ repository without asking the user which is current.
 Add a rule to `AGENTS.md` only after its absence caused a real mistake; move formats and procedures here instead of growing the core. Journey files and this file cite `AGENTS.md` section numbers and never restate its rules; when you notice a repeated rule, delete the copy in the lower-priority file. Reason to stay lean: a February 2026 ICLR paper (Gloaguen et al., arXiv 2602.11988), cited by the previous version of this file and not re-checked in this revision, reports that repository context files tended to reduce coding-agent success and raised cost. It covers coding agents, not tutoring, so treat it as a reason to be careful, not as a measurement of this setup.
 Review `AGENTS.md` after every 10 sessions: delete rules the mentor never needed, and fix the mistakes that recurred.
 
-### Pending corrections (awaiting owner approval)
+### Baseline alignments
 
-`MISSION.md` is the user's file: the mentor proposes changes and the user approves them. Two known corrections wait for the user's decision and must not be applied unasked:
-
-- `MISSION.md` line 7 points the role standard at `AGENTS.md` section 1. The role standard now has two owners, stated in `AGENTS.md` section 1: that section gives the capability, and S1 in `RESOURCES.md` gives the hiring standard. The pointer in `MISSION.md` should name both.
-- `MISSION.md` line 18 names ChatGPT Project and says progress lives in the Project's own memory. That now conflicts with the rule that the repository is the source of truth and that chat-mode progress reaches it through the session-export block (P§6). The tool-neutral wording should say that.
-- `MISSION.md` line 20 says "current baseline: set in session 1" and line 3 still says the mission is a draft awaiting confirmation in the first session. Whether the mission is confirmed and whether a baseline exists are the user's to state.
+`MISSION.md` is the user's file:
+- `MISSION.md` points to both the capability standard in `AGENTS.md` section 1 and the hiring standard in `RESOURCES.md` S1.
+- Progress tracking is tool-neutral: the repository is the source of truth, recorded in `EVIDENCE.md` and learning records, with chat modes synchronizing via the session-export block (P§6).
 
 ## P§8. External resources and candidate roadmaps
 

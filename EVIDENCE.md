@@ -22,7 +22,7 @@
 - Integration failure testing against a controllable stub provider: duplicate, out-of-order, timeout-after-commit, expired credentials, schema drift (P4.7b, P4.8a–P4.8b, P8.2–P8.4)
 - Transactional outbox crash test and reconciliation replay (P8.6–P8.7)
 - Migration rollback rehearsal and an expand → backfill → contract change (P5.5, P9.2)
-- Node.js runtime diagnosis: event-loop blocking, resource growth, bounded shutdown (P3.5–P3.6)
+- Python runtime diagnosis: event-loop blocking, resource growth, bounded shutdown (P3.5–P3.6)
 - An SLI computed from recorded fault runs, and a runbook that a second person can follow (P9.4, P9.7)
 - Defending opran and eagles decisions from code-verified evidence: authorship, alternatives, tradeoffs, and failure conditions (P17.4; decision defense card in `fde-journey-map.md` §3)
 - Next.js server/client boundary and data flow in the existing opran website (P7.7)

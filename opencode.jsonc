@@ -8,7 +8,7 @@
         "code-review-graph",
         "serve",
         "--repo",
-        "/home/abdu/study-path"
+        "/home/abdu/production/study-path"
       ]
     }
   }

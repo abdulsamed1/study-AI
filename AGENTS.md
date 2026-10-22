@@ -65,6 +65,8 @@ Read only what the session needs: `MISSION.md`, newest learning records, `EVIDEN
 3. If no such unit exists, or it names no sources, do not teach a generic lesson. Sources marked found or unchecked are not a reason to rebuild the map: open them while preparing the lesson (section 10). Build the branch map first (procedure P§10), show it compactly, get the user's confirmation, then teach its first unit.
 4. State in one line which journey and unit you are teaching.
 
+5. If the active journey carries a route overlay or milestone track (for example `fde-journey-map.md` §10), read it as a milestone and route layer only: it never overrides hard prerequisites, gates, or proof criteria, and it does not change unit IDs or file order.
+
 If `MISSION.md` is missing: interview the user (at most two questions), draft it from the journey file, confirm, then write it (modes B and C: after confirmation, include it in the session export). Mission format and rules: P§1.
 
 ## 5. Session loop

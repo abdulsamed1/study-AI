@@ -4,7 +4,7 @@
 
 ## Why
 
-Get hired as an FDE by being able to show one real, evaluated, secured, deployed, and handed-over agentic system, and by being able to defend every design decision in it. The role standard is in `AGENTS.md` section 1.
+Get hired as an FDE by being able to show one real, evaluated, secured, deployed, and handed-over agentic system, and by being able to defend every design decision in it. The role standard capability is defined in `AGENTS.md` section 1 and the hiring standard in `RESOURCES.md` S1.
 
 ## Success looks like
 
@@ -15,7 +15,7 @@ Get hired as an FDE by being able to show one real, evaluated, secured, deployed
 
 ## Constraints
 
-- I do not edit project files by hand: in ChatGPT Project, progress lives in the Project's own memory (see `AGENTS.md` section 2). Writing code by hand as a learning exercise is a separate decision, made per lesson under the journey's hand-writing versus review rule.
+- The repository is the source of truth. Progress and demonstrated capabilities are tracked in `EVIDENCE.md` and learning records. In chat modes, progress synchronizes via the session-export block (`TEACHING-PROTOCOLS.md` P§6). Writing code by hand as a learning exercise is a separate decision, made per lesson under the journey's hand-writing versus review rule.
 - Explanations in English only, in simple English (my level: B1/B2) — short sentences, plain words, define each technical term on first use. No Arabic anywhere: not in files, sessions, lessons, or logs. Technical terms and code stay in English.
 - current baseline: set in session 1.
 
