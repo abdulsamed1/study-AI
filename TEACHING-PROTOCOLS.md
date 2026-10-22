@@ -1,6 +1,6 @@
 # TEACHING-PROTOCOLS.md
 
-Revised 2026-10-09. Templates, procedures, and tool setup that `AGENTS.md` points to as "P§n". Load this file only when you need one of them.
+Revised 2026-10-22. Templates, procedures, and tool setup that `AGENTS.md` points to as "P§n". Load this file only when you need one of them.
 This file holds formats and steps only. Behavioral rules live in `AGENTS.md` and are not repeated here; if the two conflict, `AGENTS.md` wins.
 Formats adapted from the `teach` skill by Matt Pocock (github.com/mattpocock/skills, skills/productivity/teach).
 
@@ -99,7 +99,7 @@ Per-tool setup lives here. `AGENTS.md` section 2 defines the modes; this file
 only says how to configure each tool.
 
 **Mode A — workspace**
-- agentic reads `AGENTS.md` and takes extra files from the `instructions` list in `opencode.jsonc` if the user use OPENCODE. Check the current docs for both, since the syntax changes.
+- The workspace agent reads `AGENTS.md` and takes extra files from the `instructions` list in `opencode.jsonc` if the user uses OpenCode. Check the current docs for both, since the syntax changes.
 - Keep this file out of the always-loaded list; `AGENTS.md` says when to open it.
 
 **Mode B — chat with files**
@@ -120,6 +120,7 @@ only says how to configure each tool.
       Follow AGENTS.md in the project files exactly. Use TEACHING-PROTOCOLS.md only when AGENTS.md points to it. The active journey file is the one the user names, otherwise ask.
 
 - Optional, for a reply that must persist verbatim (for example an agreed mission): the response menu offers "Add to project sources", which adds it as a project source.
+- For a fact that must not be lost (a mission change, an evidence claim), ask the user once to say "remember this".
 
 **Mode C — chat without files**
 - The agent sees only what the user pastes. The user pastes the files in the P§9 manifest that the lesson needs, plus the selected primary sources.
@@ -150,6 +151,14 @@ repository without asking the user which is current.
 
 Add a rule to `AGENTS.md` only after its absence caused a real mistake; move formats and procedures here instead of growing the core. Journey files and this file cite `AGENTS.md` section numbers and never restate its rules; when you notice a repeated rule, delete the copy in the lower-priority file. Reason to stay lean: a February 2026 ICLR paper (Gloaguen et al., arXiv 2602.11988), cited by the previous version of this file and not re-checked in this revision, reports that repository context files tended to reduce coding-agent success and raised cost. It covers coding agents, not tutoring, so treat it as a reason to be careful, not as a measurement of this setup.
 Review `AGENTS.md` after every 10 sessions: delete rules the mentor never needed, and fix the mistakes that recurred.
+
+### Pending corrections (awaiting owner approval)
+
+`MISSION.md` is the user's file: the mentor proposes changes and the user approves them. Two known corrections wait for the user's decision and must not be applied unasked:
+
+- `MISSION.md` line 7 points the role standard at `AGENTS.md` section 1. The role standard now has two owners, stated in `AGENTS.md` section 1: that section gives the capability, and S1 in `RESOURCES.md` gives the hiring standard. The pointer in `MISSION.md` should name both.
+- `MISSION.md` line 18 names ChatGPT Project and says progress lives in the Project's own memory. That now conflicts with the rule that the repository is the source of truth and that chat-mode progress reaches it through the session-export block (P§6). The tool-neutral wording should say that.
+- `MISSION.md` line 20 says "current baseline: set in session 1" and line 3 still says the mission is a draft awaiting confirmation in the first session. Whether the mission is confirmed and whether a baseline exists are the user's to state.
 
 ## P§8. External resources and candidate roadmaps
 

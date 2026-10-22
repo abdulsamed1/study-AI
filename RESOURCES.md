@@ -1,6 +1,6 @@
 # FDE Study Resources
 
-Updated: 2026-10-21
+Updated: 2026-10-22
 
 ## How to use this file
 
@@ -217,6 +217,7 @@ is opened and checked. Do not cite a person or organization by name alone.
   publisher listing before use.
 
 - **S38 — *Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures*, Neal Ford, Mark Richards, Pramod Sadalage, Zhamak Dehghani, First Edition** — O'Reilly Media, October 2021. ISBN-13: 978-1-492-08688-8. [Publisher page](https://www.oreilly.com/library/view/software-architecture-the/9781492086888/). Bibliographic details verified from canonical publisher listing (2026-10-17). Uploaded in both study tools (available as a study source per learner crosswalk of 2026-10-14), though not present as a local EPUB file in `/books/` on disk for this agent. Stays in References to verify because no chapter text has been read or examined by the mentor; all chapter citations in the journey remain `[TOC]` only.
+- Performance case candidates named from memory, not opened: Facebook's September 2010 outage; Slack's 2021-01-04 outage; AWS us-east-1 on 2025-10-20. Confirm each exists, read the postmortem, and discard any that do not fit a level. Candidate levels for the first two are L4 and L8.
 - A primary statistics-for-LLM-evaluation tutorial covering variance, sample size, and meaningful comparison (applied level per journey rule 9 — no ML-theory texts).
 - Python-track authorities for the Phase 11–14 AI labs: official Python docs (typing, asyncio, packaging) and a runtime-validation library guide — open before registering.
 - Integration hardening for P8.2–P8.7 (leads, unopened on 2026-09-30; migrated from estaie-study-map 2026-10-09 — open and record exact section before teaching): Stripe idempotency (https://stripe.com/blog/idempotency); AWS Builders' Library timeouts/retries/backoff-with-jitter (https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/); GitHub webhooks best practices (https://docs.github.com/en/webhooks/using-webhooks/best-practices-for-using-webhooks); Stripe webhooks guide (docs.stripe.com/webhooks); Airbnb double-payments post (https://medium.com/airbnb-engineering/avoiding-double-payments-in-a-distributed-payments-system-2981f6b070bb); Google SRE ch. 22 cascading failures (https://sre.google/sre-book/addressing-cascading-failures/); Kleppmann distributed locking (https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html) + antirez Redlock reply (https://www.antirez.com/news/101); transactional outbox (https://microservices.io/patterns/data/transactional-outbox.html); Supabase range columns (https://supabase.com/blog/range-columns); Django ExclusionConstraint (https://docs.djangoproject.com/en/dev/ref/contrib/postgres/constraints); RateGain ARI push (https://developer.rategain.com/our-products/channel-manager/rg-bridge-supply-push/interface-specifications-availability-and-rates-notification-service); oneuptime Stripe-webhook atomic-enqueue 2026-09-13 (https://oneuptime.com/blog/post/2026-09-13-stripe-webhook-event-id-atomic-enqueue/view — Tier 2, confirm against provider docs).

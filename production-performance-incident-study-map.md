@@ -12,7 +12,7 @@
 
 **Supporting branch.** Opened from `fde-journey-map.md` (P0.2 baseline check, or when P9.6 exposes a gap) or when the user asks for production-incident diagnosis. It is not the default start of any other journey.
 
-*Revised 2026-10-16. This file says WHAT to learn. Teaching, assessment, and record rules are in `AGENTS.md`; templates in `TEACHING-PROTOCOLS.md`.*
+*Revised 2026-10-22. This file says WHAT to learn. Teaching, assessment, and record rules are in `AGENTS.md`; templates in `TEACHING-PROTOCOLS.md`.*
 
 - **Branch IDs:** `PERF-L0` … `PERF-L9`, plus the branch letter where one exists (`PERF-L2-C`). Use them when stating a session outcome.
 - **Evidence rule:** tick a Mastery box only when a learning record, a lab result, or a project file proves it, and write its reference beside the box.
@@ -1519,15 +1519,15 @@ Use these as the anti-pattern and scenario source for:
 
 These materials are treated as **scenario input**, not as a substitute for source-backed implementation details from the project books.
 
-## 5. Casebook seeds (research starting points, not verified facts)
+## 5. Casebook seeds
 
-Open the primary source, read it, and record the case with the format in `TEACHING-PROTOCOLS.md` P§2 before teaching from it.
+Case candidates and their verification state live in `RESOURCES.md` and `casebook/INDEX.md`. The procedure is `TEACHING-PROTOCOLS.md` P§2, and the case-count threshold and gap recording follow `AGENTS.md` §9.
 
-- Google Cloud incident report, 2025-06-12 (Service Control): recovery without randomized exponential backoff. Link: S10 in `RESOURCES.md` (read 2026-10-22).
-- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): evaluation of production quality. Link: S9 in `RESOURCES.md`. Unchecked — the artifact is listed as verified, but the page could not be opened on 2026-10-22, so re-read it before teaching from this case.
-- Possible further cases, named from memory and unchecked: Facebook's September 2010 outage; Slack's 2021-01-04 outage; AWS us-east-1 on 2025-10-20. Confirm each exists, read the postmortem, and discard any that do not fit a level.
-- Read and registered on 2026-10-14: Cloudflare's 2025-11-18 outage (S35) and its resilience plan (S36). Candidate levels: L4 (retry backlog after recovery), L5 and L8 (failure propagation, configuration pushed everywhere at once). S35 is a first-party account; S36 is a stated plan, not a measured outcome.
-- Case-count threshold and gap recording follow `AGENTS.md` §9.
+The cases below are the ones this branch teaches from, with the level each one serves. Their source status is in `RESOURCES.md`.
+
+- Google Cloud incident report, 2025-06-12 (Service Control): recovery without randomized exponential backoff. Source S10. Candidate levels: L4 (retry backlog after recovery), L5 (overload control), L8 (full scenario).
+- Anthropic Engineering, "A postmortem of three recent issues" (Sept 2025): evaluation of production quality. Source S9. Candidate levels: L1, L4 (detection difficulty), L9 (evaluation sensitivity).
+- Cloudflare's 2025-11-18 outage (S35) and its resilience plan (S36). Candidate levels: L4 (retry backlog after recovery), L5 and L8 (failure propagation, configuration pushed everywhere at once). S35 is a first-party account; S36 is a stated plan, not a measured outcome.
 
 ---
 
