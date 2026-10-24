@@ -256,7 +256,7 @@ is opened and checked. Do not cite a person or organization by name alone.
 
 ## Coverage gaps
 
-- No verified primary source yet provides a practical statistical treatment for comparing noisy LLM evaluation results (P14.3 uses the labeled interim protocol).
+- No verified primary source yet provides a practical statistical treatment for comparing noisy LLM evaluation results (P14.3 uses the labeled interim protocol). S69 ch. 32 §32.14 and ch. 33 §33.8 are mapped as practical coverage leads, not verified statistical methodology, and do not close this gap.
 - Webhook signature verification and raw-request-body handling are covered for two providers by S67 (GitHub) and S68 (Stripe). The residual gap is provider-specific behavior beyond those two (other signature schemes, retry windows, ordering guarantees) and first-party implementation evidence for P8.4.
 - F3 (Node.js Learn) is registered at landing level; the P3.5 event-loop page is now recorded in the F3 row (2026-10-21). Exact pages for P3.6 and P7.2 (diagnostics, testing, security) are still not recorded.
 - OAuth and credential-lifecycle depth for P4.8b is only partly covered by S6 (MCP-specific); RFC 9700 and provider documentation remain to be read.
