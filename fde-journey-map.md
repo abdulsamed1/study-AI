@@ -25,57 +25,53 @@ Phases 0-1 were merged into Phase 2; the old-to-new mapping is in §8.
 
 ## 2. Roadmap at a glance
 
+Use the levels below to scan the journey quickly. The detailed phase sections that follow remain the source of truth for each unit's priority, hard dependencies, coupled units, sources, and exit evidence. This index adds no lesson IDs or prerequisites and does not mark progress as complete. Use `EVIDENCE.md` for demonstrated capability and `RESOURCES.md` for source status. Retired IDs are retained as tombstones for traceability, not as active lessons.
+
 ```text
-Business problem and engineering baseline
-                 |
-                 v
-Developer workbench -> AI-engineering implementation bridge -> chosen runtime
-                 |
-                 v
-      HTTP / APIs / integration contracts
-                 |
-                 v
-       Relational data -> transactions -> concurrency
-                 |
-                 v
-   testing / architecture / distributed systems
-                 |
-                 v
-       production operations and reliability
-                 |
-                 v
-       FDE discovery and solution selection
-                 |
-                 v
-       LLM API -> context / retrieval / memory
-                 |
-                 v
-    evaluation / eval harness / regression gate
-                 |
-                 v
-    workflows / tools / bounded agents / MCP
-                 |
-                 v
- security / governance / observability / operations
-                 |
-                 v
- deployment / rollout / adoption / measurable impact
-                 |
-                 v
-         capstone + defensible evidence pack
+LEVEL 0 — Reproducible foundation [Phases 2–3 | G1]
+├─ P2: runnable service, seeded provider fault, data contracts, async contract, adapters, test seams
+└─ P3: types and runtime, process lifecycle, non-blocking I/O, cancellation, cleanup, logs/config/secrets
+
+LEVEL 1 — API contracts and relational data [Phases 4–5 | contributes to G2]
+├─ P4: HTTP, API/auth contracts, schema evolution, fault-injection harness, provider contract and credentials
+└─ P5: relational model, SQL, constraints, indexes, migrations, application data access, backup/restore
+
+LEVEL 2 — Correct state, tests, and architecture [Phases 6–7 | G2]
+├─ P6: transactions, isolation, concurrency, invariants, ordering, duplicate events
+└─ P7: test strategy, honest test doubles, refactoring/review, architecture trade-offs, ADRs and fitness checks
+
+LEVEL 3 — Distributed integration and operations [Phases 8–9 | G3–G4]
+├─ P8: ambiguous outcomes, idempotency, bounded retries, webhooks, queues, outbox/saga, reconciliation
+└─ P9: containers/CI/CD, logs-metrics-traces, SLI/SLOs, incidents, capacity diagnosis, degradation and runbooks
+
+LEVEL 4 — Discover and design the right solution [Phase 10 | G5]
+└─ Workflow discovery, deterministic-vs-AI choice, baseline/adoption plan, capacity and system design, failure review, go/adjust/stop
+
+LEVEL 5 — Build an LLM application with context [Phases 11–12 | G6]
+├─ P11: model/API contract, structured output, provider limits/cost, versioning, where an LLM belongs
+└─ P12: context budgets, ingestion, hybrid retrieval/reranking, RAG grounding/citations/abstention, retrieval metrics, memory
+
+LEVEL 6 — Evaluate before adding agent autonomy [Phase 14 | G7]
+└─ Golden set, graders and human comparison, uncertainty, CI regression gate, request tracing, production-side evaluation
+
+LEVEL 7 — Bounded agents and AI security [Phases 13 → 15 | G8]
+├─ P13: workflows, safe tools, bounded agent loop, budgets/checkpoints, MCP; optional multi-agent/voice/browser only when justified
+└─ P15: threat model, prompt injection, least privilege/approvals, sensitive data, secure boundaries, audit and governance
+
+LEVEL 8 — Ship, adopt, measure, and hand over [Phases 16–17 | G9]
+├─ P16: containment/fallback, deployment, rollout/rollback, user feedback, measured outcomes and ownership
+└─ P17: narrow workflow selection, vertical slices, evidence pack, decision defense and limitations
 ```
 
-**Stages.** Five stages group the phases for orientation. A stage is not a gate and does not change unit order; the phase headers and the gate table remain the progression contract. The gate column names the gate that closes the stage, not a new stage-level gate.
+**How to read the levels.** They group related phases for orientation; they do not replace the actual dependency graph. Follow each unit's `Depends on` line and require its exit evidence before advancing. Gates G1–G9 are the progression contract; the gate table in §4 states the required proof. G9 needs a real workflow owner, real users, and measured outcome evidence; staging work alone does not close it.
 
-| Stage | Phases | Learner-facing purpose | Gate at stage end |
-|---|---|---|---|
-| Foundations | 2–3 | Five-line Problem Card, runnable stub-provider slice, and reproducible workbench; runtime bridge; service runtime | G1 after Phase 3 |
-| Service engineering | 4–9 | HTTP/API contracts; relational data; transactions; design and test strategy; distributed integration; production operations | G4 |
-| FDE solution design | 10 | Discovery, solution selection, system design, and design review | G5 |
-| AI engineering and governance | 11–12 → 14 → 13 → 15 | LLM API and RAG; evaluation before autonomous agents; then bounded tools, MCP, security, and governance | G8 |
-| Delivery and evidence | 16–17 | Rollout, adoption, outcome measurement, capstone, and defense | G9 |
+**AI execution order (S48).** The path is Phase 11 → Phase 12 → Phase 14 → Phase 13 → Phase 15. Phase IDs are stable identifiers, not a promise of numeric execution order. This uses the explicitly ordered 12-week sample plan in the designated AI Roadmap 2026 (S48), which puts Evaluation before Agents; its descriptive layer pages list Layer 3 before Layer 4, so the selected execution order and source caveat are recorded in `RESOURCES.md`. The first P14.1 case set starts in M2 before the first live model call; the full evaluation slice follows RAG and precedes agents.
 
-This order deliberately puts HTTP, data correctness, testing, and failure handling before complex agent architectures. Within the AI portion, the execution order is Phase 11 → Phase 12 → Phase 14 → Phase 13 → Phase 15; Phase IDs remain stable identifiers, not a promise of numeric execution order. This follows the explicitly ordered 12-week sample plan in the designated AI Roadmap 2026 (S48), which places Evaluation before Agents so later projects inherit a quality baseline. The roadmap's descriptive layer pages list Layer 3 before Layer 4; the owner-selected execution path uses the 12-week plan where these differ. AI remains a capability layer built on software engineering foundations, not a substitute for them. The roadmap does not require learning every language or framework. **Python is the single implementation language for the capstone and the AI labs (Phases 2–17):** backend, API integration, data access, evaluation, and model calls use Python. TypeScript/Node.js is not a second implementation track; it remains the reading and verification context for opran and the Twenty/Eagles host (P7.7–P7.8), used only when a target role or the capstone requires it. NestJS and Next.js are platform literacy at Depth 1–2, not separate tracks. Python static checking uses mypy or pyright, runtime validation uses Pydantic, and tests use pytest; the toolchain and its pre-P2.1 verification live in `TEACHING-PROTOCOLS.md` P§6. Provider-shaped failure is a recurring engineering context from P2.1 onward, not a Phase 11 topic: §3 defines the AI-provider dependency thread and the unit that owns each mechanism. Language-track consequences follow rule 10: projects the capstone does not need stay code-review contexts, not additional language tracks.
+**Implementation track.** Python is the single implementation language for the capstone and AI labs (Phases 2–17): backend, APIs, data access, evaluation, and model calls use Python. TypeScript/Node.js remains a reading and verification context for opran and the Twenty/Eagles host (P7.7–P7.8), not a second implementation track. NestJS and Next.js are platform literacy at Depth 1–2, not separate tracks. Python static checks use mypy or pyright, runtime validation uses Pydantic, and tests use pytest; setup and verification are defined in `TEACHING-PROTOCOLS.md` P§6.
+
+**Provider dependency thread.** Provider-shaped failure is a recurring engineering context from P2.1 onward, not only a Phase 11 topic. Section 3 defines the bridge exercises and the unit that owns each mechanism. The optional live-provider checkpoint in §10 is the only live-provider step before Phase 11; it is exploratory, does not satisfy P11.2, and does not change any unit's proof or dependency. P11.2 remains the first real model call in the formal sequence.
+
+---
 
 ## 3. Lesson design and completion criteria
 
