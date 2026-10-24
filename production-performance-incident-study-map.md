@@ -10,7 +10,7 @@
 
 ## How to use this map
 
-**Supporting branch.** Opened from `fde-journey-map.md` (P2.1 baseline check, or when P9.6 exposes a gap) or when the user asks for production-incident diagnosis. It is not the default start of any other journey.
+**Supporting branch.** Opened from `fde-journey-map.md` (P2.1 baseline, or when P9.6 exposes a gap) or when the user asks for production-incident diagnosis. It is not the default start of any other journey.
 
 *Revised 2026-10-22. This file says WHAT to learn. Teaching, assessment, and record rules are in `AGENTS.md`; templates in `TEACHING-PROTOCOLS.md`.*
 

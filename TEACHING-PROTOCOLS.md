@@ -57,6 +57,8 @@ Write one when: the user demonstrated non-trivial understanding; disclosed prior
     ## Needs learning             <capability not yet demonstrated>
     ## Must not be claimed        <experience, metric, or deployment with no evidence>
 
+The P2.1 baseline is short: one line per assessed dimension with the evidence that supports it. It is an assessment recorded in the three lists, not a separate document; an unassessed dimension is named as unassessed rather than left out.
+
 ## P§2. Casebook procedure
 
 1. Search for real failures and hard-won lessons for the concept. Prefer cases that are widely cited (talks, courses, books) or recent (last 3~8 months when tool behavior matters). For AI-system concepts, also check the newest incident reports and security lists, because they change within months.
@@ -80,6 +82,8 @@ Parts, one message each (stop at the part that reaches the unit's target depth):
 | 2 | Mechanism | one retrieval question |
 | 3 | Real failures | one retrieval question |
 | 4 | Production view + Bridge | the practice task |
+
+**Incident-grounded variant (hands-on reliability units).** Keep the four parts and map the eight steps of `AGENTS.md` §8 onto them: Part 1 carries Incident + Evidence (the verified case, the observed symptom, what is still unknown); Part 2 carries Mechanism and the testable hypothesis it supports; Part 3 carries the failure cases and the Harness + Measure design, including what the lab can and cannot reproduce; Part 4 carries Fix + Regression + Transfer and issues the practice task, in which the learner runs the harness, records the baseline, changes one variable, and shows red → green. A part may cite the incident but must not present a simulation as the incident itself. When no verified incident fits, say so and use a clearly labelled synthetic scenario instead of inventing a case.
 
 A part is roughly 400-700 words plus a diagram when useful. The source named for the unit is cited in Part 1 and the best primary source is repeated at the end.
 Mode A: also write `lessons/NNNN-slug.html`: self-contained, linking the shared stylesheet in `assets/` and the reference sheets, readable and printable. Reuse `assets/` components before writing new ones. Open the file with `xdg-open` on Fedora.
